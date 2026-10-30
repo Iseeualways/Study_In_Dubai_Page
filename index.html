@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study in Dubai | LearnTech</title>
+  <meta name="description"
+    content="Explore programmes, institutions and get personalised guidance for studying in Dubai with LearnTech.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* 1 GLOBAL VARIABLES */
+    :root {
+      --navy: #142B50;
+      --blue: #274896;
+      --red: #E93C47;
+      --ivory: #F2EDE5;
+      --bg: #F6F8FC;
+      --white: #fff;
+      --text: #526078;
+      --muted: #8893A5;
+      --line: #E3E7EE;
+      --gold: #E5BD7C;
+      --r: 14px;
+      --w: 1280px;
+      --hf: 'Inter Tight', system-ui, sans-serif;
+      --bf: 'Inter', system-ui, sans-serif
+    }
+
+    /* 2 RESET */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px
+    }
+
+    body {
+      font: 400 16px/1.65 var(--bf);
+      color: var(--text);
+      background: var(--white);
+      overflow-x: hidden
+    }
+
+    img {
+      display: block;
+      max-width: 100%
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+      color: inherit
+    }
+
+    button {
+      cursor: pointer;
+      background: none;
+      border: 0
+    }
+
+    a {
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px
+    }
+
+    .wrap {
+      max-width: var(--w);
+      margin: auto;
+      padding: 0 24px
+    }
+
+    section {
+      position: relative
+    }
+
+    /* 3 TYPOGRAPHY */
+    h1,
+    h2,
+    h3 {
+      font-family: var(--hf);
+      color: var(--navy);
+      line-height: 1.04;
+      letter-spacing: -.025em
+    }
+
+    h2 {
+      font-size: clamp(34px, 5.2vw, 68px);
+      max-width: 15ch
+    }
+
+    .eyebrow {
+      font: 600 12px var(--bf);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 18px
+    }
+
+    .dark h2,
+    .dark h3 {
+      color: #fff
+    }
+
+    .dark {
+      color: #b9c4d8
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .2s, background .2s;
+      border: 1px solid transparent
+    }
+
+    .btn:active {
+      transform: scale(.97)
+    }
+
+    .btn-red {
+      background: var(--red);
+      color: #fff
+    }
+
+    .btn-red:hover {
+      background: #d22f3a
+    }
+
+    .btn-line {
+      border-color: rgba(255, 255, 255, .4);
+      color: #fff
+    }
+
+    .btn-line:hover {
+      background: rgba(255, 255, 255, .1)
+    }
+
+    .btn-navy {
+      background: var(--navy);
+      color: #fff
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 99px;
+      background: #fff4dc;
+      color: #8a6a24;
+      border: 1px solid var(--gold)
+    }
+
+    .img {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      border-radius: var(--r)
+    }
+
+    .img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover
+    }
+
+    /* 4 HEADER */
+    header {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      transition: background .3s, box-shadow .3s
+    }
+
+    header.scrolled {
+      background: rgba(20, 43, 80, .96);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .1)
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px
+    }
+
+    .logo {
+      font: 700 22px var(--hf);
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -.02em
+    }
+
+    .logo b {
+      color: var(--red)
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      align-items: center;
+      padding: 0
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500
+    }
+
+    .nav .btn {
+      padding: 9px 20px;
+      font-size: 14px
+    }
+
+    .menu-btn {
+      display: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px
+    }
+
+    /* 5 HERO */
+    .hero {
+      min-height: 100svh;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      color: #fff;
+      padding: 120px 0 56px
+    }
+
+    .hero .bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 0
+    }
+
+    .hero .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 43, 80, .65), rgba(20, 43, 80, .45) 40%, rgba(20, 43, 80, .95))
+    }
+
+    .hero .wrap {
+      position: relative;
+      z-index: 2
+    }
+
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(38px, 6.4vw, 92px);
+      max-width: 13ch
+    }
+
+    .ln {
+      display: block;
+      overflow: hidden;
+      padding-bottom: .06em
+    }
+
+    .ln>span {
+      display: block
+    }
+
+    .hero p {
+      max-width: 52ch;
+      margin: 22px 0 32px;
+      color: #d4dcec;
+      font-size: 18px
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .bigword {
+      position: relative;
+      z-index: 1;
+      font: 700 clamp(90px, 23vw, 340px)/.8 var(--hf);
+      letter-spacing: -.05em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(242, 237, 229, .35);
+      margin-top: 40px;
+      text-align: center;
+      user-select: none
+    }
+
+    .scroll {
+      position: absolute;
+      right: 24px;
+      bottom: 56px;
+      z-index: 3;
+      font-size: 11px;
+      letter-spacing: .2em;
+      writing-mode: vertical-rl;
+      color: #d4dcec;
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .scroll i {
+      width: 1px;
+      height: 48px;
+      background: var(--gold)
+    }
+
+    /* 6 PATHFINDER */
+    .pad {
+      padding: clamp(72px, 10vw, 140px) 0
+    }
+
+    .path {
+      background: var(--bg)
+    }
+
+    .pf {
+      margin-top: 44px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: clamp(22px, 4vw, 48px);
+      max-width: 900px
+    }
+
+    .prog {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 28px
+    }
+
+    .prog i {
+      flex: 1;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--line);
+      transition: background .3s
+    }
+
+    .prog i.on {
+      background: var(--blue)
+    }
+
+    .pf h3 {
+      font-size: clamp(22px, 3vw, 32px);
+      margin-bottom: 22px
+    }
+
+    .opts {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 10px
+    }
+
+    .opt {
+      text-align: left;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: .2s;
+      display: flex;
+      justify-content: space-between
+    }
+
+    .opt:hover {
+      border-color: var(--blue)
+    }
+
+    .opt[aria-pressed=true] {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy)
+    }
+
+    .opt[aria-pressed=true]::after {
+      content: "✓"
+    }
+
+    .pf-ctl {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .err {
+      color: var(--red);
+      font-size: 14px;
+      min-height: 20px
+    }
+
+    .skip {
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    /* 7 WHY */
+    .why {
+      background: var(--ivory)
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: clamp(32px, 6vw, 96px);
+      margin-top: 56px;
+      align-items: start
+    }
+
+    .sticky {
+      position: sticky;
+      top: 90px;
+      aspect-ratio: 4/5;
+      max-height: 80vh
+    }
+
+    .sticky .img {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .6s
+    }
+
+    .sticky .img.on {
+      opacity: 1
+    }
+
+    .pt {
+      padding: clamp(40px, 9vh, 110px) 0;
+      border-top: 1px solid #d9d1c3;
+      opacity: .45;
+      transition: opacity .4s
+    }
+
+    .pt.on,
+    .mob .pt {
+      opacity: 1
+    }
+
+    .pt small {
+      font: 600 14px var(--hf);
+      color: var(--red)
+    }
+
+    .pt h3 {
+      font-size: clamp(26px, 3.2vw, 40px);
+      margin: 8px 0 12px
+    }
+
+    .pt p {
+      max-width: 44ch
+    }
+
+    /* 8 PROGRAMMES */
+    .prg {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 40px;
+      margin-top: 48px
+    }
+
+    .tabs {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--line)
+    }
+
+    .tab {
+      text-align: left;
+      padding: 18px 4px;
+      border-bottom: 1px solid var(--line);
+      font: 600 20px var(--hf);
+      color: var(--muted);
+      transition: .25s;
+      display: flex;
+      justify-content: space-between
+    }
+
+    .tab[aria-selected=true] {
+      color: var(--navy);
+      padding-left: 14px;
+      border-left: 3px solid var(--red)
+    }
+
+    .panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 440px
+    }
+
+    .panel .img {
+      border-radius: 0;
+      min-height: 260px
+    }
+
+    .pinfo {
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px
+    }
+
+    .pinfo h3 {
+      font-size: 28px
+    }
+
+    .pinfo ul {
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line)
+    }
+
+    .pinfo li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 15px
+    }
+
+    .pinfo .btn {
+      align-self: flex-start;
+      margin-top: auto
+    }
+
+    /* 9 INSTITUTIONS */
+    .inst {
+      background: var(--navy)
+    }
+
+    .inst .tabs {
+      border-color: rgba(255, 255, 255, .15)
+    }
+
+    .inst .tab {
+      color: #8da0c2;
+      border-color: rgba(255, 255, 255, .15);
+      font-size: 18px
+    }
+
+    .inst .tab[aria-selected=true] {
+      color: #fff
+    }
+
+    .inst .panel {
+      border-color: rgba(255, 255, 255, .15);
+      color: #c4cee1
+    }
+
+    .inst .pinfo h3 {
+      color: #fff
+    }
+
+    .inst li {
+      border-color: rgba(255, 255, 255, .15) !important
+    }
+
+    .inst .pinfo ul {
+      border-color: rgba(255, 255, 255, .15)
+    }
+
+    /* 10 PLANNER */
+    .plan {
+      background: var(--bg)
+    }
+
+    .pl {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      margin-top: 48px
+    }
+
+    .fld {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--navy)
+    }
+
+    input,
+    select {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      width: 100%;
+      min-height: 48px
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--blue)
+    }
+
+    .ledger {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 15px
+    }
+
+    .row b {
+      color: var(--navy)
+    }
+
+    .row.tot {
+      border: 0;
+      font: 600 20px var(--hf);
+      color: var(--navy)
+    }
+
+    .bar {
+      display: flex;
+      height: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--line);
+      margin: 8px 0 6px
+    }
+
+    .bar i {
+      display: block;
+      transition: width .5s
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 14px
+    }
+
+    /* 11 ADMISSION */
+    .adm {
+      background: #fff
+    }
+
+    .adm .sticky {
+      aspect-ratio: auto;
+      height: 60vh;
+      display: flex;
+      gap: 28px
+    }
+
+    .line {
+      width: 3px;
+      background: var(--line);
+      border-radius: 3px;
+      position: relative;
+      flex: none
+    }
+
+    .line i {
+      position: absolute;
+      inset: 0 0 auto;
+      background: var(--red);
+      height: 20%;
+      transition: height .5s
+    }
+
+    .bignum {
+      font: 700 clamp(120px, 16vw, 240px)/.8 var(--hf);
+      color: var(--navy);
+      letter-spacing: -.05em
+    }
+
+    .bignum+div {
+      font: 600 22px var(--hf);
+      color: var(--navy);
+      margin-top: 12px
+    }
+
+    .st {
+      padding: clamp(40px, 10vh, 120px) 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .st small {
+      color: var(--red);
+      font: 600 14px var(--hf)
+    }
+
+    .st h3 {
+      font-size: clamp(26px, 3vw, 38px);
+      margin: 6px 0 10px
+    }
+
+    .st a {
+      color: var(--blue);
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    .adm .stack {
+      position: relative
+    }
+
+    .adm .img {
+      display: none
+    }
+
+    /* 12 STUDENT LIFE */
+    .life {
+      background: var(--ivory)
+    }
+
+    .gal {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 150px;
+      gap: 14px;
+      margin-top: 48px
+    }
+
+    .gal .img:nth-child(1) {
+      grid-column: span 7;
+      grid-row: span 3
+    }
+
+    .gal .img:nth-child(2) {
+      grid-column: span 5;
+      grid-row: span 2
+    }
+
+    .gal .img:nth-child(3) {
+      grid-column: span 5;
+      grid-row: span 2
+    }
+
+    .gal .img:nth-child(4) {
+      grid-column: span 4;
+      grid-row: span 2
+    }
+
+    .gal .img:nth-child(5) {
+      grid-column: span 3;
+      grid-row: span 2
+    }
+
+    .gal figcaption {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      z-index: 2
+    }
+
+    .gal .img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent 55%, rgba(20, 43, 80, .8))
+    }
+
+    .stories {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px
+    }
+
+    .story {
+      border-top: 2px solid var(--navy);
+      padding-top: 16px
+    }
+
+    .story q {
+      font: 500 22px/1.3 var(--hf);
+      color: var(--navy)
+    }
+
+    .empty {
+      border: 1px dashed #b9ae98;
+      border-radius: var(--r);
+      padding: 20px;
+      font-size: 14px
+    }
+
+    /* 13 FAQ */
+    .faq-l {
+      max-width: 860px;
+      margin-top: 40px;
+      border-top: 1px solid var(--line)
+    }
+
+    .q {
+      width: 100%;
+      text-align: left;
+      padding: 22px 0;
+      font: 600 20px var(--hf);
+      color: var(--navy);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .q span {
+      transition: transform .3s;
+      color: var(--red)
+    }
+
+    .q[aria-expanded=true] span {
+      transform: rotate(45deg)
+    }
+
+    .a {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .35s
+    }
+
+    .a.open {
+      grid-template-rows: 1fr
+    }
+
+    .a>div {
+      overflow: hidden
+    }
+
+    .a p {
+      padding: 16px 0 22px;
+      max-width: 62ch
+    }
+
+    /* 14 ENQUIRY */
+    .enq {
+      background: var(--navy);
+      overflow: hidden
+    }
+
+    .enq::before {
+      content: "";
+      position: absolute;
+      right: -5%;
+      top: 0;
+      bottom: 0;
+      width: 45%;
+      background: linear-gradient(90deg, var(--navy), transparent), repeating-linear-gradient(90deg, rgba(229, 189, 124, .1) 0 1px, transparent 1px 64px)
+    }
+
+    .eg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(32px, 6vw, 90px);
+      position: relative;
+      align-items: start
+    }
+
+    .enq label {
+      color: #d4dcec
+    }
+
+    .fg {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 16px
+    }
+
+    .fg .full {
+      grid-column: 1/-1
+    }
+
+    .enq input,
+    .enq select {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .2);
+      color: #fff
+    }
+
+    .enq select option {
+      color: #000
+    }
+
+    .enq .err {
+      min-height: 18px;
+      font-size: 13px;
+      color: #ff9aa0
+    }
+
+    .form-note {
+      font-size: 12px;
+      color: #8da0c2;
+      margin: 8px 0 18px
+    }
+
+    .chips {
+      font-size: 13px;
+      color: var(--gold);
+      margin-bottom: 16px;
+      min-height: 20px
+    }
+
+    .ok {
+      padding: 32px;
+      border: 1px solid var(--gold);
+      border-radius: var(--r);
+      color: #fff
+    }
+
+    .ok h3 {
+      margin-bottom: 10px
+    }
+
+    .spin {
+      width: 16px;
+      height: 16px;
+      border: 2px solid #fff6;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: sp .7s linear infinite
+    }
+
+    @keyframes sp {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* 15 FOOTER */
+    footer {
+      background: #0e2040;
+      color: #8da0c2;
+      padding: 40px 0;
+      font-size: 13px
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap
+    }
+
+    .mbar {
+      display: none
+    }
+
+    /* 16 RESPONSIVE */
+    @media(max-width:1023px) {
+
+      .prg,
+      .pl,
+      .eg,
+      .split {
+        grid-template-columns: 1fr
+      }
+
+      .tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        border: 0;
+        gap: 8px;
+        padding-bottom: 6px
+      }
+
+      .tab {
+        white-space: nowrap;
+        font-size: 15px;
+        padding: 10px 16px;
+        border: 1px solid var(--line);
+        border-radius: 99px
+      }
+
+      .tab[aria-selected=true] {
+        border-left: 1px solid var(--navy);
+        padding-left: 16px;
+        background: var(--navy);
+        color: #fff
+      }
+
+      .inst .tab {
+        border-color: rgba(255, 255, 255, .25)
+      }
+
+      .inst .tab[aria-selected=true] {
+        background: #fff;
+        color: var(--navy)
+      }
+
+      .sticky {
+        position: relative;
+        top: 0;
+        aspect-ratio: 16/10
+      }
+
+      .adm .sticky {
+        display: none
+      }
+
+      .panel {
+        grid-template-columns: 1fr
+      }
+
+      .pt {
+        opacity: 1
+      }
+
+      .sticky .img:not(:first-child) {
+        display: none
+      }
+
+      .sticky .img:first-child {
+        opacity: 1
+      }
+    }
+
+    @media(max-width:767px) {
+      .menu-btn {
+        display: block
+      }
+
+      .nav ul {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        align-items: flex-start
+      }
+
+      .nav ul.open {
+        display: flex
+      }
+
+      .fg {
+        grid-template-columns: 1fr
+      }
+
+      .scroll {
+        display: none
+      }
+
+      .gal {
+        grid-auto-rows: 110px
+      }
+
+      .gal .img:nth-child(n) {
+        grid-column: span 6;
+        grid-row: span 2
+      }
+
+      .gal .img:nth-child(1) {
+        grid-column: span 12
+      }
+
+      .hero p {
+        font-size: 16px
+      }
+
+      .mbar {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        padding: 10px 16px;
+        background: #fff;
+        box-shadow: 0 -1px 0 var(--line)
+      }
+
+      .mbar .btn {
+        width: 100%;
+        justify-content: center
+      }
+
+      body {
+        padding-bottom: 64px
+      }
+    }
+
+    /* 17 REDUCED MOTION */
+    @media(prefers-reduced-motion:reduce) {
+      * {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header id="hdr">
+    <div class="wrap nav" style="width: 1200px !important;"><a class="logo" href="#top">Learn<b>Tech</b></a>
+      <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="nl">Menu</button>
+      <ul id="nl">
+        <li><a href="#programmes">Explore Programmes</a></li>
+        <li><a href="#institutions">Partner Institutions</a></li>
+        <li><a href="#why">Study in Dubai</a></li>
+        <li><a href="#faq">FAQs</a></li>
+        <li><a class="btn btn-red" href="#enquire">Enquire</a></li>
+      </ul>
+    </div>
+  </header>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="img bg" id="heroimg"><img data-img="hero" alt="Dubai skyline at dusk" fetchpriority="high"></div>
+      <div class="wrap"><span class="eyebrow">Study in Dubai · LearnTech</span>
+        <h1 id="h1"><span class="ln"><span>Your next</span></span><span class="ln"><span>chapter has</span></span><span
+            class="ln"><span>an address.</span></span></h1>
+        <p>Discover international education opportunities in Dubai. Explore programmes, find institutions and get
+          personalised guidance for your education journey.</p>
+        <div class="cta-row"><a class="btn btn-red" href="#programmes">Find Your Programme</a><a class="btn btn-line"
+            href="#enquire">Get Personalised Guidance</a></div>
+      </div>
+      <div class="bigword" aria-hidden="true">DUBAI</div>
+      <div class="scroll" aria-hidden="true">SCROLL<i></i></div>
+    </section>
+    <!-- PATHFINDER -->
+    <section class="path pad" id="pathfinder">
+      <div class="wrap"><span class="eyebrow" style="color:var(--red)">Study pathfinder · optional</span>
+        <h2 class="rv">Every ambition has a different pathway.</h2>
+        <div class="pf" id="pf" aria-live="polite"></div>
+      </div>
+    </section>
+    <!-- WHY -->
+    <section class="why pad" id="why">
+      <div class="wrap"><span class="eyebrow" style="color:#8a6a24">Why Dubai</span>
+        <h2 class="rv">A city built around possibility.</h2>
+        <div class="split">
+          <div class="sticky" id="whyimgs"></div>
+          <div id="whypts"></div>
+        </div>
+      </div>
+    </section>
+    <!-- PROGRAMMES -->
+    <section class="pad" id="programmes">
+      <div class="wrap"><span class="eyebrow" style="color:var(--red)">Explore programmes</span>
+        <h2 class="rv">Choose what moves you forward.</h2>
+        <div class="prg">
+          <div class="tabs" role="tablist" aria-label="Subjects" id="ptabs"></div>
+          <div class="panel" id="ppanel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+    <!-- INSTITUTIONS -->
+    <section class="inst pad dark" id="institutions">
+      <div class="wrap"><span class="eyebrow">Partner institutions</span>
+        <h2 class="rv">Explore where your future could take you.</h2>
+        <div class="prg">
+          <div class="tabs" role="tablist" aria-label="Institutions" id="itabs"></div>
+          <div class="panel" id="ipanel" role="tabpanel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+    <!-- PLANNER -->
+    <section class="plan pad" id="fees">
+      <div class="wrap"><span class="eyebrow" style="color:var(--red)">Investment planner</span>
+        <h2 class="rv">Plan your investment. Prepare for your future.</h2>
+        <div class="pl">
+          <div>
+            <div class="fld"><label for="pi">Institution</label><select id="pi"></select></div>
+            <div class="fld"><label for="pp">Programme</label><select id="pp"></select></div>
+            <p class="note">Tuition fees, living expenses and the estimated total are shown separately. All figures are
+              indicative, vary by institution and individual circumstances, and must be confirmed with the institution.
+            </p>
+          </div>
+          <div class="ledger" id="ledger" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+    <!-- ADMISSION -->
+    <section class="adm pad" id="admission">
+      <div class="wrap"><span class="eyebrow" style="color:var(--red)">Admission to arrival</span>
+        <h2 class="rv">A clearer path from application to arrival.</h2>
+        <div class="split">
+          <div class="sticky">
+            <div class="line"><i id="aline"></i></div>
+            <div>
+              <div class="bignum" id="anum">01</div>
+              <div id="aname">Discover</div>
+            </div>
+          </div>
+          <div id="asteps"></div>
+        </div>
+      </div>
+    </section>
+    <!-- LIFE -->
+    <section class="life pad" id="life">
+      <div class="wrap"><span class="eyebrow" style="color:#8a6a24">Student life &amp; stories</span>
+        <h2 class="rv">An experience beyond the classroom.</h2>
+        <div class="gal" id="gal"></div>
+        <div class="stories" id="stories"></div>
+      </div>
+    </section>
+    <!-- FAQ -->
+    <section class="pad" id="faq">
+      <div class="wrap"><span class="eyebrow" style="color:var(--red)">FAQs</span>
+        <h2 class="rv">Questions, answered.</h2>
+        <div class="faq-l" id="faql"></div>
+      </div>
+    </section>
+    <!-- ENQUIRY -->
+    <section class="enq pad dark" id="enquire">
+      <div class="wrap eg">
+        <div><span class="eyebrow">Enquire</span>
+          <h2>Let's find the right study pathway for you.</h2>
+          <p style="margin-top:18px;max-width:42ch">Explore your options and get personalised guidance on programmes,
+            institutions and admissions.</p>
+        </div>
+        <div id="fwrap">
+          <div class="chips" id="chips"></div>
+          <form id="form" novalidate>
+            <div class="fg">
+              <div class="fld full"><label for="f-name">Full name *</label><input id="f-name" name="name"
+                  autocomplete="name" aria-describedby="e-name">
+                <div class="err" id="e-name"></div>
+              </div>
+              <div class="fld"><label for="f-phone">Mobile / WhatsApp *</label><input id="f-phone" name="phone"
+                  type="tel" inputmode="tel" autocomplete="tel" placeholder="+91 98765 43210"
+                  aria-describedby="e-phone">
+                <div class="err" id="e-phone"></div>
+              </div>
+              <div class="fld"><label for="f-email">Email *</label><input id="f-email" name="email" type="email"
+                  autocomplete="email" aria-describedby="e-email">
+                <div class="err" id="e-email"></div>
+              </div>
+              <div class="fld"><label for="f-level">Study level *</label><select id="f-level" name="level"
+                  aria-describedby="e-level"></select>
+                <div class="err" id="e-level"></div>
+              </div>
+              <div class="fld"><label for="f-course">Interested course *</label><select id="f-course" name="course"
+                  aria-describedby="e-course"></select>
+                <div class="err" id="e-course"></div>
+              </div>
+              <div class="fld"><label for="f-qual">Highest qualification (optional)</label><input id="f-qual"
+                  name="qualification"></div>
+              <div class="fld"><label for="f-inst">Preferred institution (optional)</label><select id="f-inst"
+                  name="institution"></select></div>
+            </div>
+            <p class="form-note">By submitting, you agree LearnTech may contact you about study options using these
+              details. We do not guarantee admission, visas, scholarships or outcomes.</p>
+            <button class="btn btn-red" id="sub" type="submit">Get personalised guidance</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap"><span>© LearnTech. Information on this page is indicative; confirm details with institutions and
+        official sources.</span><span><a href="https://www.khda.gov.ae" rel="noopener">KHDA</a> · <a
+          href="https://u.ae/en" rel="noopener">UAE Government</a></span></div>
+  </footer>
+  <div class="mbar"><a class="btn btn-red" href="#enquire">Enquire now</a></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+    /* 18 DATA — edit here. Items flagged sample:true are PLACEHOLDERS, not real LearnTech data. */
+    const CONFIG = {
+      ENQUIRY_ENDPOINT: '', // ← CONNECT CRM/API HERE (POST JSON). Empty = demo mode, nothing is sent.
+      // Image slots: drop supplied/licensed files at these paths (no unverified URLs used).
+      images: {
+        hero: 'assets/dubai-skyline.jpg', why1: 'assets/why-international.jpg', why2: 'assets/why-community.jpg', why3: 'assets/why-programmes.jpg', why4: 'assets/why-industry.jpg',
+        life1: 'assets/life-campus.jpg', life2: 'assets/life-learning.jpg', life3: 'assets/life-community.jpg', life4: 'assets/life-accommodation.jpg', life5: 'assets/life-city.jpg'
+      }
+    };
+    const LEVELS = ['Undergraduate', 'Postgraduate', 'Diploma', 'Not sure yet'];
+    const SUBJECTS = [
+      { id: 'business', name: 'Business & Management', blurb: 'Sample description — replace with verified programme overview.' },
+      { id: 'cs', name: 'Computer Science & IT', blurb: 'Sample description — replace with verified programme overview.' },
+      { id: 'engineering', name: 'Engineering', blurb: 'Sample description — replace with verified programme overview.' },
+      { id: 'finance', name: 'Finance & Accounting', blurb: 'Sample description — replace with verified programme overview.' },
+      { id: 'media', name: 'Media & Design', blurb: 'Sample description — replace with verified programme overview.' },
+      { id: 'healthcare', name: 'Healthcare', blurb: 'Sample description — replace with verified programme overview.' },
+      { id: 'hospitality', name: 'Hospitality & Tourism', blurb: 'Sample description — replace with verified programme overview.' }];
+    SUBJECTS.forEach(s => {
+      CONFIG.images['prog-' + s.id] = 'assets/prog-' + s.id + '.jpg';
+      s.courses = [{ name: 'Sample programme A (placeholder)', level: 'Undergraduate', institution: 'To be confirmed' }, { name: 'Sample programme B (placeholder)', level: 'Postgraduate', institution: 'To be confirmed' }]
+    });
+    const INSTITUTIONS = [1, 2, 3].map(n => ({
+      id: 'inst' + n, sample: true, partner: false, name: 'Institution ' + String(n).padStart(2, '0') + ' (placeholder)', logo: null, location: 'Dubai — to be confirmed',
+      ug: true, pg: true, programmes: ['To be supplied'], awarding: 'To be supplied',
+      fees: { tuition: null, accommodation: null, other: null, scholarship: null }, // AED numbers once verified; null = "on enquiry"
+      img: 'assets/inst-' + n + '.jpg'
+    }));
+    INSTITUTIONS.forEach(i => CONFIG.images[i.id] = i.img);
+    const WHY = [['International learning environment', 'Learn alongside classmates and faculty from across the world in an internationally oriented city.', 'why1'],
+    ['Multicultural student community', 'Dubai is home to residents from many nationalities, so students meet diverse perspectives every day.', 'why2'],
+    ['Diverse programme options', 'Institutions offer study options across business, technology, engineering, healthcare, design and more.', 'why3'],
+    ['Exposure to international industries', 'Study in a city with a wide range of international industries and professional environments.', 'why4']];
+    const STAGES = [['Discover', 'Find a suitable institution and programme.', null], ['Apply', 'Understand requirements and submit the application.', null], ['Get admitted', 'Understand the offer and enrolment process.', null],
+    ['Prepare', 'Get guidance on visa, documentation and accommodation. Requirements depend on the institution and your circumstances.', ['UAE Government visa guidance', 'https://u.ae/en/information-and-services/visa-and-emirates-id']],
+    ['Arrive in Dubai', 'Prepare to begin the student experience.', ['KHDA — education in Dubai', 'https://www.khda.gov.ae']]];
+    const STORIES = []; // {photo,name,institution,programme,quote} — add ONLY genuine, permitted testimonials
+    const FAQS = [['Why should I study in Dubai?', 'Dubai offers an international, multicultural environment with a range of institutions and programmes. Whether it suits you depends on your goals and budget.'],
+    ['Which courses can I study?', 'Options span business, IT, engineering, finance, media, healthcare and hospitality. Availability varies by institution — LearnTech can help you check current options.'],
+    ['What are the admission requirements?', 'They differ by institution and programme (typically academic records and sometimes English proficiency). Always confirm with the institution.'],
+    ['What are the tuition fees?', 'Fees vary widely by institution and programme. We share verified figures on enquiry rather than estimates.'],
+    ['Are scholarships available?', 'Some institutions offer scholarships with their own criteria. Availability and amounts change, so confirm directly.'],
+    ['Is IELTS required?', 'Some programmes require proof of English proficiency, others accept alternatives. It depends on the institution.'],
+    ['How does the student visa process work?', 'It depends on the institution and your circumstances. See official guidance at u.ae and confirm with your institution.'],
+    ['Where can students stay?', 'Options include student accommodation and private rentals. Costs and availability vary.'],
+    ['Can international students work while studying?', 'Rules depend on visa type and current UAE regulations. Check official UAE government sources before planning on this.'],
+    ['How can I apply through LearnTech?', 'Submit the enquiry form below. A counsellor will discuss your options and guide you through the next steps.']];
+    const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+    const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const imgTag = (k, alt, lazy = true) => `<div class="img"><img data-img="${k}" alt="${esc(alt)}" ${lazy ? 'loading="lazy"' : ''}></div>`;
+    function hydrate(r = document) { $$('img[data-img]', r).forEach(i => { i.src = CONFIG.images[i.dataset.img] || ''; i.onerror = () => { i.style.visibility = 'hidden' } }) }
+    const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+    /* Nav */
+    const hdr = $('#hdr'), mb = $('#mb'), nl = $('#nl');
+    addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40), { passive: true });
+    mb.onclick = () => { const o = nl.classList.toggle('open'); mb.setAttribute('aria-expanded', o) };
+    nl.onclick = e => { if (e.target.tagName === 'A') { nl.classList.remove('open'); mb.setAttribute('aria-expanded', false) } };
+
+    /* Form selects */
+    const opt = (a, ph) => `<option value="">${ph}</option>` + a.map(x => `<option>${esc(x)}</option>`).join('');
+    $('#f-level').innerHTML = opt(LEVELS, 'Select level');
+    $('#f-course').innerHTML = opt([...SUBJECTS.map(s => s.name), 'Still exploring'], 'Select course area');
+    $('#f-inst').innerHTML = opt(INSTITUTIONS.map(i => i.name), 'No preference');
+
+    /* Pathfinder */
+    const state = { level: '', subject: '', help: '' };
+    const PF = [{ k: 'level', q: 'What level of study are you considering?', o: LEVELS },
+    { k: 'subject', q: 'Which subject interests you?', o: [...SUBJECTS.map(s => s.name), 'Still exploring'] },
+    { k: 'help', q: 'What would you like help with?', o: ['Finding the right programme', 'Comparing institutions', 'Tuition fees and scholarships', 'Admission guidance'] }];
+    let step = 0, done = false;
+    function renderPF() {
+      const pf = $('#pf');
+      if (done) {
+        pf.innerHTML = `<h3>Your pathway is ready.</h3><p>${esc(state.level)} · ${esc(state.subject)} · ${esc(state.help)}</p><div class="pf-ctl"><button class="skip" id="redo">Change answers</button><a class="btn btn-red" href="#enquire">Continue to enquiry</a></div>`;
+        $('#redo').onclick = () => { done = false; step = 0; renderPF() }; return
+      }
+      const s = PF[step];
+      pf.innerHTML = `<div class="prog" aria-label="Step ${step + 1} of 3">${PF.map((_, i) => `<i class="${i <= step ? 'on' : ''}"></i>`).join('')}</div>
+ <h3 id="pq">${s.q}</h3><div class="opts" role="group" aria-labelledby="pq">${s.o.map(o => `<button class="opt" aria-pressed="${state[s.k] === o}">${esc(o)}</button>`).join('')}</div>
+ <div class="pf-ctl"><div><button class="skip" id="bk" ${step ? '' : 'hidden'}>← Back</button> <a class="skip" href="#enquire" style="margin-left:12px">Skip &amp; enquire directly</a></div><div style="display:flex;gap:12px;align-items:center"><span class="err" id="pe" role="alert"></span><button class="btn btn-navy" id="nx">${step === 2 ? 'Finish' : 'Continue'}</button></div></div>`;
+      $$('.opt', pf).forEach(b => b.onclick = () => { state[s.k] = b.firstChild.textContent; $$('.opt', pf).forEach(x => x.setAttribute('aria-pressed', x === b)); $('#pe').textContent = '' });
+      $('#bk').onclick = () => { step--; renderPF() };
+      $('#nx').onclick = () => {
+        if (!state[s.k]) { $('#pe').textContent = 'Please choose an option to continue.'; return }
+        if (step < 2) { step++; renderPF() } else { done = true; renderPF(); syncForm() }
+      };
+      if (!reduce) gsap.from(pf.children, { opacity: 0, y: 14, duration: .4, stagger: .05, clearProps: 'all' })
+    }
+    function syncForm() {
+      if (state.level) $('#f-level').value = state.level;
+      if (state.subject) $('#f-course').value = state.subject;
+      $('#chips').textContent = state.level || state.subject || state.help ? 'Your pathfinder choices: ' + [state.level, state.subject, state.help].filter(Boolean).join(' · ') : ''
+    }
+    renderPF();
+
+    /* Why */
+    $('#whyimgs').innerHTML = WHY.map((w, i) => imgTag(w[2], w[0]).replace('class="img"', 'class="img' + (i ? '' : ' on') + '"')).join('');
+    $('#whypts').innerHTML = WHY.map((w, i) => `<article class="pt${i ? '' : ' on'}"><small>0${i + 1}</small><h3>${w[0]}</h3><p>${w[1]}</p></article>`).join('');
+
+    /* Generic selector panel builder */
+    function tabs(tabsEl, panelEl, items, render) {
+      tabsEl.innerHTML = items.map((it, i) => `<button class="tab" role="tab" id="${tabsEl.id}${i}" aria-selected="${!i}" tabindex="${i ? -1 : 0}">${esc(it.name)}<span aria-hidden="true">→</span></button>`).join('');
+      const sel = i => {
+        $$('.tab', tabsEl).forEach((t, j) => { t.setAttribute('aria-selected', i === j); t.tabIndex = i === j ? 0 : -1 }); panelEl.setAttribute('aria-labelledby', tabsEl.id + i); panelEl.innerHTML = render(items[i]); hydrate(panelEl);
+        panelEl.querySelectorAll('[data-pick]').forEach(a => a.onclick = () => { const v = a.dataset.pick; if (a.dataset.kind === 'course') $('#f-course').value = v; else $('#f-inst').value = v });
+        if (!reduce) gsap.from(panelEl.children, { opacity: 0, x: 16, duration: .45, stagger: .08, clearProps: 'all' })
+      };
+      $$('.tab', tabsEl).forEach((t, i) => { t.onclick = () => sel(i); t.onkeydown = e => { const n = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1 : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0; if (n) { e.preventDefault(); const j = (i + n + items.length) % items.length; sel(j); $$('.tab', tabsEl)[j].focus() } } }); sel(0)
+    }
+    tabs($('#ptabs'), $('#ppanel'), SUBJECTS, s => `${imgTag('prog-' + s.id, s.name + ' study in Dubai')}<div class="pinfo"><span class="tag">Sample data — replace</span><h3>${s.name}</h3><p>${s.blurb}</p><ul>${s.courses.map(c => `<li><span>${esc(c.name)}</span><span style="color:var(--muted)">${c.level}</span></li>`).join('')}</ul><a class="btn btn-red" href="#enquire" data-pick="${esc(s.name)}" data-kind="course">View programmes</a></div>`);
+    tabs($('#itabs'), $('#ipanel'), INSTITUTIONS, i => `${imgTag(i.id, i.name + ' campus')}<div class="pinfo">${i.sample ? '<span class="tag">Placeholder — not a confirmed LearnTech partner</span>' : i.partner ? '<span class="tag">LearnTech partner</span>' : '<span class="tag">Other Dubai institution</span>'}<h3>${esc(i.name)}</h3><ul><li><span>Location</span><span>${esc(i.location)}</span></li><li><span>Availability</span><span>${[i.ug && 'UG', i.pg && 'PG'].filter(Boolean).join(' · ')}</span></li><li><span>Programmes</span><span>${esc(i.programmes.join(', '))}</span></li><li><span>Awarding body</span><span>${esc(i.awarding)}</span></li><li><span>Tuition / scholarships</span><span>On enquiry</span></li></ul><a class="btn btn-red" href="#enquire" data-pick="${esc(i.name)}" data-kind="inst">Explore institution</a></div>`);
+
+    /* Planner */
+    $('#pi').innerHTML = INSTITUTIONS.map(i => `<option value="${i.id}">${esc(i.name)}</option>`).join('');
+    $('#pp').innerHTML = SUBJECTS.map(s => `<option>${esc(s.name)}</option>`).join('');
+    const aed = n => n == null ? null : 'AED ' + Number(n).toLocaleString('en-IN');
+    function renderLedger() {
+      const f = INSTITUTIONS.find(i => i.id === $('#pi').value).fees;
+      const parts = [['Tuition fee', f.tuition, 'var(--navy)'], ['Accommodation estimate', f.accommodation, 'var(--blue)'], ['Indicative additional expenses', f.other, 'var(--gold)']];
+      const known = parts.every(p => p[1] != null), tot = known ? parts.reduce((a, p) => a + p[1], 0) : null;
+      $('#ledger').innerHTML = parts.map(p => `<div class="row"><span>${p[0]}</span><b>${aed(p[1]) || '<span style="color:var(--muted);font-weight:500">Fee information available on enquiry</span>'}</b></div>`).join('')
+        + (known ? `<div class="bar" role="img" aria-label="Cost breakdown">${parts.map(p => `<i style="width:${p[1] / tot * 100}%;background:${p[2]}"></i>`).join('')}</div>` : '')
+        + `<div class="row"><span>Scholarship information</span><b>${f.scholarship ? esc(f.scholarship) : '<span style="color:var(--muted);font-weight:500">Available on enquiry</span>'}</b></div>
+ <div class="row tot"><span>Estimated total</span><span>${aed(tot) || 'On enquiry'}</span></div><p class="note">Estimates only. Tuition fees are separate from living expenses. Verify all figures with the institution.</p><a class="btn btn-red" href="#enquire" style="margin-top:16px">Request fee details</a>`
+    }
+    $('#pi').onchange = $('#pp').onchange = renderLedger; renderLedger();
+
+    /* Admission */
+    $('#asteps').innerHTML = STAGES.map((s, i) => `<article class="st"><small>0${i + 1}</small><h3>${s[0]}</h3><p>${s[1]}</p>${s[2] ? `<p><a href="${s[2][1]}" target="_blank" rel="noopener">${s[2][0]} ↗</a></p>` : ''}</article>`).join('');
+    function setStage(i) { $('#anum').textContent = '0' + (i + 1); $('#aname').textContent = STAGES[i][0]; $('#aline').style.height = (i + 1) * 20 + '%' }
+
+    /* Life */
+    $('#gal').innerHTML = [['life1', 'Campus environments'], ['life2', 'Modern learning spaces'], ['life3', 'International student community'], ['life4', 'Accommodation'], ['life5', 'City lifestyle']].map(g => `<figure class="img"><img data-img="${g[0]}" alt="${g[1]} in Dubai" loading="lazy"><figcaption>${g[1]}</figcaption></figure>`).join('');
+    $('#stories').innerHTML = STORIES.length ? STORIES.map(s => `<figure class="story"><q>${esc(s.quote)}</q><figcaption>${esc(s.name || 'Student')} · ${esc(s.programme)}, ${esc(s.institution)}</figcaption></figure>`).join('') : '<div class="empty">Student stories will appear here once genuine, permitted testimonials are supplied (photo, name if permitted, institution, programme, experience). Add them to the STORIES array.</div>';
+    hydrate();
+
+    /* FAQ */
+    $('#faql').innerHTML = FAQS.map((f, i) => `<h3 style="font-size:inherit"><button class="q" id="q${i}" aria-expanded="false" aria-controls="a${i}">${f[0]}<span aria-hidden="true">+</span></button></h3><div class="a" id="a${i}" role="region" aria-labelledby="q${i}"><div><p>${f[1]}</p></div></div>`).join('');
+    $$('.q').forEach(b => b.onclick = () => { const o = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', !o); $('#' + b.getAttribute('aria-controls')).classList.toggle('open', !o) });
+
+    /* Enquiry form */
+    const V = {
+      name: v => v.trim().length < 2 ? 'Please enter your full name.' : '',
+      phone: v => { const d = v.replace(/\D/g, ''); return /^[+\d][\d\s-]*$/.test(v.trim()) && d.length >= 10 && d.length <= 13 ? '' : 'Enter a valid mobile number (10–13 digits).' },
+      email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Enter a valid email address.',
+      level: v => v ? '' : 'Please select a study level.', course: v => v ? '' : 'Please select a course area.'
+    };
+    const form = $('#form');
+    const check = k => { const e = V[k](form.elements[k].value); $('#e-' + k).textContent = e; form.elements[k].setAttribute('aria-invalid', !!e); return !e };
+    Object.keys(V).forEach(k => form.elements[k].addEventListener('blur', () => check(k)));
+    form.onsubmit = async e => {
+      e.preventDefault(); const ok = Object.keys(V).map(check).every(Boolean);
+      if (!ok) { form.querySelector('[aria-invalid=true]').focus(); return }
+      const btn = $('#sub'); btn.disabled = true; btn.innerHTML = '<span class="spin"></span> Sending…';
+      const payload = { ...Object.fromEntries(new FormData(form)), pathfinder: { ...state }, source: 'study-in-dubai-landing', submittedAt: new Date().toISOString() };
+      let demo = !CONFIG.ENQUIRY_ENDPOINT, fail = false;
+      try {
+        if (demo) { await new Promise(r => setTimeout(r, 900)); console.info('[DEMO] Enquiry payload (not sent):', payload) }
+        else { const r = await fetch(CONFIG.ENQUIRY_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); if (!r.ok) throw 0 }
+      } catch (_) { fail = true }
+      if (fail) { btn.disabled = false; btn.textContent = 'Get personalised guidance'; $('#e-email').textContent = 'Something went wrong. Please try again.'; return }
+      $('#fwrap').innerHTML = `<div class="ok" tabindex="-1" id="okbox"><h3>${demo ? 'Demo mode — enquiry NOT sent' : 'Thank you, we have your enquiry'}</h3><p>${demo ? 'The CRM/API endpoint is not connected yet (CONFIG.ENQUIRY_ENDPOINT). Your details were not transmitted.' : 'A LearnTech counsellor will contact you with personalised guidance.'}</p></div>`; $('#okbox').focus()
+    };
+
+    /* GSAP animations */
+    if (window.gsap && !reduce) {
+      gsap.registerPlugin(ScrollTrigger);
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.from('#heroimg', { clipPath: 'inset(8% 6% 8% 6%)', scale: 1.08, duration: 1.4, clearProps: 'all' }).from('#h1 .ln>span', { yPercent: 110, duration: .9, stagger: .12 }, .2).from('.hero .eyebrow,.hero p,.cta-row', { opacity: 0, y: 20, duration: .7, stagger: .1 }, .7).from('.bigword', { opacity: 0, y: 40, duration: 1 }, .6);
+      gsap.utils.toArray('.rv').forEach(h => gsap.from(h, { opacity: 0, y: 36, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 88%', once: true } }));
+      gsap.to('#heroimg img', { scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+      ScrollTrigger.matchMedia({
+        '(min-width:1024px)': () => { // sticky CSS only, no pinning/scroll-jacking
+          const imgs = $$('#whyimgs .img'), pts = $$('#whypts .pt');
+          pts.forEach((p, i) => ScrollTrigger.create({ trigger: p, start: 'top 55%', end: 'bottom 55%', onToggle: s => { if (s.isActive) { pts.forEach((x, j) => x.classList.toggle('on', i === j)); imgs.forEach((x, j) => x.classList.toggle('on', i === j)) } } }));
+          $$('#asteps .st').forEach((p, i) => ScrollTrigger.create({ trigger: p, start: 'top 55%', end: 'bottom 55%', onToggle: s => s.isActive && setStage(i) }))
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
