@@ -9,31 +9,29 @@
         content="Explore UG and PG courses at Symbiosis Dubai and BITS Pilani Dubai, compare eligibility and get admission guidance from Learntech counsellors.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* TOKENS */
         :root {
             --red: #E93C47;
-            --red-soft: #FF8A92;
-            --red-50: #FDEBEC;
             --blue: #274896;
             --blue-dark: #1A3266;
-            --blue-50: #EEF2FB;
             --navy: #0C1836;
-            --navy-2: #101F47;
             --ink: #14203A;
             --ink-2: #566079;
-            --ink-3: #808aa1;
-            --cream: #F4F1EB;
-            --line: rgba(20, 32, 58, .13);
-            --line-w: rgba(255, 255, 255, .16);
+            --ink-3: #8a93a8;
+            --bg: #fff;
+            --bg-soft: #dee5f8;
+            --line: #E6EAF3;
+            --r-sm: 12px;
+            --r: 20px;
+            --r-lg: 28px;
+            --shadow: 0 1px 2px rgba(20, 32, 58, .04), 0 8px 24px -12px rgba(20, 32, 58, .12);
+            --shadow-up: 0 2px 4px rgba(20, 32, 58, .05), 0 20px 40px -20px rgba(20, 32, 58, .22);
             --font: 'Poppins', sans-serif;
             --ease: cubic-bezier(.22, 1, .36, 1);
-            --nav: 76px;
-            --sp: clamp(72px, 9vw, 132px);
-            --cut: clamp(24px, 3.2vw, 52px)
+            --gutter: clamp(20px, 6vw, 96px);
+            --space: clamp(64px, 8vw, 112px);
+            --nav: 72px
         }
 
         *,
@@ -46,15 +44,15 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: calc(var(--nav) + 8px);
+            scroll-padding-top: calc(var(--nav) + 16px);
             -webkit-text-size-adjust: 100%
         }
 
         body {
             font-family: var(--font);
             color: var(--ink);
-            background: #fff;
-            line-height: 1.6;
+            background: var(--bg);
+            line-height: 1.65;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden
         }
@@ -65,1645 +63,1140 @@
         }
 
         a {
-            color: inherit
-        }
-
-        button,
-        input,
-        select {
-            font: inherit;
-            color: inherit
-        }
-
-        button {
-            cursor: pointer;
-            background: none;
-            border: 0
+            color: inherit;
+            text-decoration: none
         }
 
         ul {
             list-style: none
         }
 
+        button {
+            font: inherit;
+            color: inherit;
+            border: 0;
+            background: none;
+            cursor: pointer
+        }
+
         :focus-visible {
-            outline: 2px solid var(--red);
+            outline: 2px solid var(--blue);
             outline-offset: 3px
         }
 
-        .shell {
-            width: auto;
-            margin: 0 clamp(20px, 8.33vw, 120px);
-            padding: 0
+        .container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--gutter)
         }
 
-        section {
-            padding: var(--sp) 0
+        .section {
+            padding: var(--space) 0
         }
 
-        /* section heading */
-        .sh {
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(0, .9fr);
-            column-gap: clamp(24px, 5vw, 80px);
-            align-items: end;
-            margin-bottom: clamp(40px, 5vw, 72px)
+        .section--soft {
+            background: var(--bg-soft)
         }
 
-        .sh .lab {
-            grid-column: 1/-1
-        }
-
-        .sh.stack {
-            display: block
-        }
-
-        .lab {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            font-size: .74rem;
-            font-weight: 600;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 22px
-        }
-
-        .lab::before {
-            content: "";
-            width: 32px;
-            height: 1px;
-            background: currentColor
-        }
-
-        .st {
-            font-size: clamp(2.2rem, 5.2vw, 3.8rem);
+        /* typography */
+        .eyebrow {
+            display: inline-block;
+            font-size: .78rem;
             font-weight: 500;
-            letter-spacing: -.045em;
-            line-height: 1.03
+            color: var(--blue);
+            background: #EAF0FD;
+            padding: 6px 14px;
+            border-radius: 99px;
+            margin-bottom: 18px
         }
 
-        .st em {
-            font-weight: 300;
+        .title {
+            font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+            font-weight: 500;
             letter-spacing: -.03em;
-            color: var(--blue)
+            line-height: 1.15
         }
 
-        .sd {
-            font-size: .98rem;
+        .lead {
+            font-size: 1rem;
             font-weight: 300;
             color: var(--ink-2);
-            max-width: 44ch;
-            padding-bottom: .5em
+            max-width: 56ch;
+            margin-top: 14px
         }
 
-        .sh.stack .sd {
-            margin-top: 22px;
-            padding: 0
-        }
-
-        .dark {
-            background: var(--navy);
-            color: #fff
-        }
-
-        .dark .st em {
-            color: var(--red-soft)
-        }
-
-        .dark .sd {
-            color: rgba(255, 255, 255, .72)
-        }
-
-        .dark .lab {
-            color: var(--red-soft)
+        .section__head {
+            margin-bottom: clamp(32px, 4vw, 52px)
         }
 
         .note {
-            margin-top: 18px;
-            font-size: .76rem;
+            margin-top: 20px;
+            font-size: .78rem;
             font-weight: 300;
             color: var(--ink-3)
         }
 
-        .dark .note {
-            color: rgba(255, 255, 255, .6)
-        }
-
-        .slant {
-            position: relative;
-            clip-path: polygon(0 var(--cut), 100% 0, 100% 100%, 0 100%);
-            margin-top: calc(var(--cut)*-1);
-            padding-top: calc(var(--sp) + var(--cut))
+        .note a {
+            color: var(--blue);
+            font-weight: 500
         }
 
         /* buttons */
         .btn {
             display: inline-flex;
-            align-items: stretch;
-            height: 54px;
-            border-radius: 2px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 50px;
+            padding: 0 26px;
+            border-radius: 99px;
             background: var(--blue);
             color: #fff;
-            font-size: .86rem;
+            font-size: .9rem;
             font-weight: 500;
-            letter-spacing: .01em;
-            text-decoration: none;
-            overflow: hidden;
-            transition: transform .5s var(--ease), box-shadow .5s var(--ease), background .3s
-        }
-
-        .btn span {
-            display: flex;
-            align-items: center;
-            padding: 0 24px
-        }
-
-        .btn i {
-            width: 54px;
-            display: grid;
-            place-items: center;
-            background: var(--red);
-            transition: width .5s var(--ease)
-        }
-
-        .btn svg,
-        .arr svg,
-        .pg-btn svg {
-            width: 16px;
-            height: 16px
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .3s
         }
 
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 18px 36px -16px rgba(39, 72, 150, .75)
+            box-shadow: 0 14px 28px -12px rgba(39, 72, 150, .6);
+            background: var(--blue-dark)
         }
 
-        .btn:hover i {
-            width: 64px
+        .btn--red {
+            background: var(--red)
         }
 
-        .btn.ghost {
-            background: transparent;
-            color: var(--blue);
-            box-shadow: inset 0 0 0 1px var(--blue)
+        .btn--red:hover {
+            background: #d22f3a;
+            box-shadow: 0 14px 28px -12px rgba(233, 60, 71, .6)
         }
 
-        .btn.ghost i {
-            background: var(--blue)
-        }
-
-        .btn.ghost:hover {
-            background: var(--blue-50);
-            box-shadow: inset 0 0 0 1px var(--blue)
-        }
-
-        .btn.light {
+        .btn--light {
             background: #fff;
             color: var(--navy)
         }
 
-        .btn.sm {
-            height: 42px;
-            font-size: .8rem
+        .btn--light:hover {
+            background: #fff;
+            box-shadow: 0 14px 28px -12px rgba(0, 0, 0, .4)
         }
 
-        .btn.sm span {
-            padding: 0 18px
-        }
-
-        .btn.sm i {
-            width: 42px
-        }
-
-        .dark .btn.ghost {
+        .btn--glass {
+            background: rgba(255, 255, 255, .14);
+            border: 1px solid rgba(255, 255, 255, .5);
             color: #fff;
-            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .5)
+            backdrop-filter: blur(6px)
         }
 
-        .dark .btn.ghost i {
-            background: rgba(255, 255, 255, .14)
+        .btn--glass:hover {
+            background: rgba(255, 255, 255, .24);
+            box-shadow: none
         }
 
-        .dark .btn.ghost:hover {
-            background: rgba(255, 255, 255, .08);
-            box-shadow: inset 0 0 0 1px #fff
+        .btn--sm {
+            height: 42px;
+            padding: 0 20px;
+            font-size: .84rem
+        }
+
+        .link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--blue);
+            transition: gap .3s var(--ease)
+        }
+
+        .link:hover {
+            gap: 14px
         }
 
         /* header */
-        header {
+        .header {
             position: fixed;
             inset: 0 0 auto;
-            z-index: 60;
+            z-index: 50;
+            background: rgba(255, 255, 255, .9);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .header__inner {
             height: var(--nav);
-            color: var(--ink);
-            transition: background .4s, box-shadow .4s, color .4s
-        }
-
-        header.scrolled {
-            background: rgba(255, 255, 255, .92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            box-shadow: 0 1px 0 var(--line)
-        }
-
-        .nav {
-            height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 24px
         }
 
-        .logo {
-            position: relative;
-            z-index: 2;
+        .brand {
             display: inline-flex;
             align-items: center;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--blue);
-            transition: color .4s
+            gap: 10px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -.02em;
+            color: var(--blue)
         }
 
-        .logo img {
-            height: 38px;
-            width: auto;
-            transition: filter .4s
+        .brand svg {
+            width: 34px;
+            height: 34px
         }
 
-        .nav ul {
+        .nav__links {
             display: flex;
-            gap: 32px;
-            align-items: center
-        }
-
-        .nav li a:not(.btn) {
-            position: relative;
-            font-size: .86rem;
-            font-weight: 500;
-            color: inherit;
-            opacity: .85;
-            text-decoration: none;
-            transition: opacity .3s
-        }
-
-        .nav li a:not(.btn)::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -6px;
-            height: 1px;
-            background: currentColor;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .5s var(--ease)
-        }
-
-        .nav li a:not(.btn):hover {
-            opacity: 1
-        }
-
-        .nav li a:not(.btn):hover::after {
-            transform: none
-        }
-
-        .mfoot {
-            display: none
-        }
-
-        /* mobile menu button: pill that morphs to X */
-        .mbtn {
-            display: none;
-            position: relative;
-            z-index: 2;
             align-items: center;
-            gap: 12px;
-            height: 48px;
-            padding: 0 6px 0 18px;
-            border-radius: 99px;
-            box-shadow: inset 0 0 0 1px currentColor;
-            color: inherit;
-            transition: color .4s, box-shadow .4s
+            gap: 26px
         }
 
-        .mb-t {
-            display: block;
-            height: 1.2em;
-            line-height: 1.2;
-            overflow: hidden;
-            font-size: .72rem;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase
+        .nav__links a:not(.btn) {
+            font-size: .88rem;
+            font-weight: 400;
+            color: var(--ink-2);
+            transition: color .3s;
+            white-space: nowrap
         }
 
-        .mb-t b {
-            display: block;
-            font-weight: 600;
-            transition: transform .7s var(--ease)
+        .nav__links a:not(.btn):hover {
+            color: var(--blue)
         }
 
-        .mb-i {
-            position: relative;
-            display: block;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: var(--red);
-            transition: transform .8s var(--ease)
-        }
-
-        .mb-i i {
-            position: absolute;
-            left: 10px;
-            right: 10px;
-            height: 1.5px;
-            border-radius: 2px;
-            background: #fff;
-            transition: transform .8s var(--ease), top .5s var(--ease)
-        }
-
-        .mb-i i:first-child {
-            top: 14px
-        }
-
-        .mb-i i:last-child {
-            top: 21px
-        }
-
-        .mbtn[aria-expanded=true] .mb-t b {
-            transform: translateY(-100%)
-        }
-
-        .mbtn[aria-expanded=true] .mb-i {
-            transform: rotate(90deg)
-        }
-
-        .mbtn[aria-expanded=true] .mb-i i {
-            top: 17.25px
-        }
-
-        .mbtn[aria-expanded=true] .mb-i i:first-child {
-            transform: rotate(45deg)
-        }
-
-        .mbtn[aria-expanded=true] .mb-i i:last-child {
-            transform: rotate(-45deg)
-        }
-
-        header.menu-open {
-            background: transparent;
-            backdrop-filter: none;
-            -webkit-backdrop-filter: none;
-            box-shadow: none;
-            color: #fff
-        }
-
-        header.menu-open .logo {
-            color: #fff
-        }
-
-        header.menu-open .logo img {
-            filter: brightness(0) invert(1)
-        }
-
-        /* hero (light) */
+        /* hero (background image) */
         .hero {
             position: relative;
-            padding: 0;
-            overflow: hidden;
-            color: var(--ink);
-            margin-bottom: -1px;
-            background: radial-gradient(900px 600px at 82% 6%, #d5e2ff 0%, transparent 62%), radial-gradient(700px 500px at 4% 96%, rgba(233, 60, 71, .1), transparent 62%), linear-gradient(165deg, #fafcff, #ecf1fc 58%, #e2eafa)
-        }
-
-        .hglow {
-            position: absolute;
-            inset: -20%;
-            z-index: 1;
-            background: radial-gradient(600px 420px at 70% 30%, rgba(120, 160, 255, .22), transparent 65%);
-            animation: drift 18s ease-in-out infinite alternate;
-            pointer-events: none
-        }
-
-        @keyframes drift {
-            to {
-                transform: translate3d(-6%, 8%, 0)
-            }
-        }
-
-        /* .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            opacity: .05;
-            mix-blend-mode: multiply;
-            pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
-        } */
-
-        /* diagonal edge into the next section (same angle as the .slant cuts) */
-        /* .edge {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -1px;
-            height: var(--cut);
-            background: var(--cream);
-            clip-path: polygon(0 100%, 100% 0, 100% 100%);
-            z-index: 2;
-            pointer-events: none
-        } */
-
-        .hin {
-            position: relative;
-            z-index: 3;
-            min-height: 100svh;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding-top: calc(var(--nav) + 40px);
-            padding-bottom: calc(var(--cut) + 56px)
+            align-items: center;
+            min-height: min(90vh, 760px);
+            padding: calc(var(--nav) + clamp(32px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);
+            color: #fff;
+            background: linear-gradient(90deg, rgba(12, 24, 54, .93) 0%, rgba(12, 24, 54, .8) 30%, rgba(12, 24, 54, .28) 60%, rgba(12, 24, 54, 0) 100%), url("media/Aspiring Student in Dubai Skyline.png") right center/cover no-repeat, var(--navy)
         }
 
-        .hero .lab {
-            color: var(--red);
-            margin-bottom: 28px
+        .hero .container {
+            width: 100%
         }
 
-        h1 {
-            font-size: clamp(2.1rem, 4.3vw, 3.9rem);
+        .hero__content {
+            max-width: 800px
+        }
+
+        .hero .eyebrow {
+            background: rgba(255, 255, 255, .14);
+            color: #fff;
+            backdrop-filter: blur(6px)
+        }
+
+        .hero__title {
+            font-size: clamp(2.2rem, 4.4vw, 3.5rem);
             font-weight: 500;
-            letter-spacing: -.05em;
-            line-height: 1.05
+            letter-spacing: -.04em;
+            line-height: 1.08
         }
 
-        h1 em {
+        .hero__title em {
             font-style: normal;
             font-weight: 300;
-            color: var(--red);
-            letter-spacing: -.04em
+            color: #FF8A92
         }
 
-        .ln {
-            display: block
-        }
-
-        .w {
-            display: inline-block;
-            overflow: hidden;
-            vertical-align: top;
-            padding: .04em .08em .24em;
-            margin: -.04em -.08em -.24em
-        }
-
-        .w>span {
-            display: inline-block;
-            transition: transform 1.2s var(--ease) calc(.15s + var(--i)*.08s)
-        }
-
-        .hrow {
-            display: grid;
-            gap: 30px;
-            margin: 30px 0 0;
-            max-width: 520px
-        }
-
-        .lead {
+        .hero__text {
             font-size: 1.02rem;
             font-weight: 300;
-            color: var(--ink-2);
-            max-width: 50ch
+            color: rgba(255, 255, 255, .86);
+            max-width: 48ch;
+            margin: 22px 0 32px
         }
 
-        .cta {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap
-        }
-
-        .hmain {
-            margin-bottom: clamp(28px, 4vw, 48px)
-        }
-
-        .hl {
-            max-width: 720px
-        }
-
-        /* full-bleed hero image; the light fade on the left keeps the text readable */
-        .hbg {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            overflow: hidden;
-            transition: opacity 1.6s var(--ease)
-        }
-
-        .hbg::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, rgba(250, 252, 255, .95) 0%, rgba(250, 252, 255, .84) 36%, rgba(250, 252, 255, .28) 68%, rgba(250, 252, 255, 0) 100%), linear-gradient(180deg, rgba(250, 252, 255, .35), rgba(250, 252, 255, 0) 30%)
-        }
-
-        .himg {
-            position: absolute;
-            inset: -6% 0;
-            will-change: transform
-        }
-
-        .himg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center right;
-            animation: zo 16s cubic-bezier(.16, .84, .3, 1) both
-        }
-
-        @keyframes zo {
-            from {
-                transform: scale(1.3)
-            }
-
-            to {
-                transform: scale(1)
-            }
-        }
-
-        .av {
-            flex: none;
-            font-size: 1.7rem;
-            font-weight: 200;
-            letter-spacing: -.04em;
-            color: var(--blue);
-            line-height: 1
-        }
-
-        .hf {
-            transition: opacity 1.1s var(--ease) var(--hd, .5s), translate 1.3s var(--ease) var(--hd, .5s)
-        }
-
-        .js .hero:not(.go) .hf {
-            opacity: 0;
-            translate: 0 26px
-        }
-
-        .js .hero:not(.go) .hbg {
-            opacity: 0
-        }
-
-        .js .hero:not(.go) .w>span {
-            transform: translateY(112%)
-        }
-
-        /* courses */
-        .courses {
-            background: var(--cream);
-            position: relative;
-            padding-top: calc(var(--sp) + 24px);
-            padding-bottom: calc(var(--sp) + var(--cut))
-        }
-
-        .fil {
+        .hero__cta {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 20px 32px;
-            margin-bottom: 40px
+            gap: 12px
         }
 
-        .fg {
+        /* feature cards (why dubai, careers, why learntech) */
+        .grid {
             display: grid;
-            gap: 8px;
-            min-width: 0
+            gap: 20px
         }
 
-        .fg:first-child {
-            flex: 1 1 420px
+        .grid--4 {
+            grid-template-columns: repeat(4, minmax(0, 1fr))
         }
 
-        .fg small {
-            font-size: .7rem;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
+        .feature {
+            display: flex;
+            flex-direction: column;
+            padding: 26px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            box-shadow: var(--shadow);
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease)
+        }
+
+        .feature:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-up)
+        }
+
+        .feature__icon {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: #FDECEE;
+            color: var(--red);
+            margin-bottom: 18px
+        }
+
+        .feature__icon svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .feature__title {
+            font-size: 1.08rem;
+            font-weight: 500;
+            letter-spacing: -.015em;
+            margin-bottom: 8px
+        }
+
+        .feature__text {
+            font-size: .88rem;
+            font-weight: 300;
+            color: var(--ink-2)
+        }
+
+        .feature .k {
+            display: block;
+            margin: 16px 0 4px;
+            font-size: .76rem;
+            font-weight: 500;
             color: var(--ink-3)
         }
 
-        .chips {
-            display: flex;
-            gap: clamp(18px, 3vw, 36px);
-            overflow-x: auto;
-            scrollbar-width: none;
-            max-width: 100%;
-            min-width: 0
-        }
-
-        .chips::-webkit-scrollbar {
-            display: none
-        }
-
-        #fc {
-            width: 100%;
-            border-bottom: 1px solid var(--line)
-        }
-
-        .chip {
-            flex: 0 0 auto;
-            position: relative;
-            padding: 14px 0;
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--ink-3);
-            white-space: nowrap;
-            transition: color .3s
-        }
-
-        .chip::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -1px;
-            height: 2px;
-            background: var(--red);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform .6s var(--ease)
-        }
-
-        .chip:hover {
-            color: var(--ink)
-        }
-
-        .chip.on {
-            color: var(--ink);
+        .feature .pr {
+            font-size: .86rem;
             font-weight: 500
         }
 
-        .chip.on::after {
-            transform: none
+        .feature .rt {
+            font-size: .84rem;
+            font-weight: 300;
+            color: var(--ink-2)
         }
 
-        #fl {
-            width: fit-content;
-            gap: 0;
+        .tg {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 16px
+        }
+
+        .tg span {
+            padding: 3px 10px;
+            border-radius: 99px;
+            font-size: .7rem;
+            font-weight: 500;
+            color: var(--blue);
+            background: #EAF0FD
+        }
+
+        .tg span.b {
+            color: var(--red);
+            background: #FDECEE
+        }
+
+        /* filters */
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 32px;
+            margin-bottom: 32px
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px
+        }
+
+        .pill {
+            padding: 9px 18px;
+            border-radius: 99px;
             border: 1px solid var(--line);
-            border-radius: 2px;
-            background: rgba(255, 255, 255, .55)
+            background: #fff;
+            font-size: .84rem;
+            color: var(--ink-2);
+            transition: all .3s var(--ease)
         }
 
-        #fl .chip {
-            padding: 10px 16px;
-            font-size: .8rem
+        .pill:hover {
+            border-color: var(--blue);
+            color: var(--blue)
         }
 
-        #fl .chip::after {
-            display: none
-        }
-
-        #fl .chip.on {
-            background: var(--navy);
+        .pill[aria-pressed=true] {
+            background: var(--blue);
+            border-color: var(--blue);
             color: #fff
         }
 
-        .trk {
+        /* course carousel */
+        .track {
             display: flex;
             gap: 20px;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
             scrollbar-width: none;
-            padding: 12px 4px 28px;
+            padding: 8px 4px 24px;
             margin: 0 -4px;
             cursor: grab
         }
 
-        .trk::-webkit-scrollbar {
+        .track::-webkit-scrollbar {
             display: none
         }
 
-        .trk.drag {
+        .track.drag {
             cursor: grabbing;
             scroll-snap-type: none;
             scroll-behavior: auto;
             user-select: none
         }
 
-        .trk img {
-            pointer-events: none;
+        .track a,
+        .track img {
             -webkit-user-drag: none
         }
 
-        .ctl {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            margin-top: 8px
-        }
-
-        .cnt {
-            font-size: .84rem;
-            font-weight: 300;
-            color: var(--ink-3);
-            min-width: 96px
-        }
-
-        .bar {
-            flex: 1;
-            height: 1px;
-            background: var(--line)
-        }
-
-        .bar i {
-            display: block;
-            height: 100%;
-            background: var(--ink);
-            transform-origin: left;
-            transition: transform .4s var(--ease)
-        }
-
-        .arrs {
-            display: flex;
-            gap: 8px
-        }
-
-        .arr {
-            width: 50px;
-            height: 50px;
-            border-radius: 2px;
-            border: 1px solid var(--line);
-            background: transparent;
-            display: grid;
-            place-items: center;
-            transition: all .3s
-        }
-
-        .arr:hover {
-            background: var(--navy);
-            border-color: var(--navy);
-            color: #fff
-        }
-
-        .arr:disabled {
-            opacity: .3;
-            pointer-events: none
-        }
-
-        .pgc {
-            --cc: var(--blue);
-            position: relative;
-            flex: 0 0 clamp(290px, 27%, 350px);
+        .course {
+            flex: 0 0 clamp(280px, 31.5%, 390px);
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
-            padding: 28px 26px 22px;
+            padding: 28px;
             background: #fff;
             border: 1px solid var(--line);
-            border-radius: 3px;
-            overflow: hidden;
-            transition: transform .6s var(--ease), box-shadow .6s var(--ease)
+            border-radius: var(--r);
+            box-shadow: var(--shadow);
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease)
         }
 
-        .pgc[data-c=bits] {
-            --cc: var(--red)
+        .course:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-up)
         }
 
-        .pgc::before {
-            content: "";
-            position: absolute;
-            inset: 0 0 auto;
-            height: 3px;
-            background: var(--cc)
-        }
-
-        .pc-top {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-            margin-bottom: 28px
-        }
-
-        .pg-tag {
-            font-size: .7rem;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: var(--cc);
-            padding: 3px 0;
-            border-bottom: 1px solid var(--cc)
-        }
-
-        .pop {
-            font-style: normal;
-            font-size: .66rem;
+        .badge {
+            align-self: flex-start;
+            font-size: .72rem;
             font-weight: 500;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            color: #8a6a24
+            padding: 4px 12px;
+            border-radius: 99px;
+            background: #EAF0FD;
+            color: var(--blue)
         }
 
-        .pgc h3 {
-            font-size: 1.5rem;
+        .course[data-college=bits] .badge {
+            background: #FDECEE;
+            color: var(--red)
+        }
+
+        .course__title {
+            font-size: 1.25rem;
             font-weight: 500;
-            letter-spacing: -.03em;
-            line-height: 1.16
+            letter-spacing: -.02em;
+            line-height: 1.3;
+            margin: 18px 0 4px
         }
 
-        .pgc h3 span {
-            display: block;
-            font-size: .8rem;
+        .course__degree {
+            font-size: .84rem;
             font-weight: 300;
-            letter-spacing: 0;
-            color: var(--ink-3);
-            margin-top: 8px
+            color: var(--ink-3)
         }
 
-        .pg-rows {
-            margin: 30px 0 22px
+        .facts {
+            margin: 22px 0;
+            border-top: 1px solid var(--line)
         }
 
-        .pg-row {
+        .facts div {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            gap: 14px;
-            padding: 11px 0;
-            border-top: 1px solid var(--line);
-            font-size: .84rem
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: .86rem
         }
 
-        .pg-row dt {
-            font-size: .76rem;
+        .facts dt {
             font-weight: 300;
-            color: var(--ink-3);
-            white-space: nowrap
+            color: var(--ink-3)
         }
 
-        .pg-row dd {
+        .facts dd {
             font-weight: 500;
             text-align: right
         }
 
-        .lg {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px
-        }
-
-        .lg i {
-            font-style: normal;
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: var(--blue-50);
-            color: var(--blue);
-            display: grid;
-            place-items: center;
-            font-size: .58rem;
-            font-weight: 700
-        }
-
-        .pg-btn {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 16px;
-            border-top: 1px solid var(--line);
-            font-size: .84rem;
-            font-weight: 600;
-            text-decoration: none
-        }
-
-        .pg-btn i {
-            width: 38px;
-            height: 38px;
-            border: 1px solid var(--line);
-            display: grid;
-            place-items: center;
-            transition: all .5s var(--ease)
-        }
-
-        .pgc:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 30px 50px -30px rgba(12, 24, 54, .35)
-        }
-
-        .pgc:hover .pg-btn i {
-            background: var(--red);
-            border-color: var(--red);
-            color: #fff;
-            transform: translateX(4px)
+        .course .link {
+            margin-top: auto
         }
 
         .empty {
+            flex: 1;
             border: 1px dashed var(--line);
-            padding: 28px;
+            border-radius: var(--r);
+            padding: 24px;
             font-size: .9rem;
-            font-weight: 300;
-            color: var(--ink-2);
-            flex: 1
+            color: var(--ink-2)
         }
 
-        /* colleges: two equal cards */
-        .colleges {
-            background: radial-gradient(900px 540px at 92% 4%, rgba(39, 72, 150, .6), transparent 65%), radial-gradient(700px 520px at 0% 100%, rgba(233, 60, 71, .16), transparent 65%), var(--navy)
+        .ctl {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px
         }
 
-        .cg {
+        .cnt {
+            font-size: .84rem;
+            color: var(--ink-3)
+        }
+
+        .arrs {
+            display: flex;
+            gap: 10px
+        }
+
+        .arr {
             display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid var(--line);
+            background: #fff;
+            transition: all .3s var(--ease)
+        }
+
+        .arr svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .arr:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff
+        }
+
+        .arr:disabled {
+            opacity: .35;
+            pointer-events: none
+        }
+
+        /* colleges */
+        .grid--2 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 24px
         }
 
-        .cc {
-            --ac: #7fa0f2;
-            position: relative;
+        .college {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
             display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            border-radius: 3px;
-            background: rgba(255, 255, 255, .05);
-            border: 1px solid var(--line-w);
-            box-shadow: 0 40px 70px -45px rgba(0, 0, 0, .7)
+            flex-direction: column
         }
 
-        .cc[data-c=bits] {
-            --ac: var(--red)
+        .college__img {
+            aspect-ratio: 16/8;
+            background: linear-gradient(150deg, #2b51ab, #0a1330);
+            overflow: hidden
         }
 
-        .cc::before {
-            content: "";
-            position: absolute;
-            inset: 0 0 auto;
-            height: 3px;
-            background: var(--ac);
-            z-index: 2
+        .college[data-college=bits] .college__img {
+            background: linear-gradient(150deg, #d6404a, #1c2d5f)
         }
 
-        .cc-img {
-            position: relative;
-            aspect-ratio: 3/1;
-            overflow: hidden;
-            background: linear-gradient(150deg, #2b51ab, #0a1330)
-        }
-
-        .cc[data-c=bits] .cc-img {
-            background: linear-gradient(150deg, #c8323c -30%, #1c2d5f 55%, #0a1330)
-        }
-
-        .cc-img img {
+        .college__img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.4s var(--ease)
+            transition: transform 1s var(--ease)
         }
 
-        .cc:hover .cc-img img {
-            transform: scale(1.05)
+        .college:hover .college__img img {
+            transform: scale(1.04)
         }
 
-        .cc-img::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(8, 16, 40, 0) 50%, rgba(8, 16, 40, .7));
-            pointer-events: none
-        }
-
-        .cc-img .loc {
-            position: absolute;
-            left: 20px;
-            bottom: 18px;
-            z-index: 1;
-            padding: 8px 14px;
-            background: rgba(12, 24, 54, .74);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px)
-        }
-
-        .cc-body {
+        .college__body {
             display: flex;
             flex-direction: column;
             flex: 1;
-            padding: clamp(24px, 3vw, 40px)
+            padding: clamp(24px, 3vw, 36px)
         }
 
-        .loc {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: .72rem;
-            font-weight: 600;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: #fff
-        }
-
-        .loc::before {
-            content: "";
-            width: 7px;
-            height: 7px;
-            background: var(--red)
-        }
-
-        .cc h3 {
-            font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+        .college__loc {
+            font-size: .78rem;
             font-weight: 500;
-            letter-spacing: -.04em;
-            line-height: 1.12;
-            margin: 0 0 14px
+            color: var(--red);
+            margin-bottom: 10px
         }
 
-        .cc p {
+        .college__name {
+            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+            font-weight: 500;
+            letter-spacing: -.025em;
+            line-height: 1.2;
+            margin-bottom: 12px
+        }
+
+        .college__text {
             font-size: .95rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, .76);
-            max-width: 48ch;
-            margin-bottom: 26px
+            color: var(--ink-2);
+            margin-bottom: 22px
         }
 
-        .cc dl {
-            margin: 0 0 30px
+        .college .facts {
+            margin-top: 0
         }
 
-        .cc dl div {
-            display: grid;
-            grid-template-columns: 110px minmax(0, 1fr);
-            gap: 16px;
-            padding: 14px 0;
-            border-top: 1px solid var(--line-w);
-            font-size: .86rem
-        }
-
-        .cc dt {
-            font-weight: 300;
-            color: rgba(255, 255, 255, .55)
-        }
-
-        .cc dd {
-            font-weight: 500
-        }
-
-        .cc .btn {
+        .college .btn {
             align-self: flex-start;
             margin-top: auto
         }
 
-        /* why */
-        .why {
-            position: relative;
-            overflow: hidden;
-            background: linear-gradient(180deg, #fff 0%, var(--blue-50) 100%)
+        /* small CTA band */
+        .band {
+            padding: clamp(28px, 4vw, 48px) 0
         }
 
-        .wy {
-            display: grid;
-            grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
-            gap: clamp(40px, 7vw, 110px);
-            align-items: start
+        .band__box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 28px;
+            flex-wrap: wrap;
+            padding: clamp(28px, 4.5vw, 52px);
+            border-radius: var(--r-lg);
+            background: linear-gradient(150deg, var(--blue-dark), var(--blue));
+            color: #fff;
+            box-shadow: var(--shadow-up)
         }
 
-        .wl {
-            position: sticky;
-            top: calc(var(--nav) + 32px)
-        }
-
-        .wl .sh {
-            margin-bottom: 0
-        }
-
-        .wvw {
-            position: relative;
-            margin-top: 44px
-        }
-
-        .wv {
-            position: relative;
-            aspect-ratio: 5/4;
-            overflow: hidden;
-            border-radius: 3px;
-            background: var(--blue-50);
-            box-shadow: 0 40px 70px -40px rgba(12, 24, 54, .45)
-        }
-
-        .wimg {
-            position: absolute;
-            inset: -10% 0;
-            will-change: transform
-        }
-
-        .wimg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover
-        }
-
-        .wg {
-            display: grid
-        }
-
-        .wc {
-            position: relative;
-            display: grid;
-            grid-template-columns: 44px minmax(0, 1fr);
-            gap: 20px;
-            padding: 36px 0;
-            border-top: 1px solid var(--line);
-            transition: padding .7s var(--ease)
-        }
-
-        .wc:last-child {
-            border-bottom: 1px solid var(--line)
-        }
-
-        .wc::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: -1px;
-            height: 1px;
-            width: 0;
-            background: var(--red);
-            transition: width .9s var(--ease)
-        }
-
-        .wc:hover::before {
-            width: 100%
-        }
-
-        .wc:hover {
-            padding-left: 14px
-        }
-
-        .wi {
-            color: var(--red);
-            padding-top: 4px
-        }
-
-        .wi svg {
-            width: 28px;
-            height: 28px
-        }
-
-        .wc h3 {
-            font-size: clamp(1.4rem, 2.4vw, 2rem);
+        .band__box h2 {
+            font-size: clamp(1.5rem, 2.8vw, 2.1rem);
             font-weight: 500;
             letter-spacing: -.03em;
-            line-height: 1.15;
-            margin-bottom: 10px
+            line-height: 1.2;
+            margin-bottom: 8px;
+            max-width: 30ch
         }
 
-        .wc p {
-            font-size: .95rem;
+        .band__box h2 em {
+            font-style: normal;
             font-weight: 300;
-            color: var(--ink-2);
-            max-width: 46ch
+            color: #FF8A92
+        }
+
+        .band__box p {
+            font-size: .92rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .82);
+            max-width: 56ch
+        }
+
+        .band__cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px
         }
 
         /* process */
-        .process {
-            background: radial-gradient(820px 480px at 12% 0, rgba(39, 72, 150, .55), transparent 65%), var(--navy-2)
+        .grid--steps {
+            grid-template-columns: repeat(5, minmax(0, 1fr))
         }
 
-        .sg {
-            --p: 1;
-            position: relative;
+        .step {
+            padding: 24px;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            box-shadow: var(--shadow)
+        }
+
+        .step__num {
             display: grid;
-            grid-template-columns: repeat(5, minmax(0, 1fr));
-            gap: clamp(20px, 3vw, 44px);
-            padding-top: 64px
-        }
-
-        .sg::before,
-        .sg::after {
-            content: "";
-            position: absolute;
-            top: 22px;
-            left: 0;
-            right: 0;
-            height: 1px
-        }
-
-        .sg::before {
-            background: var(--line-w)
-        }
-
-        .sg::after {
-            background: var(--red);
-            transform-origin: left;
-            transform: scaleX(var(--p))
-        }
-
-        .sp {
-            position: relative
-        }
-
-        .sp::before {
-            content: "";
-            position: absolute;
-            top: -46px;
-            left: 0;
-            width: 9px;
-            height: 9px;
+            place-items: center;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: var(--navy-2);
-            border: 1px solid var(--red);
-            z-index: 1
-        }
-
-        .sp b {
-            display: block;
-            font-size: .95rem;
-            font-weight: 600;
-            letter-spacing: .14em;
-            color: var(--red-soft);
-            margin-bottom: 14px
-        }
-
-        .sp h3 {
-            font-size: 1.2rem;
+            background: var(--blue);
+            color: #fff;
+            font-size: .82rem;
             font-weight: 500;
-            letter-spacing: -.02em;
-            line-height: 1.25;
-            margin-bottom: 10px
+            margin-bottom: 18px
         }
 
-        .sp p {
-            font-size: .88rem;
+        .step__title {
+            font-size: 1.02rem;
+            font-weight: 500;
+            line-height: 1.3;
+            margin-bottom: 8px
+        }
+
+        .step__text {
+            font-size: .84rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, .7)
+            color: var(--ink-2)
         }
 
-        /* eligibility */
-        .apply {
-            background: var(--cream)
-        }
-
-        .kg {
+        /* why learntech */
+        .lt {
             display: grid;
-            grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-            gap: clamp(28px, 4vw, 64px);
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+            gap: 24px
+        }
+
+        .lt__panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: clamp(28px, 4vw, 44px);
+            border-radius: var(--r-lg);
+            background: linear-gradient(150deg, var(--blue-dark), var(--blue));
+            color: #fff;
+            box-shadow: var(--shadow-up)
+        }
+
+        .lt__panel .eyebrow {
+            align-self: flex-start;
+            background: rgba(255, 255, 255, .14);
+            color: #fff;
+            margin-bottom: 0
+        }
+
+        .lt__panel .ln+.ln {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, .18)
+        }
+
+        .lt__panel .ln b {
+            display: block;
+            font-size: 2rem;
+            font-weight: 500;
+            line-height: 1.15;
+            letter-spacing: -.02em
+        }
+
+        .lt__panel .ln span {
+            font-size: .84rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .78)
+        }
+
+        .lt__cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px
+        }
+
+        /* eligibility + documents + checklist */
+        .apply {
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+            gap: 24px;
             align-items: start
         }
 
-        .kc h3 {
-            font-size: .74rem;
-            font-weight: 600;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            color: var(--ink-3);
-            margin-bottom: 24px
+        .apply--check {
+            margin-top: 24px;
+            grid-template-columns: repeat(2, minmax(0, 1fr))
         }
 
-        .tw {
-            overflow-x: auto
+        .panel {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r-lg);
+            padding: clamp(24px, 3vw, 36px);
+            box-shadow: var(--shadow)
         }
 
-        table {
-            width: 100%;
-            border-collapse: collapse
-        }
-
-        th {
-            text-align: left;
-            font-size: clamp(1rem, 1.6vw, 1.25rem);
+        .panel__title {
+            font-size: 1.1rem;
             font-weight: 500;
-            letter-spacing: -.015em;
-            color: var(--ink);
-            padding: 0 16px 18px 0;
-            border-bottom: 2px solid var(--ink)
+            margin-bottom: 20px
         }
 
-        td {
-            padding: 28px 16px 28px 0;
-            border-top: 1px solid var(--line);
-            vertical-align: top
+        .panel__tag {
+            display: inline-block;
+            font-size: .72rem;
+            font-weight: 500;
+            padding: 3px 12px;
+            border-radius: 99px;
+            background: #EAF0FD;
+            color: var(--blue);
+            margin-bottom: 12px
         }
 
-        tbody tr:first-child td {
-            border-top: 0
-        }
-
-        td b {
-            display: block;
-            font-size: clamp(1.8rem, 3.4vw, 3rem);
-            font-weight: 300;
-            letter-spacing: -.04em;
-            line-height: 1;
-            color: var(--blue)
-        }
-
-        td:nth-child(3) b {
+        .panel__tag--red {
+            background: #FDECEE;
             color: var(--red)
         }
 
-        .pl {
-            display: block;
-            margin-top: 12px;
-            font-size: .82rem;
-            font-weight: 300;
-            color: var(--ink-2);
-            max-width: 26ch
+        .panel .panel__tag+.panel__title {
+            margin-bottom: 14px
         }
 
-        .lvt {
-            font-size: .7rem;
-            font-weight: 600;
-            letter-spacing: .16em;
-            color: var(--blue);
-            padding-bottom: 3px;
-            border-bottom: 1px solid var(--blue)
-        }
-
-        .lvt.pg {
+        .sub {
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
             color: var(--red);
-            border-color: var(--red)
+            margin-bottom: 14px
         }
 
-        .kc.docs {
-            background: var(--navy);
-            color: #fff;
-            padding: clamp(28px, 4vw, 48px);
-            border-radius: 3px;
-            box-shadow: 0 40px 70px -40px rgba(12, 24, 54, .7)
+        .marks {
+            display: grid;
+            gap: 12px
         }
 
-        .kc.docs h3 {
-            color: rgba(255, 255, 255, .55)
-        }
-
-        .ck li {
-            display: flex;
+        .marks__row {
+            display: grid;
+            grid-template-columns: 72px repeat(2, minmax(0, 1fr));
             gap: 16px;
-            align-items: flex-start;
-            padding: 18px 0;
-            border-top: 1px solid var(--line-w);
-            font-size: .98rem;
+            align-items: start;
+            padding: 18px;
+            background: var(--bg-soft);
+            border-radius: var(--r-sm)
+        }
+
+        .marks__level {
+            font-size: .78rem;
+            font-weight: 600;
+            color: var(--blue)
+        }
+
+        .marks__row--pg .marks__level {
+            color: var(--red)
+        }
+
+        .marks__label {
+            display: block;
+            font-size: .74rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, .92)
+            color: var(--ink-3);
+            margin-bottom: 2px
         }
 
-        .ck svg {
+        .marks__value {
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -.03em;
+            line-height: 1.2
+        }
+
+        .marks__list {
+            display: block;
+            margin-top: 6px;
+            font-size: .78rem;
+            font-weight: 300;
+            color: var(--ink-2)
+        }
+
+        .docs li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 14px 0;
+            border-top: 1px solid var(--line);
+            font-size: .92rem;
+            font-weight: 300;
+            color: var(--ink-2)
+        }
+
+        .docs li:first-child {
+            border-top: 0;
+            padding-top: 0
+        }
+
+        .docs svg {
             flex: none;
-            width: 18px;
-            height: 18px;
-            margin-top: 4px;
-            color: var(--red-soft)
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            color: var(--red)
         }
 
-        /* testimonials */
+        .panel .docs li {
+            font-size: .9rem
+        }
+
+        .docs--blue svg {
+            color: var(--blue)
+        }
+
+        /* testimonials (dark section) */
+        .section--dark {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            background: radial-gradient(700px 420px at 92% 0, rgba(233, 60, 71, .28), transparent 70%), radial-gradient(800px 520px at 0 100%, rgba(39, 72, 150, .6), transparent 70%), var(--navy)
+        }
+
+        .section--dark .eyebrow {
+            background: rgba(255, 255, 255, .12);
+            color: #fff
+        }
+
+        .section--dark .lead {
+            color: rgba(255, 255, 255, .75)
+        }
+
         .stories {
-            background: #fff
+            display: grid;
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr);
+            gap: clamp(28px, 5vw, 72px);
+            align-items: center
+        }
+
+        .stories__intro .arrs {
+            margin-top: 32px
+        }
+
+        .section--dark .arr {
+            background: transparent;
+            border-color: rgba(255, 255, 255, .35);
+            color: #fff
+        }
+
+        .section--dark .arr:hover {
+            background: #fff;
+            border-color: #fff;
+            color: var(--navy)
+        }
+
+        .stories .track {
+            min-width: 0
         }
 
         .tq {
-            flex: 0 0 clamp(290px, 38%, 440px);
+            position: relative;
+            flex: 0 0 clamp(280px, 70%, 420px);
             scroll-snap-align: start;
             display: flex;
             flex-direction: column;
-            gap: 22px;
-            padding: 30px 0 0;
-            border-top: 2px solid var(--ink)
+            gap: 20px;
+            padding: 32px;
+            background: rgba(255, 255, 255, .07);
+            border: 1px solid rgba(255, 255, 255, .16);
+            border-radius: var(--r-lg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: transform .5s var(--ease), background .4s, border-color .4s
         }
 
-        .tq::before {
-            content: "\201C";
-            font-size: 4.6rem;
-            font-weight: 200;
-            line-height: .6;
-            color: var(--red);
-            height: 34px
+        .tq:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, .11);
+            border-color: rgba(255, 255, 255, .3)
+        }
+
+        .tq__ico {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--red);
+            color: #fff;
+            box-shadow: 0 10px 24px -8px rgba(233, 60, 71, .7)
+        }
+
+        .tq__ico svg {
+            width: 22px;
+            height: 22px
         }
 
         .tq blockquote {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 300;
-            line-height: 1.6
+            line-height: 1.75;
+            color: rgba(255, 255, 255, .92)
+        }
+
+        .tq__sample {
+            align-self: flex-start;
+            font-size: .68rem;
+            font-weight: 500;
+            padding: 3px 10px;
+            border-radius: 99px;
+            background: rgba(255, 200, 120, .16);
+            color: #ffd9a0;
+            border: 1px solid rgba(255, 200, 120, .4)
         }
 
         .who {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
             margin-top: auto;
-            padding-top: 18px
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, .16)
+        }
+
+        .av {
+            flex: none;
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #fff;
+            color: var(--blue);
+            font-size: .8rem;
+            font-weight: 600
         }
 
         .who b {
             display: block;
-            font-size: .9rem;
-            font-weight: 600
+            font-size: .94rem;
+            font-weight: 500
         }
 
-        .who span {
+        .who span.m {
             font-size: .78rem;
-            color: var(--ink-3)
+            font-weight: 300;
+            color: rgba(255, 255, 255, .65)
         }
 
-        .tagp {
-            display: inline-block;
-            font-size: .66rem;
-            font-weight: 600;
-            padding: 2px 9px;
-            background: #fff4dc;
-            color: #8a6a24;
-            border: 1px solid #E5BD7C
-        }
-
-        /* FAQ */
+        /* faq */
         .faq {
-            background: #fff
-        }
-
-        .fw {
+            max-width: 820px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
-            gap: clamp(32px, 6vw, 96px);
-            align-items: start
+            gap: 12px
         }
 
-        .fw .sh {
-            position: sticky;
-            top: calc(var(--nav) + 32px);
-            margin-bottom: 0
+        .faq__item {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: var(--r);
+            transition: box-shadow .4s var(--ease)
         }
 
-        .fq {
-            border-top: 1px solid var(--ink)
+        .faq__item[open] {
+            box-shadow: var(--shadow)
         }
 
-        .fh {
-            font: inherit
-        }
-
-        .q {
-            width: 100%;
-            text-align: left;
-            padding: 28px 0;
+        .faq__q {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 24px;
-            font-size: clamp(1.05rem, 1.7vw, 1.35rem);
-            font-weight: 400;
-            letter-spacing: -.015em;
-            line-height: 1.35;
-            transition: color .3s, padding .6s var(--ease)
+            gap: 20px;
+            padding: 22px 26px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            list-style: none
         }
 
-        .q:hover {
-            color: var(--blue);
-            padding-left: 8px
+        .faq__q::-webkit-details-marker {
+            display: none
         }
 
-        .q[aria-expanded=true] {
-            color: var(--blue)
-        }
-
-        .q span {
+        .faq__q::after {
+            content: "+";
             flex: none;
-            position: relative;
-            width: 22px;
-            height: 22px;
-            font-size: 0;
-            color: var(--ink-3);
-            transition: color .3s
+            display: grid;
+            place-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--blue);
+            transition: transform .4s var(--ease), background .3s
         }
 
-        .q span::before,
-        .q span::after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            width: 16px;
-            height: 1.5px;
-            background: currentColor;
-            transition: transform .6s var(--ease)
-        }
-
-        .q span::before {
-            transform: translate(-50%, -50%)
-        }
-
-        .q span::after {
-            transform: translate(-50%, -50%) rotate(90deg)
-        }
-
-        .q[aria-expanded=true] span {
+        .faq__item[open] .faq__q::after {
+            transform: rotate(45deg);
+            background: #FDECEE;
             color: var(--red)
         }
 
-        .q[aria-expanded=true] span::after {
-            transform: translate(-50%, -50%) rotate(0)
-        }
-
-        .a {
-            display: grid;
-            grid-template-rows: 0fr;
-            border-bottom: 1px solid var(--line);
-            transition: grid-template-rows .7s var(--ease)
-        }
-
-        .a.open {
-            grid-template-rows: 1fr
-        }
-
-        .a>div {
-            overflow: hidden
-        }
-
-        .a p {
-            padding: 4px 0 32px;
-            font-size: 1rem;
+        .faq__a {
+            padding: 0 26px 24px;
+            font-size: .94rem;
             font-weight: 300;
             color: var(--ink-2);
-            max-width: 56ch;
-            opacity: 0;
-            transform: translateY(-8px);
-            transition: opacity .5s .1s, transform .7s var(--ease) .05s
+            max-width: 64ch
         }
 
-        .a.open p {
-            opacity: 1;
-            transform: none
-        }
-
-        /* CTA with background image */
-        .enq {
+        /* cta */
+        .cta {
             position: relative;
             overflow: hidden;
-            background: var(--navy);
-            color: #fff
+            border-radius: var(--r-lg);
+            background: linear-gradient(150deg, var(--blue), var(--navy));
+            color: #fff;
+            text-align: center;
+            padding: clamp(48px, 7vw, 88px) clamp(24px, 5vw, 64px)
         }
 
-        .enq-bg {
+        .cta__bg {
             position: absolute;
-            inset: 0;
-            z-index: 0
+            inset: 0
         }
 
-        .enq-bg img {
+        .cta__bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: .7
+            opacity: .25
         }
 
-        .enq-bg::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(760px 420px at 50% 46%, rgba(12, 24, 54, .78), transparent 75%), linear-gradient(180deg, rgba(12, 24, 54, .82), rgba(12, 24, 54, .5) 50%, rgba(26, 50, 102, .7))
-        }
-
-        .cx {
+        .cta__inner {
             position: relative;
-            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: 24px;
-            max-width: 880px;
-            margin: auto;
-            padding-bottom: clamp(40px, 6vw, 90px)
+            gap: 20px;
+            max-width: 640px;
+            margin: 0 auto
         }
 
-        .cx .lab {
-            margin-bottom: 0
-        }
-
-        .cx .lab::after {
-            content: "";
-            width: 32px;
-            height: 1px;
-            background: currentColor
-        }
-
-        .cx h2 {
-            font-size: clamp(2.4rem, 6.2vw, 5.2rem);
+        .cta__title {
+            font-size: clamp(1.9rem, 4.4vw, 3.2rem);
             font-weight: 500;
-            letter-spacing: -.05em;
-            line-height: 1.02
-        }
-
-        .cx h2 em {
-            font-weight: 300;
             letter-spacing: -.035em;
-            color: var(--red-soft)
+            line-height: 1.1
         }
 
-        .cx p {
-            max-width: 46ch;
-            font-size: 1.02rem;
+        .cta__title em {
+            font-style: normal;
+            font-weight: 300;
+            color: #FF8A92
+        }
+
+        .cta__text {
             font-weight: 300;
             color: rgba(255, 255, 255, .82)
         }
@@ -1712,81 +1205,60 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
-            margin-top: 12px
+            gap: 8px;
+            margin-top: 8px
         }
 
         .tags li {
-            padding: 9px 18px;
-            border: 1px solid rgba(255, 255, 255, .28);
+            padding: 7px 16px;
             border-radius: 99px;
-            background: rgba(255, 255, 255, .08);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            font-size: .78rem;
-            font-weight: 400
+            background: rgba(255, 255, 255, .12);
+            font-size: .78rem
         }
 
         /* footer */
-        footer {
-            background: #08112b;
+        .footer {
+            background: var(--navy);
             color: rgba(255, 255, 255, .65);
-            padding: clamp(64px, 8vw, 104px) 0 32px;
+            padding: clamp(56px, 7vw, 88px) 0 28px;
             font-size: .88rem;
             font-weight: 300
         }
 
-        .fgrid {
+        .footer__grid {
             display: grid;
             grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
             gap: clamp(28px, 4vw, 56px)
         }
 
-        .flogo {
-            display: inline-block;
-            margin-bottom: 22px;
-            font-size: 1.3rem;
-            font-weight: 700;
+        .footer .brand {
             color: #fff;
-            text-decoration: none
+            margin-bottom: 18px
         }
 
-        .flogo img {
-            height: 40px;
-            width: auto
+        .footer__grid p {
+            max-width: 34ch
         }
 
-        .fgrid p {
-            max-width: 34ch;
-            line-height: 1.7
-        }
-
-        .fgrid h4 {
+        .footer h4 {
             color: #fff;
-            font-size: .72rem;
-            font-weight: 600;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-            margin-bottom: 20px
+            font-size: .82rem;
+            font-weight: 500;
+            margin-bottom: 16px
         }
 
-        .fgrid li {
-            margin-bottom: 10px
+        .footer li {
+            margin-bottom: 9px
         }
 
-        .fgrid a {
-            text-decoration: none;
-            transition: color .3s
-        }
-
-        .fgrid a:hover {
+        .footer a:hover {
             color: #fff
         }
 
-        .fb {
-            margin-top: clamp(40px, 6vw, 72px);
-            padding-top: 24px;
-            border-top: 1px solid var(--line-w);
+        .footer__bottom {
+            margin-top: 48px;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255, 255, 255, .12);
             font-size: .76rem;
             color: rgba(255, 255, 255, .5)
         }
@@ -1795,215 +1267,117 @@
             display: none
         }
 
-        /* reveal states (only when motion is allowed) */
-        .js .rv:not(.in) {
-            opacity: 0
+        /* reveal */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .9s var(--ease), transform .9s var(--ease)
         }
 
-        .js .clip:not(.in) {
-            clip-path: inset(0 0 100% 0)
+        .js .reveal.is-in {
+            opacity: 1;
+            transform: none
         }
 
         /* responsive */
         @media(max-width:1023px) {
-            .sh {
+
+            .lt,
+            .apply,
+            .apply--check,
+            .stories {
                 grid-template-columns: 1fr
             }
 
-            .sh .sd {
-                margin-top: 22px;
-                padding: 0
+            .grid--4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
             }
 
-            .wy,
-            .fw,
-            .kg {
-                grid-template-columns: 1fr
+            .grid--steps {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
             }
 
-            .wl,
-            .fw .sh {
-                position: static
-            }
-
-            .fw .sh {
-                margin-bottom: 24px
-            }
-
-            .fgrid {
+            .footer__grid {
                 grid-template-columns: 1fr 1fr
             }
 
-            .nav ul {
-                gap: 20px
-            }
-
-            .sg {
-                grid-template-columns: 1fr;
-                padding: 0 0 0 36px;
-                gap: 44px
-            }
-
-            .sg::before,
-            .sg::after {
-                top: 6px;
-                bottom: 6px;
-                left: 4px;
-                right: auto;
-                width: 1px;
-                height: auto
-            }
-
-            .sg::after {
-                transform-origin: top;
-                transform: scaleY(var(--p))
-            }
-
-            .sp::before {
-                top: 8px;
-                left: -36px
-            }
-
-            .hbg::after {
-                background: linear-gradient(180deg, rgba(250, 252, 255, .6) 0%, rgba(250, 252, 255, .88) 55%, rgba(250, 252, 255, .94) 100%)
-            }
-
-            .cg {
-                grid-template-columns: 1fr
-            }
-
-            .wvw {
-                max-width: 560px
+            .course {
+                flex-basis: clamp(280px, 46%, 390px)
             }
         }
 
         @media(max-width:767px) {
             :root {
-                --nav: 68px
+                --nav: 64px
             }
 
-            .mbtn {
-                display: inline-flex
+            .header__inner {
+                flex-wrap: wrap;
+                height: auto;
+                padding-top: 10px;
+                padding-bottom: 8px;
+                gap: 8px
             }
 
-            .nav ul {
-                display: flex;
-                position: fixed;
-                inset: 0;
-                z-index: 1;
-                height: 100vh;
-                height: 100dvh;
-                flex-direction: column;
-                align-items: stretch;
-                justify-content: flex-start;
-                gap: 0;
-                padding: calc(var(--nav) + 28px) 24px calc(32px + env(safe-area-inset-bottom));
-                background: radial-gradient(520px 380px at 100% 0, rgba(233, 60, 71, .28), transparent 65%), radial-gradient(600px 420px at 0 100%, rgba(39, 72, 150, .7), transparent 70%), var(--navy);
-                color: #fff;
-                overflow-y: auto;
-                counter-reset: n;
-                visibility: hidden;
-                clip-path: circle(0px at calc(100% - 46px) 34px);
-                transition: clip-path .9s var(--ease), visibility 0s .9s
+            .brand {
+                font-size: 1.15rem
             }
 
-            .nav ul.open {
-                visibility: visible;
-                clip-path: circle(150% at calc(100% - 46px) 34px);
-                transition: clip-path 1.1s var(--ease), visibility 0s
+            .nav {
+                order: 3;
+                width: 100%
             }
 
-            .nav li {
-                width: 100%;
-                border-bottom: 1px solid var(--line-w);
-                overflow: hidden
+            .nav__links {
+                gap: 22px;
+                overflow-x: auto;
+                scrollbar-width: none;
+                padding: 6px 0
             }
 
-            .nav li>a {
-                transform: translateY(110%);
-                transition: transform .9s var(--ease)
-            }
-
-            .nav ul.open li>a {
-                transform: none;
-                transition-delay: calc(.3s + var(--i)*.07s)
-            }
-
-            .nav li a:not(.btn) {
-                display: flex;
-                align-items: baseline;
-                gap: 16px;
-                padding: 18px 0;
-                font-size: clamp(1.9rem, 9vw, 2.6rem);
-                font-weight: 400;
-                letter-spacing: -.04em;
-                line-height: 1.1;
-                opacity: 1;
-                color: #fff
-            }
-
-            .nav li a:not(.btn)::before {
-                counter-increment: n;
-                content: "0" counter(n);
-                font-size: .72rem;
-                font-weight: 500;
-                letter-spacing: .14em;
-                color: var(--red-soft)
-            }
-
-            .nav li a:not(.btn)::after {
+            .nav__links::-webkit-scrollbar {
                 display: none
             }
 
-            .nav li.cta-li {
-                border: 0;
-                margin-top: 28px
+            .nav__links a {
+                white-space: nowrap
             }
 
-            .nav li.cta-li .btn {
-                display: flex;
-                height: 56px
+            html {
+                scroll-padding-top: 120px
             }
 
-            .nav li.cta-li .btn span {
-                flex: 1
+            .hero {
+                padding-top: 150px;
+                min-height: auto
             }
 
-            .nav li.mfoot {
-                display: block;
-                margin-top: auto;
-                padding-top: 32px;
-                border: 0;
-                font-size: .85rem;
-                font-weight: 300;
-                line-height: 1.8;
-                color: rgba(255, 255, 255, .6);
-                opacity: 0;
-                transition: opacity .4s
-            }
-
-            .nav ul.open li.mfoot {
-                opacity: 1;
-                transition: opacity .8s .8s
-            }
-
-            .hin {
-                padding-top: calc(var(--nav) + 40px)
-            }
-
-            .cta .btn {
-                flex: 1 1 100%
-            }
-
-            .cta .btn span {
-                flex: 1
-            }
-
-            .fgrid {
+            .grid--4,
+            .grid--2,
+            .grid--steps,
+            .footer__grid,
+            .lt__cards {
                 grid-template-columns: 1fr
             }
 
-            .pgc {
+            .marks__row {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .marks__level {
+                grid-column: 1/-1
+            }
+
+            .hero .btn,
+            .band__cta .btn {
+                width: 100%
+            }
+
+            .band__cta {
+                width: 100%
+            }
+
+            .course {
                 flex-basis: 84%
             }
 
@@ -2011,117 +1385,19 @@
                 flex-basis: 86%
             }
 
-            .fil {
-                gap: 16px
-            }
-
-            #fl {
-                width: 100%
-            }
-
-            #fl .chip {
-                flex: 1
-            }
-
-            .ctl {
-                gap: 14px
-            }
-
-            .cnt {
-                min-width: 0;
-                font-size: .76rem
-            }
-
-            .cc dl div {
-                grid-template-columns: 90px minmax(0, 1fr)
-            }
-
-            .wc {
-                grid-template-columns: 34px minmax(0, 1fr);
-                gap: 14px;
-                padding: 28px 0
-            }
-
-            .wc:hover {
-                padding-left: 0
-            }
-
-            .kc.docs {
-                padding: 28px 22px
-            }
-
-            .q {
-                padding: 22px 0
-            }
-
-            thead {
-                display: none
-            }
-
-            table,
-            tbody,
-            tr,
-            td {
-                display: block
-            }
-
-            tr {
-                padding: 24px 0;
-                border-top: 1px solid var(--line)
-            }
-
-            tbody tr:first-child {
-                border-top: 2px solid var(--ink)
-            }
-
-            td,
-            tbody tr:first-child td {
-                padding: 12px 0;
-                border: 0
-            }
-
-            td::before {
-                content: attr(data-label);
-                display: block;
-                font-size: .7rem;
-                font-weight: 500;
-                letter-spacing: .12em;
-                text-transform: uppercase;
-                color: var(--ink-3);
-                margin-bottom: 6px
-            }
-
-            td:first-child {
-                padding-top: 0
-            }
-
-            td:first-child::before {
-                display: none
-            }
-
-            .pl {
-                max-width: none
-            }
-
             .mbar {
                 display: block;
                 position: fixed;
                 inset: auto 0 0;
-                z-index: 55;
+                z-index: 49;
                 padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
                 background: rgba(255, 255, 255, .96);
                 backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
-                box-shadow: 0 -1px 0 var(--line)
+                border-top: 1px solid var(--line)
             }
 
             .mbar .btn {
-                display: flex;
                 width: 100%
-            }
-
-            .mbar .btn span {
-                flex: 1
             }
 
             body {
@@ -2139,245 +1415,924 @@
                 scroll-behavior: auto !important
             }
         }
+
+        /* v3 additions */
+        .hero__stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 14px;
+            margin-top: 44px
+        }
+
+        .hero__stats li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 18px 10px 10px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, .12);
+            border: 1px solid rgba(255, 255, 255, .22);
+            backdrop-filter: blur(8px)
+        }
+
+        .hero__stats span {
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .18)
+        }
+
+        .hero__stats svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .hero__stats b {
+            display: block;
+            font-size: .95rem;
+            font-weight: 500;
+            line-height: 1.2
+        }
+
+        .hero__stats small {
+            font-size: .72rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .78)
+        }
+
+        .why {
+            display: grid;
+            grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+            gap: clamp(28px, 4vw, 56px);
+            align-items: stretch
+        }
+
+        .why__img {
+            position: relative;
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            min-height: 360px;
+            background: linear-gradient(150deg, #dbe6ff, #b7caf5);
+            box-shadow: var(--shadow-up)
+        }
+
+        .why__img img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .why__badge {
+            position: absolute;
+            left: 16px;
+            bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, .95);
+            border-radius: 14px;
+            font-size: .8rem;
+            font-weight: 500;
+            box-shadow: var(--shadow)
+        }
+
+        .why__badge svg {
+            width: 16px;
+            height: 16px;
+            color: var(--red)
+        }
+
+        .grid--features {
+            grid-template-columns: repeat(2, minmax(0, 1fr))
+        }
+
+        .course__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px
+        }
+
+        .course__ico {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: #EAF0FD;
+            color: var(--blue);
+            transition: background .3s, color .3s
+        }
+
+        .course[data-college=bits] .course__ico {
+            background: #FDECEE;
+            color: var(--red)
+        }
+
+        .course__ico svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .course:hover .course__ico {
+            background: var(--blue);
+            color: #fff
+        }
+
+        .course[data-college=bits]:hover .course__ico {
+            background: var(--red);
+            color: #fff
+        }
+
+        .college__loc {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .college__loc svg {
+            width: 15px;
+            height: 15px
+        }
+
+        .step {
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease)
+        }
+
+        .step:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-up)
+        }
+
+        .step__top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px
+        }
+
+        .step__icon {
+            display: grid;
+            place-items: center;
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            background: #EAF0FD;
+            color: var(--blue)
+        }
+
+        .step__icon svg {
+            width: 22px;
+            height: 22px
+        }
+
+        .step__num {
+            width: auto;
+            height: auto;
+            margin: 0;
+            border-radius: 0;
+            background: none;
+            display: block;
+            line-height: 1;
+            font-size: 1.8rem;
+            font-weight: 500;
+            letter-spacing: -.03em;
+            color: #cfd6e6
+        }
+
+        .panel__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .panel__tag svg {
+            width: 14px;
+            height: 14px
+        }
+
+        .tags li {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px
+        }
+
+        .tags svg {
+            width: 14px;
+            height: 14px
+        }
+
+        .footer__contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px
+        }
+
+        .footer__contact svg {
+            flex: none;
+            width: 16px;
+            height: 16px;
+            margin-top: 5px;
+            color: rgba(255, 255, 255, .8)
+        }
+
+        @media(max-width:1023px) {
+            .why {
+                grid-template-columns: 1fr
+            }
+
+            .why__img {
+                min-height: 280px
+            }
+        }
+
+        @media(max-width:767px) {
+            .grid--features {
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                background: linear-gradient(180deg, rgba(12, 24, 54, .9) 0%, rgba(12, 24, 54, .74) 100%), url("media/Aspiring Student in Dubai Skyline.png") 72% center/cover no-repeat, var(--navy)
+            }
+
+            .hero__stats li {
+                width: 100%
+            }
+        }
     </style>
 </head>
 
 <body>
-    <header id="hdr">
-        <div class="shell nav">
-            <a class="logo" href="#top" aria-label="Learntech home"><img
-                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NTUuMDcgMTIwLjYxIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjZTUzMzQwOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgZmlsbDogIzFmNDQ4ZjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGc+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMS4xNC44OUMxMC4yOC44OSwxLjQ4LDkuNywxLjQ4LDIwLjU1djc5LjUxYzAsMTAuODYsOC44LDE5LjY2LDE5LjY2LDE5LjY2aDc5LjUxYzEwLjg2LDAsMTkuNjYtOC44LDE5LjY2LTE5LjY2Vi44OUgyMS4xNFoiLz4KICAgIDxnPgogICAgICA8Y2lyY2xlIGNsYXNzPSJjbHMtMiIgY3g9IjY5Ljc3IiBjeT0iNTcuOTMiIHI9IjEyLjAxIi8+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMiIgeD0iMjYuOTgiIHk9IjIxLjU4IiB3aWR0aD0iMTYuMzIiIGhlaWdodD0iNjEuMzQiLz4KICAgICAgPHJlY3QgY2xhc3M9ImNscy0yIiB4PSI0Mi40MiIgeT0iODIuNzEiIHdpZHRoPSI1My4yNyIgaGVpZ2h0PSIxNi4zMiIvPgogICAgPC9nPgogIDwvZz4KICA8Zz4KICAgIDxwb2x5Z29uIGNsYXNzPSJjbHMtMyIgcG9pbnRzPSIxNjIuNDcgLjg5IDE0Ny42NiAuODkgMTQ3LjY2IDc4LjEzIDE5OC4zNCA3OC4xMyAxOTguMzQgNjYuNjIgMTYyLjQ3IDY2LjYyIDE2Mi40NyAuODkiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTI0Ny45MiwyMi42MmgwYy0zLjk4LTMuMDMtMTAuMTktNC41Ny0xOC40OC00LjU3LTguOCwwLTE1LjM4LDEuNTktMTkuNTQsNC43NC00LjMsMy4yNS02LjQ4LDguNjItNi40OCwxNS45NnYyMS43OGMwLDEyLjQ1LDkuMDYsMTguNzYsMjYuOTIsMTguNzYsNi40OSwwLDEzLjI2LS43OCwyMC4xMi0yLjMzbDEuNTEtLjM0di0xMS44MWwtMi40Ni42NGMtNi44NSwxLjc3LTEyLjg0LDIuNjctMTcuODIsMi42N3MtOC42Mi0uNzMtMTAuOTktMi4xNmMtMi4xMS0xLjI4LTMuMTMtMy40Ni0zLjEzLTYuNjd2LTYuNDRoMzYuNTV2LTE0LjA4YzAtNy41Ni0yLjA4LTEyLjk5LTYuMTktMTYuMTNaTTIxNy41Nyw0Mi4zM3YtNi43OGMwLTIuNzIuNzUtNC40NywyLjI5LTUuMzMsMS44Ni0xLjA0LDQuOS0xLjU3LDkuMDMtMS41N3M3LjM3LjUzLDkuMDYsMS41OGMxLjQ0Ljg5LDIuMTQsMi42MywyLjE0LDUuMzJ2Ni43OGgtMjIuNTFaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0yODguNzEsMTguMDVjLTYuMDEsMC0xMi44NS4zNS0yMC4zMSwxLjA0bC0xLjc3LjE2djExLjM5bDIuMjItLjI5YzYuNzctLjksMTIuOTYtMS4zNSwxOC40LTEuMzUsNi4xOCwwLDguNTQuODMsOS4zOSwxLjMyLDEuMjIuNzEsMS44MSwyLjE5LDEuODEsNC41NXY2LjloLTE0LjM1Yy04LjMsMC0xMy44MywxLjI5LTE2LjkzLDMuOTUtMy4xNiwyLjcyLTQuNyw3LjM0LTQuNywxNC4xMiwwLDcuNzMsMS42NSwxMi44MSw1LjAzLDE1LjUyLDMuMjgsMi42NCw4Ljc4LDMuOTIsMTYuODMsMy45Miw2LjY3LDAsMTEuNDItLjg4LDE0LjQ2LTIuNjl2MS41NWgxMy42OXYtNDAuODdjMC03LjcxLTEuNTUtMTIuNzUtNC43My0xNS4zOS0zLjEtMi41Ny05LjMzLTMuODItMTkuMDUtMy44MlpNMjk0LjkzLDY4LjA5Yy0xLjU1LjMyLTIuOTUuNTItNC4xNS41OWgwYy0xLjI1LjA3LTIuODYuMTEtNC43Ny4xMWgtMi4wMmMtMy4yMiwwLTUuNDQtLjU3LTYuMjYtMS42LS41NC0uNjgtMS40NS0yLjUtMS40NS03LjAxLDAtNS4zNS45NC02Ljc1LDEuMjMtNy4wNS4yNy0uMjksMS42LTEuMjIsNy4yOC0xLjIyaDEzLjY3djEzLjE3YzAsLjc3LS4yMiwxLjM0LS42OSwxLjc4LS41OS41NS0xLjU0Ljk2LTIuODIsMS4yM1oiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTM0MS40NSwyMS40M2gwYy0uNjguNDMtMS4zLjg4LTEuODcsMS4zNHYtMy41OGgtMTMuNDd2NTguOTVoMTQuMDN2LTQwLjc2YzAtMi42NC43Ni00LjM0LDIuMzMtNS4yMSwxLjktMS4wNSw1LjA0LTEuNTgsOS4zMi0xLjU4aC4zOWw0Ljk3LTEyLjU0aC00LjY4Yy0zLjc0LDAtNy40NSwxLjE0LTExLjAyLDMuMzlaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0zOTUuNTMsMTguMDVjLTcuMjYsMC0xMi42LDEuMTktMTUuOTIsMy41NXYtMi40MWgtMTQuMDN2NTguOTVoMTQuMDN2LTQxLjc5YzAtMi44MS43My00LjcsMi4xNi01LjYxLjk1LS42MSwzLjYyLTEuNjIsMTAuODQtMS42MiwyLjM0LDAsNC4yOS4yMiw1Ljc4LjY2LDEuMjQuMzcsMi4xNC44NywyLjU4LDEuNDYuNTYuNzUuOTMsMS40NywxLjA5LDIuMTMuMTkuNzcuMjksMS43Ny4yOSwyLjk5djQxLjc5aDE0LjAzdi00Mi4zNmMwLTUuODEtMS41NS0xMC4yNi00LjYxLTEzLjI0LTMuMTEtMy4wMi04LjQyLTQuNDktMTYuMjMtNC40OVoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTQ1OC45NywyOS42OGw1Ljg3LTEwLjQ5aC0xNi4xOVYuODloLTE0LjE0djE4LjNoLTcuMTZsLTUuNCwxMC40OWgxMi41NnYzMC41YzAsNy4zMSwxLjUzLDEyLjIyLDQuNjgsMTUuMDEsMy4xLDIuNzUsOC4yMSw0LjA5LDE1LjYxLDQuMDksNC4wNiwwLDgtLjMyLDExLjctLjk0bDEuNjItLjI3di0xMC40OWwtMi4yNS4zM2MtNS4wOC43NC03LjA1Ljg5LTcuODEuODktNS4zLDAtNy4xNS0uOTQtNy43OC0xLjUtMS4wNC0uOTItMS42Mi0zLjI1LTEuNjItNi41NHYtMzEuMDdoMTAuMzJaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik01MTcuNjksMjIuNjJoMGMtMy45OC0zLjAzLTEwLjE5LTQuNTctMTguNDctNC41Ny04LjgsMC0xNS4zOCwxLjU5LTE5LjU0LDQuNzQtNC4zLDMuMjUtNi40OCw4LjYyLTYuNDgsMTUuOTZ2MjEuNzhjMCwxMi40NSw5LjA2LDE4Ljc2LDI2LjkyLDE4Ljc2LDYuNDksMCwxMy4yNi0uNzgsMjAuMTItMi4zM2wxLjUxLS4zNHYtMTEuODFsLTIuNDYuNjRjLTYuODUsMS43Ny0xMi44NCwyLjY3LTE3LjgyLDIuNjdzLTguNjItLjczLTEwLjk5LTIuMTZjLTIuMTEtMS4yOC0zLjE0LTMuNDYtMy4xNC02LjY3di02LjQ0aDM2LjU1di0xNC4wOGMwLTcuNTYtMi4wOC0xMi45OS02LjE5LTE2LjEzWk00ODcuMzMsNDIuMzN2LTYuNzhjMC0yLjcyLjc1LTQuNDcsMi4yOS01LjMzLDEuODYtMS4wNCw0LjktMS41Nyw5LjAzLTEuNTdzNy4zNy41Myw5LjA2LDEuNThjMS40NC44OSwyLjE0LDIuNjMsMi4xNCw1LjMydjYuNzhoLTIyLjUxWiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNTYwLjI3LDY4LjMzYy03LjE4LDAtOS43My0xLjAzLTEwLjYxLTEuNjQtMS4zNS0uOTQtMi4wNi0zLjE5LTIuMDYtNi41MXYtMjIuNTdjMC00Ljk5LDEuMTUtNi42NywxLjgzLTcuMjMuNzQtLjYsMi45OS0xLjYxLDkuNy0xLjYxLDUuMTMsMCwxMC41OS43NSwxNi4yNCwyLjIxbDIuNDcuNjR2LTExLjQ4bC0xLjUyLS4zM2MtNS4zLTEuMTctMTAuNjctMS43Ni0xNS45NS0xLjc2LTIuODcsMC01LjIxLjA2LTYuOTQuMTgtMS43NS4xMi0zLjc3LjM1LTYuMDIuNy0yLjQ5LjM4LTQuNTIsMS4wOC02LjAyLDIuMDctMS40Mi45My0yLjgsMi4xNi00LjEsMy42NS0xLjM5LDEuNTgtMi40MiwzLjY0LTMuMDUsNi4xMi0uNiwyLjM0LS45LDUuMTQtLjksOC4zMXYyMC4yOWMwLDMuNjMuNSw2Ljc1LDEuNDcsOS4yNy45OSwyLjU2LDIuMjIsNC41NiwzLjY0LDUuOTYsMS40NywxLjQ1LDMuNTgsMi41NSw2LjI2LDMuMjksMi40OS42OCw0Ljc1LDEuMDksNi43MSwxLjIxLDEuODcuMTIsNC41LjE4LDcuODMuMTgsNi43OCwwLDEyLjc4LS41NSwxNy44Ni0xLjY0bDEuNTMtLjMzdi0xMS43MWwtMi40Ni42M2MtNS40MywxLjQtMTAuNzgsMi4xLTE1LjkxLDIuMVoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTYzMy43NCwyMi41NGMtMy4xMS0zLjAyLTguNDItNC40OS0xNi4yMy00LjQ5LTcuMjYsMC0xMi42LDEuMTktMTUuOTIsMy41NVYuODloLTE0LjAzdjc3LjI1aDE0LjAzdi00MS42N2MwLTIuNzEuNjktNC41OCwyLjA0LTUuNTcuODUtLjYyLDMuNDEtMS42NywxMC45Ni0xLjY3LDIuMzQsMCw0LjI5LjIyLDUuNzguNjYsMS4yNi4zNywyLjEzLjg2LDIuNTgsMS40Ny41Ni43NS45MywxLjQ2LDEuMDksMi4xMy4xOS43Ny4yOCwxLjc3LjI4LDIuOTl2NDEuNjdoMTQuMDN2LTQyLjM2YzAtNS44MS0xLjU1LTEwLjI2LTQuNjEtMTMuMjRaIi8+CiAgPC9nPgogIDxnPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNjM1LjI2LDExLjg1VjIuNzZoLTMuMjVWLjkxaDguN3YxLjg1aC0zLjI0djkuMDloLTIuMjFaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik02NDMuMDIsMTEuODVWLjkxaDMuMzFsMS45OSw3LjQ3LDEuOTYtNy40N2gzLjMxdjEwLjk0aC0yLjA1VjMuMjRsLTIuMTcsOC42MmgtMi4xM2wtMi4xNi04LjYydjguNjJoLTIuMDVaIi8+CiAgPC9nPgogIDxnPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTYxLjE0LDExNS40MmgtOS45bC0xLjYyLDMuNTdoLTMuODdsOC40OS0xOC45M2gzLjg5bDguNDksMTguOTNoLTMuODlsLTEuNi0zLjU3Wk0xNTYuMTksMTA0LjAzbC0zLjUyLDguMDZoNy4wM2wtMy41Mi04LjA2WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMTg3LjE5LDEwMC4wM2gzLjU3djE4Ljk2aC0yLjIydi4wM2wtOS45NS0xMi43OXYxMi43NmgtMy41N3YtMTguOTNoMi44OWw5LjI4LDExLjc0di0xMS43NloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTIxNy4yMSwxMTYuNmMtMS45NSwxLjkyLTQuNDYsMi44MS03LjE5LDIuODEtNy4wMywwLTEwLjAxLTQuODQtMTAuMDMtOS43Ni0uMDMtNC45NSwzLjE5LTkuOTgsMTAuMDMtOS45OCwyLjU3LDAsNSwuOTcsNi45NSwyLjg5bC0yLjM4LDIuM2MtMS4yNC0xLjIyLTIuOTItMS43OC00LjU3LTEuNzgtNC41NywwLTYuNTQsMy40MS02LjUyLDYuNTcuMDMsMy4xNCwxLjg0LDYuNDEsNi41Miw2LjQxLDEuNjUsMCwzLjUyLS42OCw0Ljc2LTEuOTJsMi40MywyLjQ2WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMjM4LjYsMTE5LjAxdi03LjY1aC05LjN2Ny42NWgtMy41N3YtMTguOTNoMy41N3Y3Ljk4aDkuM3YtNy45OGgzLjU0djE4LjkzaC0zLjU0WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMjcwLjYsMTA5LjYzYy0uMDUsNC44OS0zLjA2LDkuNzktOS43MSw5Ljc5cy05Ljc0LTQuNzktOS43NC05Ljc2LDMuMTktOS45OCw5Ljc0LTkuOTgsOS43Niw1LDkuNzEsOS45NVpNMjU0LjY3LDEwOS43MWMuMDgsMy4xMSwxLjc2LDYuNDQsNi4yMiw2LjQ0czYuMTQtMy4zNSw2LjE5LTYuNDZjLjA1LTMuMTktMS43My02Ljc2LTYuMTktNi43NnMtNi4zLDMuNi02LjIyLDYuNzlaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0yOTYuNTEsMTE4Ljk4aC00LjI1bC01LjUyLTYuMzNoLTMuNDN2Ni4zM2gtMy41N3YtMTguOTZjMywwLDYsLjAzLDkuMDEuMDMsNC40Ni4wMyw2LjgxLDMsNi44MSw2LjI3LDAsMi42LTEuMTksNS4yMi00Ljc5LDUuOTVsNS43Myw2LjQ2di4yNFpNMjgzLjMxLDEwMy4zOHY2LjA2aDUuNDRjMi4yNywwLDMuMjUtMS41MSwzLjI1LTMuMDNzLTEtMy4wMy0zLjI1LTMuMDNoLTUuNDRaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik0zMDQuNDksMTE4Ljk4di0xOC45M2gzLjU0djE4LjkzaC0zLjU0WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMzMwLjMyLDEwMC4wM2gzLjU3djE4Ljk2aC0yLjIydi4wM2wtOS45NS0xMi43OXYxMi43NmgtMy41N3YtMTguOTNoMi44OWw5LjI4LDExLjc0di0xMS43NloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTM1Ny43MiwxMDQuNjhjLTEuMjctMS4yMi0zLjE2LTEuODktNC44MS0xLjg5LTQuMDYsMC02LjUyLDMuMDgtNi41Miw2Ljk4LDAsMy4xMSwxLjgxLDYuMzMsNi41Miw2LjMzLDEuNDksMCwyLjc5LS4zMiw0LjI3LTEuNTF2LTMuMzVoLTQuODR2LTMuMTloOC4xMXY3Ljk4Yy0xLjg3LDIuMTQtNC4yMiwzLjQxLTcuNTQsMy40MS03LjExLDAtMTAuMDEtNC42OC0xMC4wMS05LjY1LDAtNS4zMywzLjMzLTEwLjI1LDEwLjAxLTEwLjI1LDIuNTQsMCw1LjA4Ljk3LDcuMDMsMi44OWwtMi4yMiwyLjI3WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNMzg5LjgsMTA3Ljg3bDUuMDMtNy44Mmg0LjN2LjE2bC03LjU0LDEwLjk1djcuODJoLTMuNTd2LTcuODJsLTcuMjctMTAuOTV2LS4xNmg0LjI1bDQuODEsNy44MloiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTQyNS44LDEwOS42M2MtLjA1LDQuODktMy4wNiw5Ljc5LTkuNzEsOS43OXMtOS43NC00Ljc5LTkuNzQtOS43NiwzLjE5LTkuOTgsOS43NC05Ljk4LDkuNzYsNSw5LjcxLDkuOTVaTTQwOS44NywxMDkuNzFjLjA4LDMuMTEsMS43Niw2LjQ0LDYuMjIsNi40NHM2LjE0LTMuMzUsNi4xOS02LjQ2Yy4wNS0zLjE5LTEuNzMtNi43Ni02LjE5LTYuNzZzLTYuMywzLjYtNi4yMiw2Ljc5WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNDUxLjUyLDEwMC4wOHYxMC44NGMwLDUuNi0zLjQzLDguNDYtOC4xOSw4LjQ2cy04LjQxLTIuNzYtOC40MS04LjQ2di0xMC44NGgzLjU0djEwLjg0YzAsMy40MSwxLjk1LDUuMjIsNC44OSw1LjIyczQuNjItMS45Nyw0LjYyLTUuMjJ2LTEwLjg0aDMuNTRaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik00NzguMjksMTE4Ljk4aC00LjI1bC01LjUyLTYuMzNoLTMuNDN2Ni4zM2gtMy41N3YtMTguOTZjMywwLDYsLjAzLDkuMDEuMDMsNC40Ni4wMyw2LjgxLDMsNi44MSw2LjI3LDAsMi42LTEuMTksNS4yMi00Ljc5LDUuOTVsNS43Myw2LjQ2di4yNFpNNDY1LjEsMTAzLjM4djYuMDZoNS40NGMyLjI3LDAsMy4yNS0xLjUxLDMuMjUtMy4wM3MtMS0zLjAzLTMuMjUtMy4wM2gtNS40NFoiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTQ5OC4yLDExOC45OHYtMTguOWgxMy42djMuNDNoLTEwLjAzdjUuMTdoOS40OXYzLjNoLTkuNDl2N2gtMy41N1oiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMyIgZD0iTTUzNy4zNywxMDAuMDh2MTAuODRjMCw1LjYtMy40Myw4LjQ2LTguMTksOC40NnMtOC40MS0yLjc2LTguNDEtOC40NnYtMTAuODRoMy41NHYxMC44NGMwLDMuNDEsMS45NSw1LjIyLDQuODksNS4yMnM0LjYyLTEuOTcsNC42Mi01LjIydi0xMC44NGgzLjU0WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNTUyLjI0LDEwMy4zaC02di0zLjI1aDE1LjU4djMuMjVoLTZ2MTUuNjhoLTMuNTd2LTE1LjY4WiIvPgogICAgPHBhdGggY2xhc3M9ImNscy0zIiBkPSJNNTg3LjY1LDEwMC4wOHYxMC44NGMwLDUuNi0zLjQzLDguNDYtOC4xOSw4LjQ2cy04LjQxLTIuNzYtOC40MS04LjQ2di0xMC44NGgzLjU0djEwLjg0YzAsMy40MSwxLjk1LDUuMjIsNC44OSw1LjIyczQuNjItMS45Nyw0LjYyLTUuMjJ2LTEwLjg0aDMuNTRaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik02MTQuNDIsMTE4Ljk4aC00LjI1bC01LjUyLTYuMzNoLTMuNDN2Ni4zM2gtMy41N3YtMTguOTZjMywwLDYsLjAzLDkuMDEuMDMsNC40Ni4wMyw2LjgxLDMsNi44MSw2LjI3LDAsMi42LTEuMTksNS4yMi00Ljc5LDUuOTVsNS43Myw2LjQ2di4yNFpNNjAxLjIzLDEwMy4zOHY2LjA2aDUuNDRjMi4yNywwLDMuMjUtMS41MSwzLjI1LTMuMDNzLTEtMy4wMy0zLjI1LTMuMDNoLTUuNDRaIi8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTMiIGQ9Ik02MzYuNDksMTE4Ljk4aC0xNC4xN3YtMTguOTNoMTQuMTd2My40NmgtMTAuNjN2NC4zNWgxMC4yNXYzLjMzaC0xMC4yNXY0LjI3aDEwLjYzdjMuNTJaIi8+CiAgPC9nPgo8L3N2Zz4="
-                    alt="" width="206" height="38"></a>
-            <button class="mbtn" id="mb" aria-expanded="false" aria-controls="nl" aria-label="Open menu"><span
-                    class="mb-t"><b>Menu</b><b>Close</b></span><span class="mb-i"
-                    aria-hidden="true"><i></i><i></i></span></button>
-            <ul id="nl">
-                <li style="--i:0"><a href="#courses">Courses</a></li>
-                <li style="--i:1"><a href="#colleges">Colleges</a></li>
-                <li style="--i:2"><a href="#why">Why Dubai</a></li>
-                <li style="--i:3"><a href="#process">How it works</a></li>
-                <li style="--i:4"><a href="#faq">FAQs</a></li>
-                <li class="cta-li" style="--i:5"><a class="btn sm" href="#enquire"><span>Talk to an expert</span><i><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></i></a></li>
-                <li class="mfoot">uae@learntechww.com<br>+971 50 495 5123</li>
-            </ul>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-logo" viewBox="0 0 120 120">
+            <rect width="120" height="120" rx="22" fill="#E53340" />
+            <circle cx="69.8" cy="58" r="12" fill="#fff" />
+            <rect x="27" y="21.6" width="16.3" height="61.3" fill="#fff" />
+            <rect x="42.4" y="82.7" width="53.3" height="16.3" fill="#fff" />
+        </symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6" />
+        </symbol>
+        <symbol id="i-back" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M11 6l-6 6 6 6" />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12l5 5L20 7" />
+        </symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z" />
+            <circle cx="12" cy="10" r="2.5" />
+        </symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18" />
+        </symbol>
+        <symbol id="i-cap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10l9-5 9 5-9 5-9-5z" />
+            <path d="M7 12.5V17c0 1 2.2 2.5 5 2.5s5-1.5 5-2.5v-4.5" />
+        </symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z" />
+            <path d="M9 12l2 2 4-4" />
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" />
+        </symbol>
+        <symbol id="i-biz" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="7" width="18" height="13" rx="2" />
+            <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+        </symbol>
+        <symbol id="i-eng" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2" />
+        </symbol>
+        <symbol id="i-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19V5a2 2 0 0 1 2-2h13v14H6a2 2 0 0 0-2 2zm0 0a2 2 0 0 0 2 2h13" />
+        </symbol>
+        <symbol id="i-fee" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="6" width="18" height="12" rx="2" />
+            <circle cx="12" cy="12" r="2.5" />
+        </symbol>
+        <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />
+        </symbol>
+        <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" />
+            <path d="M14 3v5h5M9 13h6M9 17h6" />
+        </symbol>
+        <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+        </symbol>
+        <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 16l20-8-8 20-3-9-9-3z" />
+        </symbol>
+        <symbol id="i-id" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="3" width="14" height="18" rx="2" />
+            <circle cx="12" cy="10" r="3" />
+            <path d="M9 16h6" />
+        </symbol>
+        <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h3l2-3h6l2 3h3v11H4z" />
+            <circle cx="12" cy="13" r="3.5" />
+        </symbol>
+        <symbol id="i-lang" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 7 8M12 5c-1 4-4 7-8 8M14 20l4-9 4 9M15.5 17h5" />
+        </symbol>
+        <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="8" r="3.5" />
+            <path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5" />
+        </symbol>
+        <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path d="M3 10h18M8 3v4M16 3v4" />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="M3 7l9 6 9-6" />
+        </symbol>
+        <symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 7h4v5a4 4 0 0 1-4 4M15 7h4v5a4 4 0 0 1-4 4" />
+        </symbol>
+    </svg>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a class="brand" href="#top" aria-label="Learntech home"><svg>
+                    <use href="#i-logo" />
+                </svg>Learntech</a>
+            <nav class="nav" aria-label="Main">
+                <ul class="nav__links">
+                    <li><a href="#why">Why Dubai</a></li>
+                    <li><a href="#courses">Programmes</a></li>
+                    <li><a href="#colleges">Colleges</a></li>
+                    <li><a href="#careers">Careers</a></li>
+                    <li><a href="#process">How it works</a></li>
+                    <li><a href="#apply">Eligibility</a></li>
+                    <li><a href="#faq">FAQs</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn--sm" href="#enquire">Talk to an expert</a>
         </div>
     </header>
 
     <main id="top">
+
         <!-- HERO -->
-        <section class="hero" id="hero">
-            <!-- HERO IMAGE: change the src below to your own photo -->
-            <div class="hbg" aria-hidden="true">
-                <div class="himg" data-par=".07"><img src="media/Aspiring Student in Dubai Skyline.png" alt="" fetchpriority="high"
-                        onerror="this.style.display='none'"></div>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__content reveal">
+                    <span class="eyebrow">Dubai admissions guidance</span>
+                    <h1 class="hero__title">Study in Dubai: your next chapter has an <em>address.</em></h1>
+                    <p class="hero__text">Explore UG and PG courses at Symbiosis Dubai and BITS Pilani Dubai, with
+                        clear, honest guidance from Learntech counsellors, from choosing a course to confirming your
+                        offer.</p>
+                    <div class="hero__cta">
+                        <a class="btn btn--light" href="#courses">Explore courses <svg width="16" height="16">
+                                <use href="#i-arrow" />
+                            </svg></a>
+                        <a class="btn btn--glass" href="#enquire">Talk to a counsellor</a>
+                    </div>
+                    <ul class="hero__stats">
+                        <li><span><svg>
+                                    <use href="#i-users" />
+                                </svg></span>
+                            <div><b>1,00,000+</b><small>students guided</small></div>
+                        </li>
+                        <li><span><svg>
+                                    <use href="#i-calendar" />
+                                </svg></span>
+                            <div><b>Since 1994</b><small>guiding families</small></div>
+                        </li>
+                        <li><span><svg>
+                                    <use href="#i-cap" />
+                                </svg></span>
+                            <div><b>2</b><small>partner campuses in Dubai</small></div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="hglow"></div>
-            <div class="edge" aria-hidden="true"></div>
-            <div class="shell hin">
-                <div class="hmain">
-                    <div class="hl">
-                        <span class="lab hf" style="--hd:.1s">Dubai admissions guidance</span>
-                        <h1><span class="ln"><span class="w"><span style="--i:0">Study</span></span> <span
-                                    class="w"><span style="--i:1">in</span></span> <span class="w"><span
-                                        style="--i:2">Dubai:</span></span></span> <span class="ln"><span class="w"><span
-                                        style="--i:3">your</span></span> <span class="w"><span
-                                        style="--i:4">next</span></span> <span class="w"><span
-                                        style="--i:5">chapter</span></span></span> <span class="ln"><span
-                                    class="w"><span style="--i:6">has</span></span> <span class="w"><span
-                                        style="--i:7">an</span></span> <span class="w"><span
-                                        style="--i:8"><em>address.</em></span></span></span></h1>
-                        <div class="hrow hf" style="--hd:.8s">
-                            <p class="lead">Explore UG and PG courses at Symbiosis Dubai and BITS Pilani Dubai, with
-                                clear, honest guidance from Learntech counsellors, from choosing a course to confirming
-                                your offer.</p>
-                            <div class="cta"><a class="btn" href="#courses"><span>Explore courses</span><i><svg
-                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M5 12h14M13 6l6 6-6 6" />
-                                        </svg></i></a></div>
-                        </div>
+        </section>
+
+        <!-- WHY DUBAI -->
+        <section class="section" id="why">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Why Dubai</span>
+                    <h2 class="title">Why study in Dubai?</h2>
+                    <p class="lead">Globally recognised education, diverse programmes and a chance to connect with
+                        international industries.</p>
+                </div>
+                <div class="why">
+                    <div class="why__img reveal"><img src="media/25852825 (2).webp" alt="Dubai skyline" loading="lazy"
+                            onerror="this.style.display='none'"><span class="why__badge"><svg>
+                                <use href="#i-pin" />
+                            </svg>Dubai, United Arab Emirates</span></div>
+                    <div class="grid grid--features">
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-pin" />
+                                </svg></div>
+                            <h3 class="feature__title">Close to home</h3>
+                            <p class="feature__text">A short flight from major Indian cities, keeping family and
+                                familiar support within easy reach.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-globe" />
+                                </svg></div>
+                            <h3 class="feature__title">Global exposure</h3>
+                            <p class="feature__text">Study alongside students from diverse nationalities in one of the
+                                world’s leading international business hubs.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-cap" />
+                                </svg></div>
+                            <h3 class="feature__title">Indian academic legacy</h3>
+                            <p class="feature__text">Explore Dubai campuses of established Indian institutions with
+                                familiar academic roots and an international outlook.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-shield" />
+                                </svg></div>
+                            <h3 class="feature__title">Safe and student-friendly</h3>
+                            <p class="feature__text">Benefit from a strong Indian community, modern infrastructure, and
+                                services designed to support student life.</p>
+                        </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- COURSES -->
-        <section class="courses" id="courses">
-            <div class="shell">
-                <div class="sh rv"><span class="lab">Programmes</span>
-                    <h2 class="st">Courses by college</h2>
-                    <p class="sd">Pick a college, filter by level and compare eligibility at a glance. A counsellor
+        <!-- PROGRAMMES -->
+        <section class="section section--soft" id="courses">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Programmes</span>
+                    <h2 class="title">Courses by college</h2>
+                    <p class="lead">Pick a college, filter by level and compare eligibility at a glance. A counsellor
                         shares current fees and duration.</p>
                 </div>
-                <div class="fil">
-                    <div class="fg"><small>College</small>
-                        <div class="chips" id="fc" role="tablist" aria-label="Filter by college"></div>
+
+                <div class="filters reveal">
+                    <div class="pills" data-filter="college" role="group" aria-label="Filter by college">
+                        <button class="pill" data-value="all" aria-pressed="true">All colleges</button>
+                        <button class="pill" data-value="sym" aria-pressed="false">Symbiosis Dubai</button>
+                        <button class="pill" data-value="bits" aria-pressed="false">BITS Pilani Dubai</button>
                     </div>
-                    <div class="fg"><small>Level</small>
-                        <div class="chips" id="fl" role="tablist" aria-label="Filter by level"></div>
+                    <div class="pills" data-filter="level" role="group" aria-label="Filter by level">
+                        <button class="pill" data-value="all" aria-pressed="true">All levels</button>
+                        <button class="pill" data-value="ug" aria-pressed="false">UG</button>
+                        <button class="pill" data-value="pg" aria-pressed="false">PG</button>
                     </div>
                 </div>
-                <div class="trk" id="trk" tabindex="0" role="region" aria-label="Courses"></div>
-                <div class="ctl"><span class="cnt" id="cnt" aria-live="polite"></span>
-                    <div class="bar"><i></i></div>
-                    <div class="arrs"><button class="arr" id="pp" aria-label="Previous"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M19 12H5M11 6l-6 6 6 6" />
-                            </svg></button><button class="arr" id="pn" aria-label="Next"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></button></div>
+
+                <div class="track" id="courseTrack" tabindex="0" role="region" aria-label="Courses"></div>
+                <div class="ctl">
+                    <span class="cnt" id="courseCount" aria-live="polite"></span>
+                    <div class="arrs">
+                        <button class="arr" id="prev" aria-label="Previous courses"><svg>
+                                <use href="#i-back" />
+                            </svg></button>
+                        <button class="arr" id="next" aria-label="Next courses"><svg>
+                                <use href="#i-arrow" />
+                            </svg></button>
+                    </div>
                 </div>
                 <p class="note">Eligibility is indicative and depends on seat availability and university approval.
                     Confirm details with the institution.</p>
             </div>
         </section>
 
-        <!-- COLLEGES -->
-        <section class="dark slant colleges" id="colleges">
-            <div class="shell">
-                <div class="sh rv"><span class="lab">Partner colleges</span>
-                    <h2 class="st">Our partner colleges in Dubai</h2>
-                    <p class="sd">Two established Indian-legacy campuses, each with its own programmes and entry
+        <!-- PARTNERS -->
+        <section class="section" id="colleges">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Partner colleges</span>
+                    <h2 class="title">Our partner colleges in Dubai</h2>
+                    <p class="lead">Two established Indian-legacy campuses, each with its own programmes and entry
                         requirements.</p>
                 </div>
-                <div class="cg" id="cg"></div>
-                <p class="note" id="sl" hidden></p>
-            </div>
-        </section>
-
-        <!-- WHY -->
-        <section class="why" id="why">
-            <div class="shell wy">
-                <div class="wl">
-                    <div class="sh stack rv"><span class="lab">Why Dubai</span>
-                        <h2 class="st">Why study in Dubai?</h2>
-                        <p class="sd">Globally recognised education, diverse programmes and a chance to connect with
-                            international industries.</p>
-                    </div>
-                    <div class="wvw">
-                        <div class="wv clip">
-                            <div class="wimg" data-par=".1"><img src="media/25852825 (2).webp" alt="Dubai skyline"
-                                    loading="lazy"></div>
+                <div class="grid grid--2">
+                    <article class="college reveal" data-college="sym">
+                        <div class="college__img"><img src="clg-img/Symbiosis.webp"
+                                alt="Symbiosis International University Dubai campus" loading="lazy"
+                                onerror="this.style.display='none'"></div>
+                        <div class="college__body">
+                            <span class="college__loc"><svg>
+                                    <use href="#i-pin" />
+                                </svg>Dubai Knowledge Park</span>
+                            <h3 class="college__name">Symbiosis International University Dubai</h3>
+                            <p class="college__text">Dubai campus of Symbiosis International University, offering
+                                undergraduate and postgraduate programmes in computing, business, commerce, science and
+                                arts.</p>
+                            <dl class="facts">
+                                <div>
+                                    <dt>Programmes</dt>
+                                    <dd>BCA, B.Tech, BBA, B.Com, B.Sc, BA and MBA</dd>
+                                </div>
+                                <div>
+                                    <dt>Eligibility</dt>
+                                    <dd>From 55% (UG) / 50% (PG)</dd>
+                                </div>
+                            </dl>
+                            <a class="btn" href="#enquire">Talk about this college</a>
                         </div>
+                    </article>
+                    <article class="college reveal" data-college="bits">
+                        <div class="college__img"><img src="clg-img/BITS.webp" alt="BITS Pilani Dubai campus"
+                                loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="college__body">
+                            <span class="college__loc"><svg>
+                                    <use href="#i-pin" />
+                                </svg>Dubai International Academic City</span>
+                            <h3 class="college__name">BITS Pilani Dubai</h3>
+                            <p class="college__text">Dubai campus of BITS Pilani, offering engineering and management
+                                programmes at undergraduate and postgraduate level.</p>
+                            <dl class="facts">
+                                <div>
+                                    <dt>Programmes</dt>
+                                    <dd>BE, BBA (Hons), ME and MBA</dd>
+                                </div>
+                                <div>
+                                    <dt>Eligibility</dt>
+                                    <dd>From 60% (UG and PG)</dd>
+                                </div>
+                            </dl>
+                            <a class="btn btn--red" href="#enquire">Talk about this college</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- CAREER OUTLOOK -->
+        <section class="section section--soft" id="careers">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Career outlook</span>
+                    <h2 class="title">Where these degrees lead</h2>
+                    <p class="lead">See which Dubai industries each group of programmes connects to, and the kinds of
+                        roles graduates commonly aim for.</p>
+                </div>
+                <div class="grid grid--4" id="careerGrid"></div>
+                <p class="note">These are indicative career directions, not placement or job guarantees. Work and
+                    residence rules are set by UAE authorities and employers.</p>
+            </div>
+        </section>
+
+        <!-- SMALL CTA -->
+        <section class="band">
+            <div class="container">
+                <div class="band__box reveal">
+                    <div>
+                        <h2>Not sure which course fits your <em>goals?</em></h2>
+                        <p>Share your marks, interests and budget. A counsellor will match you to a programme at
+                            Symbiosis Dubai or BITS Pilani Dubai.</p>
+                    </div>
+                    <div class="band__cta">
+                        <a class="btn btn--light" href="#enquire">Talk to a counsellor <svg width="16" height="16">
+                                <use href="#i-arrow" />
+                            </svg></a>
+                        <a class="btn btn--glass" href="tel:+919606949066">Call +91 96069 49066</a>
                     </div>
                 </div>
-                <div class="wg" id="wg"></div>
             </div>
         </section>
 
-        <!-- PROCESS -->
-        <section class="dark slant process" id="process">
-            <div class="shell">
-                <div class="sh rv"><span class="lab">Admission support</span>
-                    <h2 class="st">From course choice to confirmed offer</h2>
-                    <p class="sd">We help you every step of the way.</p>
+        <!-- ADMISSION SUPPORT STEPS -->
+        <section class="section section--soft" id="process">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Admission support</span>
+                    <h2 class="title">From course choice to confirmed offer</h2>
+                    <p class="lead">We help you every step of the way.</p>
                 </div>
-                <div class="sg" id="sg"></div>
+                <div class="grid grid--steps">
+                    <article class="step reveal">
+                        <div class="step__top"><span class="step__icon"><svg>
+                                    <use href="#i-chat" />
+                                </svg></span><span class="step__num">01</span></div>
+                        <h3 class="step__title">Talk to a counsellor</h3>
+                        <p class="step__text">Share your marks, interests and budget so we can shortlist the right
+                            options.</p>
+                    </article>
+                    <article class="step reveal">
+                        <div class="step__top"><span class="step__icon"><svg>
+                                    <use href="#i-cap" />
+                                </svg></span><span class="step__num">02</span></div>
+                        <h3 class="step__title">Choose your college and course</h3>
+                        <p class="step__text">We match your profile to the right programme at Symbiosis Dubai or BITS
+                            Pilani Dubai.</p>
+                    </article>
+                    <article class="step reveal">
+                        <div class="step__top"><span class="step__icon"><svg>
+                                    <use href="#i-doc" />
+                                </svg></span><span class="step__num">03</span></div>
+                        <h3 class="step__title">Prepare your documents</h3>
+                        <p class="step__text">Guidance on transcripts and English test requirements or waivers.</p>
+                    </article>
+                    <article class="step reveal">
+                        <div class="step__top"><span class="step__icon"><svg>
+                                    <use href="#i-send" />
+                                </svg></span><span class="step__num">04</span></div>
+                        <h3 class="step__title">Apply with confidence</h3>
+                        <p class="step__text">We help you with forms and submissions so nothing is missed.</p>
+                    </article>
+                    <article class="step reveal">
+                        <div class="step__top"><span class="step__icon"><svg>
+                                    <use href="#i-plane" />
+                                </svg></span><span class="step__num">05</span></div>
+                        <h3 class="step__title">Receive your offer and plan ahead</h3>
+                        <p class="step__text">A clear cost breakdown, education loan guidance and visa guidance for your
+                            move.</p>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <!-- ELIGIBILITY AND DOCUMENTS -->
-        <section class="apply" id="apply">
-            <div class="shell">
-                <div class="sh rv"><span class="lab">Eligibility and documents</span>
-                    <h2 class="st">What you need to apply</h2>
-                    <p class="sd">Minimum marks and programmes at each college, and the documents to keep ready before
-                        you apply.</p>
+        <!-- WHY LEARNTECH -->
+        <section class="section" id="learntech">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Why Learntech</span>
+                    <h2 class="title">Why choose Learntech for study in Dubai</h2>
+                    <p class="lead">Straightforward guidance from counsellors who have supported families for decades,
+                        from your first question to your move.</p>
                 </div>
-                <div class="kg">
-                    <div class="kc rv">
-                        <h3>Marks and programmes by level</h3>
-                        <div class="tw">
-                            <table>
-                                <thead id="th"></thead>
-                                <tbody id="tb"></tbody>
-                            </table>
+                <div class="lt">
+                    <div class="lt__panel reveal">
+                        <span class="eyebrow">At a glance</span>
+                        <div class="ln"><b>1,00,000+</b><span>students guided</span></div>
+                        <div class="ln"><b>Since 1994</b><span>guiding families</span></div>
+                        <div class="ln"><b>2</b><span>partner campuses in Dubai</span></div>
+                    </div>
+                    <div class="lt__cards">
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-cap" />
+                                </svg></div>
+                            <h3 class="feature__title">Shortlisting that fits you</h3>
+                            <p class="feature__text">We start with your marks, interests and budget, then match you to a
+                                programme at Symbiosis Dubai or BITS Pilani Dubai.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-globe" />
+                                </svg></div>
+                            <h3 class="feature__title">Counsellors in India and the UAE</h3>
+                            <p class="feature__text">Reach our team by phone and email from either country, including a
+                                toll free line in India.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-fee" />
+                                </svg></div>
+                            <h3 class="feature__title">A clear cost picture</h3>
+                            <p class="feature__text">A counsellor shares the current fee structure and a cost breakdown
+                                for your shortlisted course, along with education loan guidance.</p>
+                        </article>
+                        <article class="feature reveal">
+                            <div class="feature__icon"><svg>
+                                    <use href="#i-shield" />
+                                </svg></div>
+                            <h3 class="feature__title">Honest guidance</h3>
+                            <p class="feature__text">Admission and visas rest with the university and the authorities.
+                                We guide every step and never promise either.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ELIGIBILITY + DOCUMENTS + CHECKLIST -->
+        <section class="section section--soft" id="apply">
+            <div class="container">
+                <div class="section__head reveal">
+                    <span class="eyebrow">Eligibility, documents and checklist</span>
+                    <h2 class="title">What you need to apply and arrive</h2>
+                    <p class="lead">Minimum marks at each college, the documents to keep ready, and the visa and arrival
+                        steps before and after you fly.</p>
+                </div>
+
+                <div class="apply">
+                    <div class="panel reveal">
+                        <h3 class="panel__title">Eligibility: marks and programmes by level</h3>
+                        <div class="marks">
+                            <div class="marks__row">
+                                <span class="marks__level">UG</span>
+                                <div><span class="marks__label">Symbiosis Dubai</span><span
+                                        class="marks__value">55%+</span><span class="marks__list">BCA, B.Tech, BBA,
+                                        B.Com, B.Sc, BA</span></div>
+                                <div><span class="marks__label">BITS Pilani Dubai</span><span
+                                        class="marks__value">60%+</span><span class="marks__list">BE, BBA (Hons)</span>
+                                </div>
+                            </div>
+                            <div class="marks__row marks__row--pg">
+                                <span class="marks__level">PG</span>
+                                <div><span class="marks__label">Symbiosis Dubai</span><span
+                                        class="marks__value">50%+</span><span class="marks__list">MBA</span></div>
+                                <div><span class="marks__label">BITS Pilani Dubai</span><span
+                                        class="marks__value">60%+</span><span class="marks__list">ME in Software
+                                        Systems, MBA</span></div>
+                            </div>
                         </div>
                         <p class="note">Marks are indicative. A counsellor confirms whether you qualify and shares fees
                             for your shortlisted course.</p>
                     </div>
-                    <div class="kc docs rv">
-                        <h3>Documents to keep ready</h3>
-                        <ul class="ck" id="ck"></ul>
+                    <div class="panel reveal">
+                        <h3 class="panel__title">Documents to keep ready</h3>
+                        <ul class="docs">
+                            <li><svg>
+                                    <use href="#i-doc" />
+                                </svg>Previous marksheets or transcripts</li>
+                            <li><svg>
+                                    <use href="#i-id" />
+                                </svg>Valid passport</li>
+                            <li><svg>
+                                    <use href="#i-camera" />
+                                </svg>Recent passport-size photographs</li>
+                            <li><svg>
+                                    <use href="#i-lang" />
+                                </svg>English proficiency proof or waiver, where the university allows</li>
+                        </ul>
                         <p class="note">Your counsellor shares the exact checklist for your course.</p>
                     </div>
                 </div>
+
+                <div class="apply apply--check">
+                    <div class="panel reveal">
+                        <span class="panel__tag"><svg>
+                                <use href="#i-plane" />
+                            </svg>Checklist · Before you fly</span>
+                        <h3 class="panel__title">Get these ready</h3>
+                        <ul class="docs docs--blue" id="visaBefore"></ul>
+                    </div>
+                    <div class="panel reveal">
+                        <span class="panel__tag panel__tag--red"><svg>
+                                <use href="#i-pin" />
+                            </svg>Checklist · After you land</span>
+                        <h3 class="panel__title">Complete these in the UAE</h3>
+                        <ul class="docs" id="visaAfter"></ul>
+                    </div>
+                </div>
+                <p class="note">Your university usually coordinates the visa process. Requirements are set by UAE
+                    authorities and your university and can change. Confirm the current checklist with your counsellor
+                    and the university, and see the <a
+                        href="https://u.ae/en/information-and-services/visa-and-emirates-id/emirates-id" target="_blank"
+                        rel="noopener">UAE Government Portal</a> for official information. We do not guarantee visa
+                    approval.</p>
             </div>
         </section>
 
         <!-- TESTIMONIALS -->
-        <section class="stories" id="stories">
-            <div class="shell">
-                <div class="sh rv"><span class="lab">Testimonials</span>
-                    <h2 class="st">Our students’ <em>voices</em></h2>
-                    <p class="sd">Hear from students who studied in Dubai.</p>
-                </div>
-                <div class="trk" id="tt" tabindex="0" role="region" aria-label="Student testimonials"></div>
-                <div class="ctl"><span class="cnt"></span>
-                    <div class="bar"><i></i></div>
-                    <div class="arrs"><button class="arr" id="tp" aria-label="Previous"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M19 12H5M11 6l-6 6 6 6" />
-                            </svg></button><button class="arr" id="tn" aria-label="Next"><svg viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></button></div>
+        <section class="section section--dark" id="stories">
+            <div class="container">
+                <div class="stories">
+                    <div class="stories__intro reveal">
+                        <span class="eyebrow">Testimonials</span>
+                        <h2 class="title">Our students’ voices</h2>
+                        <p class="lead">Hear from students who studied in Dubai.</p>
+                        <div class="arrs">
+                            <button class="arr" id="sprev" aria-label="Previous testimonials"><svg>
+                                    <use href="#i-back" />
+                                </svg></button>
+                            <button class="arr" id="snext" aria-label="Next testimonials"><svg>
+                                    <use href="#i-arrow" />
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="track" id="storyTrack" tabindex="0" role="region" aria-label="Student testimonials">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section class="faq" id="faq">
-            <div class="shell fw">
-                <div class="sh stack rv"><span class="lab">FAQs</span>
-                    <h2 class="st">Frequently asked questions</h2>
-                    <p class="sd">Quick answers for students and parents.</p>
+        <section class="section section--soft" id="faq">
+            <div class="container">
+                <div class="section__head reveal" style="text-align:center">
+                    <span class="eyebrow">FAQs</span>
+                    <h2 class="title">Frequently asked questions</h2>
+                    <p class="lead" style="margin-inline:auto">Quick answers for students and parents.</p>
                 </div>
-                <div class="fq" id="fq"></div>
+                <div class="faq reveal">
+                    <details class="faq__item">
+                        <summary class="faq__q">Which colleges can I apply to through Learntech?</summary>
+                        <p class="faq__a">Symbiosis International University Dubai and BITS Pilani Dubai, both Dubai
+                            campuses of established Indian institutions.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__q">Who can apply?</summary>
+                        <p class="faq__a">Students who meet each university’s minimum marks. Symbiosis Dubai asks for
+                            55% for Bachelor’s and 50% for Master’s. BITS Pilani Dubai asks for 60% for both. A
+                            counsellor confirms whether you qualify.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__q">Can I apply for a Master’s programme?</summary>
+                        <p class="faq__a">Yes. Symbiosis Dubai offers an MBA, and BITS Pilani Dubai offers an ME in
+                            Software Systems and an MBA.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__q">What are the fees?</summary>
+                        <p class="faq__a">Fees vary by college, course and level. A counsellor shares the current fee
+                            structure and a clear cost breakdown for your shortlisted course.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__q">What documents do I need?</summary>
+                        <p class="faq__a">Usually your previous marksheets or transcripts, a valid passport, photographs
+                            and English proficiency proof or a waiver where the university allows it. A counsellor
+                            shares the exact checklist.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__q">Can I get an education loan?</summary>
+                        <p class="faq__a">We guide you on education loan options and share a clear cost breakdown.
+                            Approval depends on the lender.</p>
+                    </details>
+                    <details class="faq__item">
+                        <summary class="faq__q">Does Learntech guarantee admission or a visa?</summary>
+                        <p class="faq__a">No. Admission and visas depend on the university and the relevant authorities.
+                            We guide you through each step but cannot guarantee either.</p>
+                    </details>
+                </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="dark slant enq" id="enquire">
-            <div class="enq-bg" aria-hidden="true"><img src="assets/dubai-skyline.jpg" alt="" loading="lazy"
-                    onerror="this.style.display='none'"></div>
-            <div class="shell">
-                <div class="cx rv">
-                    <span class="lab">Enquire</span>
-                    <h2>Your next chapter <em>starts with a call.</em></h2>
-                    <p>Speak to a Learntech counsellor about colleges, courses and admissions, and know exactly what to
-                        do next.</p>
-                    <a class="btn light" href="tel:+971504955123"><span>Call a counsellor</span><i><svg
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M5 12h14M13 6l6 6-6 6" />
-                            </svg></i></a>
-                    <ul class="tags">
-                        <li>Course shortlisting</li>
-                        <li>Admission support</li>
-                        <li>Education loan guidance</li>
-                        <li>Visa guidance</li>
-                    </ul>
+        <section class="section" id="enquire">
+            <div class="container">
+                <div class="cta reveal">
+                    <div class="cta__bg" aria-hidden="true"><img src="assets/dubai-skyline.jpg" alt="" loading="lazy"
+                            onerror="this.style.display='none'"></div>
+                    <div class="cta__inner">
+                        <h2 class="cta__title">Your next chapter <em>starts with a call.</em></h2>
+                        <p class="cta__text">Speak to a Learntech counsellor about colleges, courses and admissions, and
+                            know exactly what to do next.</p>
+                        <a class="btn btn--light" href="tel:+971504955123">Call a counsellor <svg width="16"
+                                height="16">
+                                <use href="#i-arrow" />
+                            </svg></a>
+                        <ul class="tags">
+                            <li><svg>
+                                    <use href="#i-cap" />
+                                </svg>Course shortlisting</li>
+                            <li><svg>
+                                    <use href="#i-send" />
+                                </svg>Admission support</li>
+                            <li><svg>
+                                    <use href="#i-fee" />
+                                </svg>Education loan guidance</li>
+                            <li><svg>
+                                    <use href="#i-id" />
+                                </svg>Visa guidance</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="shell">
-            <div class="fgrid">
-                <div><a class="flogo" href="#top" aria-label="Learntech home"><img
-                            src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzNTAuODkgNjMuOTUiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICNmZmY7CiAgICAgIH0KCiAgICAgIC5jbHMtMiB7CiAgICAgICAgZmlsbDogI2U2MzMzZjsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkxheWVyXzEtMiIgZGF0YS1uYW1lPSJMYXllciAxIj4KICAgIDxnPgogICAgICA8Zz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTIiIGQ9Ik0xMC41OCwwQzQuNzQsMCwwLDQuNzQsMCwxMC41OHY0Mi43OWMwLDUuODQsNC43NCwxMC41OCwxMC41OCwxMC41OGg0Mi43OWM1Ljg0LDAsMTAuNTgtNC43NCwxMC41OC0xMC41OFYwSDEwLjU4WiIvPgogICAgICAgIDxnPgogICAgICAgICAgPGNpcmNsZSBjbGFzcz0iY2xzLTEiIGN4PSIzNi43NSIgY3k9IjMwLjciIHI9IjYuNDYiLz4KICAgICAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMSIgeD0iMTMuNzIiIHk9IjExLjE0IiB3aWR0aD0iOC43OCIgaGVpZ2h0PSIzMyIvPgogICAgICAgICAgPHJlY3QgY2xhc3M9ImNscy0xIiB4PSIyMi4wMyIgeT0iNDQuMDMiIHdpZHRoPSIyOC42NyIgaGVpZ2h0PSI4Ljc4Ii8+CiAgICAgICAgPC9nPgogICAgICA8L2c+CiAgICAgIDxnPgogICAgICAgIDxwb2x5Z29uIGNsYXNzPSJjbHMtMSIgcG9pbnRzPSI4Ni42MyAwIDc4LjY2IDAgNzguNjYgNDEuNTcgMTA1LjkzIDQxLjU3IDEwNS45MyAzNS4zNyA4Ni42MyAzNS4zNyA4Ni42MyAwIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTMyLjYxLDExLjY5aDBjLTIuMTQtMS42My01LjQ4LTIuNDYtOS45NC0yLjQ2LTQuNzQsMC04LjI3Ljg2LTEwLjUxLDIuNTUtMi4zMSwxLjc1LTMuNDksNC42NC0zLjQ5LDguNTl2MTEuNzJjMCw2LjcsNC44NywxMC4wOSwxNC40OCwxMC4wOSwzLjQ5LDAsNy4xNC0uNDIsMTAuODMtMS4yNWwuODEtLjE4di02LjM2bC0xLjMzLjM0Yy0zLjY4Ljk1LTYuOTEsMS40NC05LjU5LDEuNDRzLTQuNjQtLjM5LTUuOTEtMS4xNmMtMS4xMy0uNjktMS42OS0xLjg2LTEuNjktMy41OXYtMy40N2gxOS42NnYtNy41OGMwLTQuMDctMS4xMi02Ljk5LTMuMzMtOC42OFpNMTE2LjI4LDIyLjN2LTMuNjVjMC0xLjQ3LjQtMi40LDEuMjMtMi44NywxLS41NiwyLjY0LS44NCw0Ljg2LS44NHMzLjk2LjI5LDQuODguODVjLjc3LjQ4LDEuMTUsMS40MiwxLjE1LDIuODZ2My42NWgtMTIuMTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTU0LjU1LDkuMjNjLTMuMjQsMC02LjkxLjE5LTEwLjkzLjU2bC0uOTUuMDl2Ni4xM2wxLjItLjE2YzMuNjQtLjQ4LDYuOTgtLjczLDkuOS0uNzMsMy4zMiwwLDQuNTkuNDUsNS4wNS43MS42NS4zOC45NywxLjE4Ljk3LDIuNDV2My43MWgtNy43MmMtNC40NiwwLTcuNDQuNy05LjExLDIuMTMtMS43LDEuNDYtMi41MywzLjk1LTIuNTMsNy42LDAsNC4xNi44OSw2Ljg5LDIuNzEsOC4zNSwxLjc2LDEuNDIsNC43MiwyLjExLDkuMDUsMi4xMSwzLjU5LDAsNi4xNS0uNDcsNy43OC0xLjQ1di44M2g3LjM3di0yMS45OWMwLTQuMTUtLjgzLTYuODYtMi41NC04LjI4LTEuNjctMS4zOC01LjAyLTIuMDYtMTAuMjUtMi4wNlpNMTU3LjksMzYuMTZjLS44NC4xNy0xLjU5LjI4LTIuMjMuMzJoMGMtLjY3LjA0LTEuNTQuMDYtMi41Ny4wNmgtMS4wOWMtMS43MywwLTIuOTMtLjMxLTMuMzctLjg2LS4yOS0uMzctLjc4LTEuMzUtLjc4LTMuNzcsMC0yLjg4LjUxLTMuNjMuNjYtMy43OS4xNS0uMTUuODYtLjY1LDMuOTEtLjY1aDcuMzZ2Ny4wOWMwLC40Mi0uMTIuNzItLjM3Ljk2LS4zMi4yOS0uODMuNTItMS41Mi42NloiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xODIuOTMsMTEuMDZoMGMtLjM3LjIzLS43LjQ3LTEsLjcydi0xLjkzaC03LjI1djMxLjcyaDcuNTV2LTIxLjkzYzAtMS40Mi40MS0yLjM0LDEuMjYtMi44LDEuMDItLjU2LDIuNzEtLjg1LDUuMDEtLjg1aC4yMWwyLjY3LTYuNzVoLTIuNTJjLTIuMDEsMC00LjAxLjYxLTUuOTMsMS44MloiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMTIuMDQsOS4yM2MtMy45MSwwLTYuNzguNjQtOC41NywxLjkxdi0xLjI5aC03LjU1djMxLjcyaDcuNTV2LTIyLjQ4YzAtMS41MS4zOS0yLjUzLDEuMTYtMy4wMi41MS0uMzMsMS45NS0uODcsNS44My0uODcsMS4yNiwwLDIuMzEuMTIsMy4xMS4zNS42Ny4yLDEuMTUuNDcsMS4zOS43OS4zLjQuNS43OS41OSwxLjE1LjEuNDEuMTUuOTYuMTUsMS42MXYyMi40OGg3LjU1di0yMi43OWMwLTMuMTMtLjg0LTUuNTItMi40OC03LjEyLTEuNjctMS42My00LjUzLTIuNDItOC43My0yLjQyWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI0Ni4xNywxNS40OWwzLjE2LTUuNjRoLTguNzFWMGgtNy42MXY5Ljg1aC0zLjg1bC0yLjkxLDUuNjRoNi43NnYxNi40MWMwLDMuOTMuODIsNi41NywyLjUyLDguMDgsMS42NywxLjQ4LDQuNDIsMi4yLDguNCwyLjIsMi4xOCwwLDQuMy0uMTcsNi4yOS0uNTFsLjg3LS4xNXYtNS42NWwtMS4yMS4xOGMtMi43My40LTMuNzkuNDgtNC4yLjQ4LTIuODUsMC0zLjg1LS41LTQuMTktLjgxLS41Ni0uNS0uODctMS43NS0uODctMy41MlYxNS40OWg1LjU1WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI3Ny43NiwxMS42OWgwYy0yLjE0LTEuNjMtNS40OC0yLjQ2LTkuOTQtMi40Ni00Ljc0LDAtOC4yNy44Ni0xMC41MSwyLjU1LTIuMzEsMS43NS0zLjQ5LDQuNjQtMy40OSw4LjU5djExLjcyYzAsNi43LDQuODcsMTAuMDksMTQuNDksMTAuMDksMy40OSwwLDcuMTMtLjQyLDEwLjgzLTEuMjVsLjgxLS4xOHYtNi4zNmwtMS4zMy4zNGMtMy42OS45NS02LjkxLDEuNDQtOS41OSwxLjQ0cy00LjY0LS4zOS01LjkxLTEuMTZjLTEuMTQtLjY5LTEuNjktMS44Ni0xLjY5LTMuNTl2LTMuNDdoMTkuNjZ2LTcuNThjMC00LjA3LTEuMTItNi45OS0zLjMzLTguNjhaTTI2MS40MywyMi4zdi0zLjY1YzAtMS40Ny40LTIuNCwxLjIzLTIuODcsMS0uNTYsMi42NC0uODQsNC44Ni0uODRzMy45Ni4yOSw0Ljg4Ljg1Yy43Ny40OCwxLjE1LDEuNDIsMS4xNSwyLjg2djMuNjVoLTEyLjEyWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTMwMC42OCwzNi4yOWMtMy44NiwwLTUuMjMtLjU1LTUuNzEtLjg4LS43Mi0uNS0xLjExLTEuNzItMS4xMS0zLjUxdi0xMi4xNWMwLTIuNjkuNjItMy41OS45OS0zLjg5LjQtLjMyLDEuNjEtLjg3LDUuMjItLjg3LDIuNzYsMCw1LjcuNCw4Ljc0LDEuMTlsMS4zMy4zNXYtNi4xOGwtLjgyLS4xOGMtMi44NS0uNjMtNS43NC0uOTUtOC41OC0uOTUtMS41NSwwLTIuOC4wMy0zLjczLjEtLjk0LjA2LTIuMDMuMTktMy4yNC4zOC0xLjM0LjIxLTIuNDMuNTgtMy4yNCwxLjExLS43Ni41LTEuNTEsMS4xNi0yLjIxLDEuOTYtLjc1Ljg1LTEuMywxLjk2LTEuNjQsMy4zLS4zMiwxLjI2LS40OCwyLjc3LS40OCw0LjQ3djEwLjkyYzAsMS45Ni4yNywzLjYzLjc5LDQuOTkuNTMsMS4zOCwxLjE5LDIuNDUsMS45NiwzLjIxLjc5Ljc4LDEuOTMsMS4zNywzLjM3LDEuNzcsMS4zNC4zNywyLjU1LjU5LDMuNjEuNjUsMS4wMS4wNiwyLjQyLjA5LDQuMjEuMDksMy42NSwwLDYuODgtLjMsOS42MS0uODhsLjgyLS4xOHYtNi4zbC0xLjMyLjM0Yy0yLjkyLjc1LTUuOCwxLjEzLTguNTYsMS4xM1oiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zNDAuMjEsMTEuNjVjLTEuNjctMS42My00LjUzLTIuNDItOC43My0yLjQyLTMuOTEsMC02Ljc4LjY0LTguNTcsMS45MVYwaC03LjU1djQxLjU3aDcuNTV2LTIyLjQyYzAtMS40Ni4zNy0yLjQ3LDEuMS0zLC40Ni0uMzQsMS44NC0uOSw1LjktLjksMS4yNiwwLDIuMzEuMTIsMy4xMS4zNS42OC4yLDEuMTUuNDYsMS4zOS43OS4zLjQuNS43OS41OSwxLjE1LjEuNDEuMTUuOTUuMTUsMS42MXYyMi40Mmg3LjU1di0yMi43OWMwLTMuMTMtLjg0LTUuNTItMi40OC03LjEyWiIvPgogICAgICA8L2c+CiAgICAgIDxnPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM0MS4wMyw1LjlWMS4wMWgtMS43NVYuMDFoNC42OHYxaC0xLjc0djQuODloLTEuMTlaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzQ1LjIxLDUuOVYuMDFoMS43OGwxLjA3LDQuMDJMMzQ5LjExLjAxaDEuNzh2NS44OWgtMS4xVjEuMjZsLTEuMTcsNC42NGgtMS4xNWwtMS4xNi00LjY0djQuNjRoLTEuMVoiLz4KICAgICAgPC9nPgogICAgICA8Zz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik04NS45MSw2MS42M2gtNS4zM2wtLjg3LDEuOTJoLTIuMDhsNC41Ny0xMC4xOWgyLjFsNC41NywxMC4xOWgtMi4xbC0uODYtMS45MlpNODMuMjUsNTUuNWwtMS44OSw0LjM0aDMuNzhsLTEuODktNC4zNFoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik05OS45Myw1My4zNWgxLjkydjEwLjJoLTEuMTlzLTUuMzUtNi44Ny01LjM1LTYuODd2Ni44N2gtMS45MnYtMTAuMTloMS41Nmw0Ljk5LDYuMzJ2LTYuMzNaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTE2LjA4LDYyLjI3Yy0xLjA1LDEuMDMtMi40LDEuNTEtMy44NywxLjUxLTMuNzgsMC01LjM4LTIuNi01LjQtNS4yNS0uMDEtMi42NiwxLjcyLTUuMzcsNS40LTUuMzcsMS4zOCwwLDIuNjkuNTIsMy43NCwxLjU2bC0xLjI4LDEuMjRjLS42Ny0uNjUtMS41Ny0uOTYtMi40Ni0uOTYtMi40NiwwLTMuNTIsMS44My0zLjUxLDMuNTQuMDEsMS42OS45OSwzLjQ1LDMuNTEsMy40NS44OSwwLDEuODktLjM2LDIuNTYtMS4wM2wxLjMxLDEuMzJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTI3LjU5LDYzLjU2di00LjEyaC01LjAxdjQuMTJoLTEuOTJ2LTEwLjE5aDEuOTJ2NC4yOWg1LjAxdi00LjI5aDEuOTF2MTAuMTloLTEuOTFaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTQ0LjgxLDU4LjUxYy0uMDMsMi42My0xLjY0LDUuMjctNS4yMiw1LjI3cy01LjI0LTIuNTgtNS4yNC01LjI1LDEuNzItNS4zNyw1LjI0LTUuMzcsNS4yNSwyLjY5LDUuMjIsNS4zNVpNMTM2LjI0LDU4LjU2Yy4wNCwxLjY3Ljk1LDMuNDYsMy4zNSwzLjQ2czMuMy0xLjgsMy4zMy0zLjQ4Yy4wMy0xLjcyLS45My0zLjY0LTMuMzMtMy42NHMtMy4zOSwxLjk0LTMuMzUsMy42NVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNTguNzUsNjMuNTVoLTIuMjhsLTIuOTctMy40aC0xLjg1djMuNGgtMS45MnYtMTAuMmMxLjYyLDAsMy4yMy4wMSw0Ljg1LjAxLDIuNC4wMSwzLjY3LDEuNjIsMy42NywzLjM4LDAsMS40LS42NCwyLjgxLTIuNTgsMy4ybDMuMDgsMy40OHYuMTNaTTE1MS42NSw1NS4xNXYzLjI2aDIuOTJjMS4yMiwwLDEuNzUtLjgxLDEuNzUtMS42M3MtLjU0LTEuNjMtMS43NS0xLjYzaC0yLjkyWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE2My4wNSw2My41NXYtMTAuMTloMS45MXYxMC4xOWgtMS45MVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0xNzYuOTUsNTMuMzVoMS45MnYxMC4yaC0xLjE5cy01LjM1LTYuODctNS4zNS02Ljg3djYuODdoLTEuOTJ2LTEwLjE5aDEuNTZsNC45OSw2LjMydi02LjMzWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTE5MS42OSw1NS44NWMtLjY4LS42NS0xLjctMS4wMi0yLjU5LTEuMDItMi4xOCwwLTMuNTEsMS42Ni0zLjUxLDMuNzUsMCwxLjY3Ljk3LDMuNCwzLjUxLDMuNC44LDAsMS41LS4xNywyLjMtLjgxdi0xLjhoLTIuNnYtMS43Mmg0LjM3djQuMjljLTEsMS4xNS0yLjI3LDEuODMtNC4wNiwxLjgzLTMuODMsMC01LjM4LTIuNTItNS4zOC01LjE5LDAtMi44NywxLjc5LTUuNTEsNS4zOC01LjUxLDEuMzcsMCwyLjc0LjUyLDMuNzgsMS41NmwtMS4xOSwxLjIyWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTIwOC45NSw1Ny41N2wyLjcxLTQuMjFoMi4zMXYuMDlsLTQuMDYsNS44OXY0LjIxaC0xLjkydi00LjIxbC0zLjkxLTUuODl2LS4wOWgyLjI4bDIuNTksNC4yMVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yMjguMzIsNTguNTFjLS4wMywyLjYzLTEuNjQsNS4yNy01LjIyLDUuMjdzLTUuMjQtMi41OC01LjI0LTUuMjUsMS43Mi01LjM3LDUuMjQtNS4zNyw1LjI1LDIuNjksNS4yMiw1LjM1Wk0yMTkuNzUsNTguNTZjLjA0LDEuNjcuOTUsMy40NiwzLjM1LDMuNDZzMy4zLTEuOCwzLjMzLTMuNDhjLjAzLTEuNzItLjkzLTMuNjQtMy4zMy0zLjY0cy0zLjM5LDEuOTQtMy4zNSwzLjY1WiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTI0Mi4xNiw1My4zOHY1Ljg0YzAsMy4wMS0xLjg1LDQuNTUtNC40MSw0LjU1cy00LjUzLTEuNDgtNC41My00LjU1di01Ljg0aDEuOTF2NS44NGMwLDEuODMsMS4wNSwyLjgxLDIuNjMsMi44MXMyLjQ5LTEuMDYsMi40OS0yLjgxdi01Ljg0aDEuOTFaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjU2LjU3LDYzLjU1aC0yLjI4bC0yLjk3LTMuNGgtMS44NXYzLjRoLTEuOTJ2LTEwLjJjMS42MiwwLDMuMjMuMDEsNC44NS4wMSwyLjQuMDEsMy42NywxLjYyLDMuNjcsMy4zOCwwLDEuNC0uNjQsMi44MS0yLjU4LDMuMmwzLjA4LDMuNDh2LjEzWk0yNDkuNDcsNTUuMTV2My4yNmgyLjkyYzEuMjIsMCwxLjc1LS44MSwxLjc1LTEuNjNzLS41NC0xLjYzLTEuNzUtMS42M2gtMi45MloiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNjcuMjgsNjMuNTV2LTEwLjE3aDcuMzJ2MS44NWgtNS40djIuNzhoNS4xMXYxLjc4aC01LjExdjMuNzdoLTEuOTJaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMjg4LjM1LDUzLjM4djUuODRjMCwzLjAxLTEuODUsNC41NS00LjQxLDQuNTVzLTQuNTMtMS40OC00LjUzLTQuNTV2LTUuODRoMS45MXY1Ljg0YzAsMS44MywxLjA1LDIuODEsMi42MywyLjgxczIuNDktMS4wNiwyLjQ5LTIuODF2LTUuODRoMS45MVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yOTYuMzYsNTUuMTFoLTMuMjN2LTEuNzVoOC4zOHYxLjc1aC0zLjIzdjguNDRoLTEuOTJ2LTguNDRaIi8+CiAgICAgICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMzE1LjQxLDUzLjM4djUuODRjMCwzLjAxLTEuODUsNC41NS00LjQxLDQuNTVzLTQuNTMtMS40OC00LjUzLTQuNTV2LTUuODRoMS45MXY1Ljg0YzAsMS44MywxLjA1LDIuODEsMi42MywyLjgxczIuNDktMS4wNiwyLjQ5LTIuODF2LTUuODRoMS45MVoiLz4KICAgICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0zMjkuODIsNjMuNTVoLTIuMjhsLTIuOTctMy40aC0xLjg1djMuNGgtMS45MnYtMTAuMmMxLjYyLDAsMy4yMy4wMSw0Ljg1LjAxLDIuNC4wMSwzLjY3LDEuNjIsMy42NywzLjM4LDAsMS40LS42NCwyLjgxLTIuNTgsMy4ybDMuMDgsMy40OHYuMTNaTTMyMi43Miw1NS4xNXYzLjI2aDIuOTJjMS4yMiwwLDEuNzUtLjgxLDEuNzUtMS42M3MtLjU0LTEuNjMtMS43NS0xLjYzaC0yLjkyWiIvPgogICAgICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0iTTM0MS42OSw2My41NWgtNy42MnYtMTAuMTloNy42MnYxLjg2aC01LjcydjIuMzRoNS41MXYxLjc5aC01LjUxdjIuM2g1LjcydjEuODlaIi8+CiAgICAgIDwvZz4KICAgIDwvZz4KICA8L2c+Cjwvc3ZnPg=="
-                            alt="" width="220" height="40"></a>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <a class="brand" href="#top" aria-label="Learntech home"><svg>
+                            <use href="#i-logo" />
+                        </svg>Learntech</a>
                     <p>Learntech helps students explore programmes and make informed academic and career decisions.</p>
                 </div>
                 <div>
@@ -2400,165 +2355,125 @@
                 </div>
                 <div>
                     <h4>Contact us</h4>
-                    <ul>
-                        <li>uae@learntechww.com</li>
-                        <li>+971 50 495 5123 · +971 50 243 6552</li>
-                        <li>+91 96069 49066</li>
-                        <li>1800 120 8696 (Toll Free)</li>
+                    <ul class="footer__contact">
+                        <li><svg>
+                                <use href="#i-mail" />
+                            </svg><a href="mailto:uae@learntechww.com">uae@learntechww.com</a></li>
+                        <li><svg>
+                                <use href="#i-phone" />
+                            </svg><span>+971 50 495 5123 · +971 50 243 6552</span></li>
+                        <li><svg>
+                                <use href="#i-phone" />
+                            </svg><a href="tel:+919606949066">+91 96069 49066</a></li>
+                        <li><svg>
+                                <use href="#i-phone" />
+                            </svg><span>1800 120 8696 (Toll Free)</span></li>
                     </ul>
                 </div>
             </div>
-            <div class="fb">© 2026 Learntech Edu Solutions Pvt. Ltd, Bengaluru. All Rights Reserved. Information on this
-                page is indicative; confirm details with the institution. We do not guarantee admission or visas.</div>
+            <div class="footer__bottom">© 2026 Learntech Edu Solutions Pvt. Ltd, Bengaluru. All Rights Reserved.
+                Information on this page is indicative; confirm details with the institution. We do not guarantee
+                admission or visas.</div>
         </div>
     </footer>
-    <div class="mbar"><a class="btn" href="#enquire"><span>Enquire now</span><i><svg viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg></i></a></div>
+
+    <div class="mbar"><a class="btn" href="#enquire">Enquire now</a></div>
 
     <script>
-        /* ============ DATA: edit here. Content is taken from the Learntech Scholar page; verify before launch. ============ */
-        const CONFIG = { SCHOLAR_PAGE_URL: '' }; // add the Learntech Scholar page link to show a soft link under Partner colleges
-        /* CAMPUS IMAGES: set the img path of each college below (landscape photo, about 1600x1000). */
-        const COLLEGES = [
-            {
-                id: 'sym', name: 'Symbiosis International University Dubai', short: 'Symbiosis Dubai', lg: 'SY', area: 'Dubai Knowledge Park', img: 'clg-img/Symbiosis.webp',
-                blurb: 'Dubai campus of Symbiosis International University, offering undergraduate and postgraduate programmes in computing, business, commerce, science and arts.', elig: 'From 55% marks (UG) / 50% marks (PG)', courses: 'BCA, B.Tech, BBA, B.Com, B.Sc, BA and MBA', min: { ug: '55%+ marks', pg: '50%+ marks' }
-            },
-            {
-                id: 'bits', name: 'BITS Pilani Dubai', short: 'BITS Pilani Dubai', lg: 'BP', area: 'Dubai International Academic City', img: 'clg-img/BITS.webp',
-                blurb: 'Dubai campus of BITS Pilani, offering engineering and management programmes at undergraduate and postgraduate level.', elig: 'From 60% marks (UG and PG)', courses: 'BE, BBA (Hons), ME and MBA', min: { ug: '60%+ marks', pg: '60%+ marks' }
-            }];
-        const COL = Object.fromEntries(COLLEGES.map(c => [c.id, c]));
-        /* Duration / fees are not published on the scholarship page, so cards say "Ask a counsellor". */
+        /* ===== DATA ===== */
+        const COLLEGES = { sym: { short: 'Symbiosis Dubai' }, bits: { short: 'BITS Pilani Dubai' } };
         const COURSES = [
-            { id: 'bca', c: 'sym', lv: 'ug', name: 'BCA in AI and ML', degree: 'Bachelor of Computer Applications' },
-            { id: 'btech', c: 'sym', lv: 'ug', name: 'B.Tech in Computer Engineering', degree: 'Bachelor of Technology' },
-            { id: 'bba-s', c: 'sym', lv: 'ug', name: 'BBA (General Management)', degree: 'Bachelor of Business Administration' },
-            { id: 'bcom', c: 'sym', lv: 'ug', name: 'B.Com', degree: 'Bachelor of Commerce' },
-            { id: 'bsc', c: 'sym', lv: 'ug', name: 'B.Sc', degree: 'Bachelor of Science' },
-            { id: 'ba', c: 'sym', lv: 'ug', name: 'BA', degree: 'Bachelor of Arts' },
-            { id: 'mba-s', c: 'sym', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration' },
-            { id: 'be', c: 'bits', lv: 'ug', name: 'BE in Engineering', degree: 'Bachelor of Engineering' },
-            { id: 'bba-b', c: 'bits', lv: 'ug', name: 'BBA (Hons)', degree: 'Bachelor of Business Administration (Hons)' },
-            { id: 'me', c: 'bits', lv: 'pg', name: 'ME in Software Systems', degree: 'Master of Engineering' },
-            { id: 'mba-b', c: 'bits', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration' }];
-        const POPULAR = ['bca', 'btech', 'mba-b']; // replace with your real enquiry ranking
-        const DOCS = ['Previous marksheets or transcripts', 'Valid passport', 'Recent passport-size photographs', 'English proficiency proof or waiver, where the university allows'];
-        const WHY = [['Close to home', 'A short flight from major Indian cities, keeping family and familiar support within easy reach.', 'pin'], ['Global exposure', 'Study alongside students from diverse nationalities in one of the world’s leading international business hubs.', 'globe'], ['Indian academic legacy', 'Explore Dubai campuses of established Indian institutions with familiar academic roots and an international outlook.', 'cap'], ['Safe & student-friendly', 'Benefit from a strong Indian community, modern infrastructure, and services designed to support student life.', 'shield']];
-        const STEPS = [['Talk to a counsellor', 'Share your marks, interests and budget so we can shortlist the right options.'], ['Choose your college and course', 'We match your profile to the right programme at Symbiosis Dubai or BITS Pilani Dubai.'], ['Prepare your documents', 'Guidance on transcripts and English test requirements or waivers.'], ['Apply with confidence', 'We help you with forms and submissions so nothing is missed.'], ['Receive your offer and plan ahead', 'A clear cost breakdown, education loan guidance and visa guidance for your move.']];
-        const TESTIMONIALS = []; // add ONLY genuine, permitted testimonials as {name,programme,college,quote}; the section stays hidden while this is empty
-        const FAQS = [['Which colleges can I apply to through Learntech?', 'Symbiosis International University Dubai and BITS Pilani Dubai, both Dubai campuses of established Indian institutions.'],
-        ['Who can apply?', 'Students who meet each university’s minimum marks. Symbiosis Dubai asks for 55% for Bachelor’s and 50% for Master’s. BITS Pilani Dubai asks for 60% for both. A counsellor confirms whether you qualify.'],
-        ['Can I apply for a Master’s programme?', 'Yes. Symbiosis Dubai offers an MBA, and BITS Pilani Dubai offers an ME in Software Systems and an MBA.'],
-        ['What are the fees?', 'Fees vary by college, course and level. A counsellor shares the current fee structure and a clear cost breakdown for your shortlisted course.'],
-        ['What documents do I need?', 'Usually your previous marksheets or transcripts, a valid passport, photographs and English proficiency proof or a waiver where the university allows it. A counsellor shares the exact checklist.'],
-        ['Can I get an education loan?', 'We guide you on education loan options and share a clear cost breakdown. Approval depends on the lender.'],
-        ['Does Learntech guarantee admission or a visa?', 'No. Admission and visas depend on the university and the relevant authorities. We guide you through each step but cannot guarantee either.']];
+            { id: 'bca', c: 'sym', lv: 'ug', name: 'BCA in AI and ML', degree: 'Bachelor of Computer Applications', min: '55%+' },
+            { id: 'btech', c: 'sym', lv: 'ug', name: 'B.Tech in Computer Engineering', degree: 'Bachelor of Technology', min: '55%+' },
+            { id: 'bba-s', c: 'sym', lv: 'ug', name: 'BBA (General Management)', degree: 'Bachelor of Business Administration', min: '55%+' },
+            { id: 'bcom', c: 'sym', lv: 'ug', name: 'B.Com', degree: 'Bachelor of Commerce', min: '55%+' },
+            { id: 'bsc', c: 'sym', lv: 'ug', name: 'B.Sc', degree: 'Bachelor of Science', min: '55%+' },
+            { id: 'ba', c: 'sym', lv: 'ug', name: 'BA', degree: 'Bachelor of Arts', min: '55%+' },
+            { id: 'mba-s', c: 'sym', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', min: '50%+' },
+            { id: 'be', c: 'bits', lv: 'ug', name: 'BE in Engineering', degree: 'Bachelor of Engineering', min: '60%+' },
+            { id: 'bba-b', c: 'bits', lv: 'ug', name: 'BBA (Hons)', degree: 'Bachelor of Business Administration (Hons)', min: '60%+' },
+            { id: 'me', c: 'bits', lv: 'pg', name: 'ME in Software Systems', degree: 'Master of Engineering', min: '60%+' },
+            { id: 'mba-b', c: 'bits', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', min: '60%+' }];
+        const CAREERS = [
+            ['Technology and AI', 'code', 'Build software, analyse data and work with AI tools across Dubai’s growing technology sector.', ['bca', 'btech', 'me'], ['Software developer', 'Data analyst', 'AI and ML associate', 'Systems engineer']],
+            ['Business and finance', 'biz', 'Support trade, banking, retail and corporate teams in one of the region’s major business hubs.', ['bba-s', 'bba-b', 'bcom', 'mba-s', 'mba-b'], ['Business analyst', 'Finance associate', 'Marketing executive', 'Operations coordinator']],
+            ['Engineering and construction', 'eng', 'Contribute to the infrastructure, design and project work that keeps Dubai growing.', ['be'], ['Project engineer', 'Design engineer', 'Site engineer', 'Quality engineer']],
+            ['Science, arts and communication', 'book', 'Move into research support, media, communication and education related roles.', ['bsc', 'ba'], ['Research assistant', 'Content and media executive', 'Communications executive', 'Teaching assistant']]];
+        const VISA_BEFORE = ['Unconditional offer letter from your university', 'Valid passport, with the validity period your university asks for', 'Recent passport-size photographs', 'Academic documents and English proficiency proof, if requested', 'Fee payment receipts and any deposit your university requires', 'Entry permit or visa approval, arranged through your university', 'Flight booking and a place to stay for your first weeks'];
+        const VISA_AFTER = ['Medical fitness test at an approved centre', 'Emirates ID registration, including biometrics', 'Residence visa stamped in your passport', 'Health insurance, as required in your emirate', 'University registration and orientation', 'Copies of your passport, visa, Emirates ID and insurance papers'];
+        /* Replace the sample entries with genuine, permitted quotes (remove "sample:true" once replaced). */
+        const TESTIMONIALS = [
+            { name: 'Student name', programme: 'BCA in AI and ML', college: 'Symbiosis Dubai', c: 'sym', sample: true, quote: 'Replace this with a genuine, permitted quote from a student who studied in Dubai, about the counselling, the course or life on campus.' },
+            { name: 'Student name', programme: 'BE in Engineering', college: 'BITS Pilani Dubai', c: 'bits', sample: true, quote: 'Replace this with a genuine, permitted quote from a student who studied in Dubai, about the counselling, the course or life on campus.' },
+            { name: 'Parent name', programme: 'MBA', college: 'Symbiosis Dubai', c: 'sym', sample: true, quote: 'Replace this with a genuine, permitted quote from a student or parent about the admission, loan and visa support they received.' }];
 
-        /* ============ HELPERS ============ */
+        /* ===== HELPERS ===== */
         const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
         const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-        const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
-        const motion = !reduce && 'IntersectionObserver' in window;
-        if (motion) document.documentElement.classList.add('js');
-        const EASE = 'cubic-bezier(.22,1,.36,1)';
-        const SVG = (p, w = 1.8) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
-        const ICON = { pin: '<path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/>', globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/>', cap: '<path d="M3 10l9-5 9 5-9 5-9-5z"/><path d="M7 12.5V17c0 1 2.2 2.5 5 2.5s5-1.5 5-2.5v-4.5"/>', shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/>', chk: '<path d="M5 12l5 5L20 7"/>' };
-        const ARR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-        const anim = (els, kf, d = 500, s = 70) => { if (reduce) return;[...els].forEach((e, i) => e.animate(kf, { duration: d, delay: i * s, easing: EASE, fill: 'backwards' })) };
-        const SIDE = [{ opacity: 0, transform: 'translateX(18px)' }, { opacity: 1, transform: 'none' }];
+        const ico = n => `<svg aria-hidden="true"><use href="#i-${n}"/></svg>`;
 
-        /* header + mobile menu */
-        const hdr = $('#hdr'), mb = $('#mb'), nl = $('#nl');
-        const hs = () => hdr.classList.toggle('scrolled', scrollY > 8); hs(); addEventListener('scroll', hs, { passive: true });
-        const setMenu = o => { nl.classList.toggle('open', o); hdr.classList.toggle('menu-open', o); mb.setAttribute('aria-expanded', o); mb.setAttribute('aria-label', o ? 'Close menu' : 'Open menu'); document.documentElement.style.overflow = o ? 'hidden' : '' };
-        mb.onclick = () => setMenu(!nl.classList.contains('open')); nl.onclick = e => { if (e.target.closest('a')) setMenu(false) };
-        addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false) }); matchMedia('(min-width:768px)').addEventListener('change', () => setMenu(false));
-
-        /* carousel: drag (mouse), swipe (touch), arrows, progress bar */
-        function carousel(t, p, n) {
-            const bar = t.nextElementSibling && t.nextElementSibling.querySelector('.bar i'), step = () => (t.firstElementChild ? t.firstElementChild.offsetWidth : 300) + 20;
-            const upd = () => { p.disabled = t.scrollLeft <= 2; n.disabled = t.scrollLeft >= t.scrollWidth - t.clientWidth - 2; if (bar) bar.style.transform = 'scaleX(' + (t.scrollWidth ? Math.min(1, (t.scrollLeft + t.clientWidth) / t.scrollWidth) : 1).toFixed(3) + ')' };
-            p.onclick = () => t.scrollBy({ left: -step(), behavior: 'smooth' }); n.onclick = () => t.scrollBy({ left: step(), behavior: 'smooth' });
-            t.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd);
+        /* carousel: arrows, mouse drag, touch swipe */
+        function carousel(track, prev, next) {
+            const step = () => (track.firstElementChild ? track.firstElementChild.offsetWidth : 300) + 20;
+            const upd = () => { prev.disabled = track.scrollLeft <= 2; next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2 };
+            prev.onclick = () => track.scrollBy({ left: -step(), behavior: 'smooth' });
+            next.onclick = () => track.scrollBy({ left: step(), behavior: 'smooth' });
+            track.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd);
             let down = false, moved = false, sx = 0, sl = 0;
-            t.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = t.scrollLeft });
-            addEventListener('pointermove', e => { if (!down) return; const d = e.clientX - sx; if (Math.abs(d) > 5) { moved = true; t.classList.add('drag') } if (moved) t.scrollLeft = sl - d });
-            addEventListener('pointerup', () => { if (!down) return; down = false; t.classList.remove('drag') });
-            t.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false } }, true);
-            return () => { t.scrollLeft = 0; upd() }
+            track.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; sx = e.clientX; sl = track.scrollLeft });
+            addEventListener('pointermove', e => { if (!down) return; const d = e.clientX - sx; if (Math.abs(d) > 5) { moved = true; track.classList.add('drag') } if (moved) track.scrollLeft = sl - d });
+            addEventListener('pointerup', () => { if (!down) return; down = false; track.classList.remove('drag') });
+            track.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); moved = false } }, true);
+            return () => { track.scrollLeft = 0; upd() };
         }
 
-        /* course card */
-        const lvName = l => l === 'ug' ? 'UG' : 'PG';
-        function card(c) {
-            const col = COL[c.c];
-            return `<article class="pgc" data-lv="${c.lv}" data-c="${col.id}">
-<div class="pc-top"><span class="pg-tag">${c.lv === 'ug' ? 'Undergraduate' : 'Postgraduate'}</span>${POPULAR.includes(c.id) ? '<em class="pop">Popular</em>' : ''}</div>
-<h3>${esc(c.name)}<span>${esc(c.degree)}</span></h3>
-<dl class="pg-rows"><div class="pg-row"><dt>College</dt><dd class="lg"><i>${col.lg}</i>${esc(col.short)}</dd></div><div class="pg-row"><dt>Minimum marks</dt><dd>${esc(col.min[c.lv])}</dd></div><div class="pg-row"><dt>Fees</dt><dd>Ask a counsellor</dd></div></dl>
-<a class="pg-btn" href="#enquire"><span>Enquire now</span><i>${ARR}</i></a></article>`
-        }
+        /* ===== PROGRAMMES ===== */
+        (function () {
+            const CICON = { bca: 'code', btech: 'code', 'bba-s': 'biz', bcom: 'fee', bsc: 'eng', ba: 'book', 'mba-s': 'biz', be: 'eng', 'bba-b': 'biz', me: 'code', 'mba-b': 'biz' };
+            const track = $('#courseTrack'), count = $('#courseCount'), state = { college: 'all', level: 'all' };
+            const reset = carousel(track, $('#prev'), $('#next'));
+            const card = c => `<article class="course" data-college="${c.c}" data-level="${c.lv}"><div class="course__top"><span class="course__ico">${ico(CICON[c.id] || 'cap')}</span><span class="badge">${c.lv === 'ug' ? 'Undergraduate' : 'Postgraduate'}</span></div><h3 class="course__title">${esc(c.name)}</h3><p class="course__degree">${esc(c.degree)}</p><dl class="facts"><div><dt>College</dt><dd>${esc(COLLEGES[c.c].short)}</dd></div><div><dt>Minimum marks</dt><dd>${c.min}</dd></div></dl><a class="link" href="#enquire">Enquire now <svg width="16" height="16"><use href="#i-arrow"/></svg></a></article>`;
+            function render() {
+                const list = COURSES.filter(c => (state.college === 'all' || c.c === state.college) && (state.level === 'all' || c.lv === state.level));
+                track.innerHTML = list.map(card).join('') || '<div class="empty">No courses match these filters. Try another college or level.</div>';
+                count.textContent = list.length + ' programme' + (list.length === 1 ? '' : 's');
+                reset();
+            }
+            $$('[data-filter]').forEach(g => g.addEventListener('click', e => {
+                const b = e.target.closest('.pill'); if (!b) return;
+                state[g.dataset.filter] = b.dataset.value;
+                $$('.pill', g).forEach(p => p.setAttribute('aria-pressed', p === b));
+                render();
+            }));
+            render();
+        })();
 
-        /* courses by college (first college selected by default) */
-        const st = { col: COLLEGES[0].id, lv: 'all' }, rc = carousel($('#trk'), $('#pp'), $('#pn'));
-        function chips(el, items, key) {
-            el.innerHTML = items.map(([v, l]) => `<button class="chip${st[key] === v ? ' on' : ''}" data-v="${v}" role="tab" aria-selected="${st[key] === v}">${esc(l)}</button>`).join('');
-            $$('.chip', el).forEach(b => b.onclick = () => { st[key] = b.dataset.v; chips(el, items, key); draw(true) })
-        }
-        function draw(a) {
-            const list = COURSES.filter(c => c.c === st.col && (st.lv === 'all' || c.lv === st.lv)).sort((a, b) => POPULAR.includes(b.id) - POPULAR.includes(a.id));
-            $('#trk').innerHTML = list.map(card).join('') || '<div class="empty">No courses match these filters. Try another level.</div>';
-            $('#cnt').textContent = list.length + ' programme' + (list.length === 1 ? '' : 's'); rc(); if (a) anim($$('#trk>*'), SIDE, 600, 70)
-        }
-        chips($('#fc'), COLLEGES.map(c => [c.id, c.short]), 'col'); chips($('#fl'), [['all', 'All'], ['ug', 'UG Programmes'], ['pg', 'PG Programmes']], 'lv'); draw(false);
+        /* ===== CAREERS ===== */
+        $('#careerGrid').innerHTML = CAREERS.map(([t, ic, d, ids, roles]) => {
+            const cs = ids.map(i => COURSES.find(c => c.id === i)).filter(Boolean);
+            const names = [...new Set(cs.map(c => c.name))], cols = [...new Set(cs.map(c => c.c))];
+            return `<article class="feature reveal"><div class="feature__icon">${ico(ic)}</div><h3 class="feature__title">${esc(t)}</h3><p class="feature__text">${esc(d)}</p><span class="k">Programmes</span><p class="pr">${esc(names.join(', '))}</p><span class="k">Typical roles</span><p class="rt">${esc(roles.join(', '))}</p><div class="tg">${cols.map(id => `<span class="${id === 'bits' ? 'b' : ''}">${esc(COLLEGES[id].short)}</span>`).join('')}</div></article>`;
+        }).join('');
 
-        /* colleges */
-        $('#cg').innerHTML = COLLEGES.map(c => `<article class="cc rv" data-c="${c.id}"><div class="cc-img"><img src="${esc(c.img)}" alt="${esc(c.name)} campus" loading="lazy" onerror="this.style.display='none'"><span class="loc">${esc(c.area)}</span></div><div class="cc-body"><h3>${esc(c.name)}</h3><p>${esc(c.blurb)}</p>
-<dl><div><dt>Programmes</dt><dd>${esc(c.courses)}</dd></div><div><dt>Eligibility</dt><dd>${esc(c.elig)}</dd></div></dl>
-<a class="btn light" href="#enquire"><span>Talk about this college</span><i>${ARR}</i></a></div></article>`).join('');
-        if (CONFIG.SCHOLAR_PAGE_URL) { const n = $('#sl'); n.hidden = false; n.innerHTML = 'Looking for scholarship details? <a href="' + esc(CONFIG.SCHOLAR_PAGE_URL) + '" style="color:var(--red-soft);font-weight:600">See the Learntech Scholar page</a>.' }
+        /* ===== CHECKLIST ===== */
+        const tick = d => `<li><svg><use href="#i-check"/></svg><span>${esc(d)}</span></li>`;
+        $('#visaBefore').innerHTML = VISA_BEFORE.map(tick).join('');
+        $('#visaAfter').innerHTML = VISA_AFTER.map(tick).join('');
 
-        /* eligibility and documents */
-        $('#th').innerHTML = '<tr><th>Level</th>' + COLLEGES.map(c => `<th>${esc(c.short)}</th>`).join('') + '</tr>';
-        $('#tb').innerHTML = ['ug', 'pg'].map(l => `<tr><td data-label="Level"><span class="lvt ${l}">${lvName(l)}</span></td>` + COLLEGES.map(c => `<td data-label="${esc(c.short)}"><b>${esc(c.min[l])}</b><span class="pl">${esc(COURSES.filter(x => x.c === c.id && x.lv === l).map(x => x.name).join(', '))}</span></td>`).join('') + '</tr>').join('');
-        $('#ck').innerHTML = DOCS.map(d => `<li>${SVG(ICON.chk, 2.2)}<span>${esc(d)}</span></li>`).join('');
+        /* ===== TESTIMONIALS ===== */
+        if (TESTIMONIALS.length) {
+            $('#storyTrack').innerHTML = TESTIMONIALS.map(t => `<figure class="tq"><span class="tq__ico">${ico('quote')}</span>${t.sample ? '<span class="tq__sample">Sample · replace with a real quote</span>' : ''}<blockquote>${esc(t.quote)}</blockquote><div class="who"><span class="av">${esc(t.name.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase())}</span><figcaption><b>${esc(t.name)}</b><span class="m">${esc(t.programme)} · ${esc(t.college)}</span></figcaption></div></figure>`).join('');
+            carousel($('#storyTrack'), $('#sprev'), $('#snext'))();
+        } else { $('#stories').remove() }
 
-        /* why / process / testimonials / faq */
-        $('#wg').innerHTML = WHY.map(w => `<article class="wc rv"><div class="wi">${SVG(ICON[w[2]], 1.5)}</div><div><h3>${esc(w[0])}</h3><p>${esc(w[1])}</p></div></article>`).join('');
-        $('#sg').innerHTML = STEPS.map((s, i) => `<article class="sp rv"><b>0${i + 1}</b><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></article>`).join('');
-        $('#tt').innerHTML = TESTIMONIALS.length ? TESTIMONIALS.map(t => `<figure class="tq"><blockquote>${esc(t.quote)}</blockquote><div class="who"><span class="av">${esc(t.name.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase())}</span><figcaption><b>${esc(t.name)}</b><span>${esc(t.programme)} · ${esc(t.college)}</span></figcaption></div>${t.sample ? '<span class="tagp" style="align-self:flex-start">Placeholder: replace</span>' : ''}</figure>`).join('') : '<div class="empty">Testimonials will appear once genuine, permitted quotes are supplied.</div>';
-        carousel($('#tt'), $('#tp'), $('#tn'))(); if (!TESTIMONIALS.length) $('#stories').remove();
-        $('#fq').innerHTML = FAQS.map((f, i) => `<h3 class="fh"><button class="q" id="q${i}" aria-expanded="false" aria-controls="a${i}">${esc(f[0])}<span aria-hidden="true">+</span></button></h3><div class="a" id="a${i}" role="region" aria-labelledby="q${i}"><div><p>${esc(f[1])}</p></div></div>`).join('');
-        $$('.q').forEach(b => b.onclick = () => { const o = b.getAttribute('aria-expanded') === 'true'; b.setAttribute('aria-expanded', !o); $('#' + b.getAttribute('aria-controls')).classList.toggle('open', !o) });
-
-        /* hero entrance */
-        if (motion) requestAnimationFrame(() => requestAnimationFrame(() => $('#hero').classList.add('go')));
-
-        /* scroll reveal + clip reveal */
-        if (motion) {
-            const io = new IntersectionObserver(es => {
-                es.forEach(en => {
-                    if (!en.isIntersecting) return; const e = en.target; io.unobserve(e); e.classList.add('in');
-                    if (e.classList.contains('clip')) { e.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0% 0)' }], { duration: 1500, easing: EASE, fill: 'backwards' }); return }
-                    const sib = [...e.parentElement.children].filter(x => x.classList.contains('rv')), d = Math.min(sib.indexOf(e), 4) * 90;
-                    e.animate([{ opacity: 0, transform: 'translateY(36px)' }, { opacity: 1, transform: 'none' }], { duration: 1000, delay: d, easing: EASE, fill: 'backwards' })
-                })
-            }, { threshold: .1, rootMargin: '0px 0px -6% 0px' });
-            $$('.rv,.clip').forEach(e => io.observe(e))
-        }
-
-        /* parallax + process line progress */
-        const par = $$('[data-par]'), sg = $('#sg'); let tk = false;
-        function frame() {
-            tk = false; const vh = innerHeight;
-            par.forEach(el => { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < -200 || r.top > vh + 200) return; const c = r.top + r.height / 2 - vh / 2; el.style.transform = 'translate3d(0,' + (-c * (+el.dataset.par)).toFixed(1) + 'px,0)' });
-            if (sg) { const r = sg.getBoundingClientRect(); sg.style.setProperty('--p', Math.min(1, Math.max(0, (vh * .85 - r.top) / (r.height + vh * .1))).toFixed(3)) }
-        }
-        const req = () => { if (!tk) { tk = true; requestAnimationFrame(frame) } };
-        if (!reduce) { addEventListener('scroll', req, { passive: true }); addEventListener('resize', req); frame() }
+        /* ===== SCROLL REVEAL ===== */
+        (function () {
+            const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+            if (reduce || !('IntersectionObserver' in window)) return;
+            document.documentElement.classList.add('js');
+            const io = new IntersectionObserver(es => { es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target) } }) }, { threshold: .1, rootMargin: '0px 0px -5% 0px' });
+            $$('.reveal').forEach(el => io.observe(el));
+        })();
     </script>
 </body>
 
