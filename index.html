@@ -91,7 +91,7 @@
         }
 
         .section {
-            padding: var(--space) 0
+            padding: var(--space) 0;
         }
 
         .section--soft {
@@ -103,7 +103,8 @@
             rgba(220, 116, 139, 0.88) 100%
         ),
         url('images/your-background.jpg') center/cover no-repeat; */
-            background: #e9eefe;
+          
+            background: linear-gradient(180deg, white,#e9eefe);
         }
 
         /* typography */
@@ -127,8 +128,9 @@
         }
 
         .lead {
-            font-size: 1rem;
-            font-weight: 300;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #464646;
 
             /* max-width: 56ch; */
             margin-top: 14px
@@ -188,6 +190,7 @@
 
         .btn--light:hover {
             background: #fff;
+            color: var(--blue-dark);
             box-shadow: 0 14px 28px -12px rgba(0, 0, 0, .4)
         }
 
@@ -842,15 +845,16 @@
         }
 
         .panel {
-            background: #fff;
-            border: 1px solid var(--line);
+            background: #f2f2f2;
+            border: 2px solid var(--line);
             border-radius: var(--r-lg);
             padding: clamp(24px, 3vw, 36px);
             box-shadow: var(--shadow)
         }
 
         .panel__title {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            color: #1A3266;
             font-weight: 500;
             margin-bottom: 20px
         }
@@ -895,40 +899,45 @@
             gap: 16px;
             align-items: start;
             padding: 18px;
-            background: var(--bg-soft);
+            background: rgb(140, 5, 5);
             border-radius: var(--r-sm)
         }
 
         .marks__level {
             font-size: .78rem;
             font-weight: 600;
-            color: var(--blue)
+            color: #fff
         }
 
         .marks__row--pg .marks__level {
-            color: var(--red)
+            color: #fff
         }
 
         .marks__label {
             display: block;
-            font-size: .74rem;
-            font-weight: 300;
-            color: var(--ink-3);
+            font-size: .84rem;
+            font-weight: 400;
+            color: #fff;
             margin-bottom: 2px
         }
 
         .marks__value {
-            font-size: 1.5rem;
-            font-weight: 500;
+            font-size: 2rem;
+            font-weight: 900;
             letter-spacing: -.03em;
-            line-height: 1.2
+            line-height: 1.2;
+            color: white;
+        }
+
+        .marks__row .marks__list {
+            color: #ffffff
         }
 
         .marks__list {
             display: block;
             margin-top: 6px;
             font-size: .78rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--ink-2)
         }
 
@@ -937,10 +946,10 @@
             gap: 12px;
             align-items: flex-start;
             padding: 14px 0;
-            border-top: 1px solid var(--line);
+            border-top: 1px solid rgba(0, 0, 0, 0.201);
             font-size: .92rem;
-            font-weight: 300;
-            color: var(--ink-2)
+            font-weight: 400;
+            color: var(--ink-1)
         }
 
         .docs li:first-child {
@@ -1100,7 +1109,7 @@
 
         /* faq */
         .faq {
-            max-width: 820px;
+            max-width: 1120px;
             margin: 0 auto;
             display: grid;
             gap: 12px
@@ -1157,126 +1166,8 @@
         .faq__a {
             padding: 0 26px 24px;
             font-size: .94rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--ink-2);
-            max-width: 64ch
-        }
-
-        /* cta */
-        .cta {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--r-lg);
-            background: linear-gradient(150deg, var(--blue), var(--navy));
-            color: #fff;
-            text-align: center;
-            padding: clamp(48px, 7vw, 88px) clamp(24px, 5vw, 64px)
-        }
-
-        .cta__bg {
-            position: absolute;
-            inset: 0
-        }
-
-        .cta__bg img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: .25
-        }
-
-        .cta__inner {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            max-width: 640px;
-            margin: 0 auto
-        }
-
-        .cta__title {
-            font-size: clamp(1.9rem, 4.4vw, 3.2rem);
-            font-weight: 500;
-            letter-spacing: -.035em;
-            line-height: 1.1
-        }
-
-        .cta__title em {
-            font-style: normal;
-            font-weight: 300;
-            color: #FF8A92
-        }
-
-        .cta__text {
-            font-weight: 300;
-            color: rgba(255, 255, 255, .82)
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 8px
-        }
-
-        .tags li {
-            padding: 7px 16px;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, .12);
-            font-size: .78rem
-        }
-
-        /* footer */
-        .footer {
-            background: var(--navy);
-            color: rgba(255, 255, 255, .65);
-            padding: clamp(56px, 7vw, 88px) 0 28px;
-            font-size: .88rem;
-            font-weight: 300
-        }
-
-        .footer__grid {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-            gap: clamp(28px, 4vw, 56px)
-        }
-
-        .footer .brand {
-            color: #fff;
-            margin-bottom: 18px
-        }
-
-        .footer__grid p {
-            max-width: 34ch
-        }
-
-        .footer h4 {
-            color: #fff;
-            font-size: .82rem;
-            font-weight: 500;
-            margin-bottom: 16px
-        }
-
-        .footer li {
-            margin-bottom: 9px
-        }
-
-        .footer a:hover {
-            color: #fff
-        }
-
-        .footer__bottom {
-            margin-top: 48px;
-            padding-top: 22px;
-            border-top: 1px solid rgba(255, 255, 255, .12);
-            font-size: .76rem;
-            color: rgba(255, 255, 255, .5)
-        }
-
-        .mbar {
-            display: none
         }
 
         /* reveal */
@@ -1871,8 +1762,7 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Why Dubai</span>
                     <h2 class="title">Why study in Dubai?</h2>
-                    <p class="lead">Globally recognised education, diverse programmes and a chance to connect with
-                        international industries.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <div class="why">
                     <div class="why__img reveal"><img src="media/25852825 (2).webp" alt="Dubai skyline" loading="lazy"
@@ -1924,9 +1814,7 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Programmes</span>
                     <h2 class="title" style="color: white;">Courses by college</h2>
-                    <p class="lead" style="color: white;">Pick a college, filter by level and compare eligibility at a
-                        glance. A counsellor
-                        shares current fees and duration.</p>
+                    <p class="lead" style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
 
                 <div class="filters reveal">
@@ -1964,8 +1852,7 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Partner colleges</span>
                     <h2 class="title">Our partner colleges in Dubai</h2>
-                    <p class="lead">Two established Indian-legacy campuses, each with its own programmes and entry
-                        requirements.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <div class="grid grid--2">
                     <article class="college reveal" data-college="sym">
@@ -2026,12 +1913,9 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Career outlook</span>
                     <h2 class="title">Where these degrees lead</h2>
-                    <p class="lead">See which Dubai industries each group of programmes connects to, and the kinds of
-                        roles graduates commonly aim for.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <div class="grid grid--4" id="careerGrid"></div>
-                <p class="note">These are indicative career directions, not placement or job guarantees. Work and
-                    residence rules are set by UAE authorities and employers.</p>
             </div>
         </section>
 
@@ -2151,9 +2035,10 @@
                 transition: transform .5s var(--ease)
             }
 
-            .fl__node svg {
-                width: 54px;
-                height: 54px
+            .fl__node img {
+                width: 55px;
+                height: 55px;
+                object-fit: cover
             }
 
             /* red arc (spins) */
@@ -2174,7 +2059,7 @@
                 position: absolute;
                 inset: -17px;
                 border-radius: 50%;
-                border: 1.5px dashed rgba(39, 72, 150, .4);
+                border: 1.5px dashed rgb(174, 177, 174);
                 animation: fl-spin 26s linear infinite reverse
             }
 
@@ -2324,53 +2209,43 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Admission support</span>
                     <h2 class="title">From course choice to confirmed offer</h2>
-                    <p class="lead">We help you every step of the way.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
 
                 <ol class="fl">
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-chat" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/counsellor.svg" alt="Counselling" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">01</span>
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Talk to a counsellor</h3>
-                                <p class="fl__text">Share your marks, interests and budget so we can shortlist the right
-                                    options.</p>
+                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-cap" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/course.svg" alt="Choosing a college and course" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">02</span>
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Choose your college and course</h3>
-                                <p class="fl__text">We match your profile to the right programme at Symbiosis Dubai or
-                                    BITS Pilani Dubai.</p>
+                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-doc" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/documents.svg" alt="Preparing application documents" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">03</span>
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Prepare your documents</h3>
-                                <p class="fl__text">Guidance on transcripts and English test requirements or waivers.
+                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                                 </p>
                             </div>
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-send" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/confidence.svg" alt="Submitting an application" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">04</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2380,35 +2255,27 @@
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-fee" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/offer.svg" alt="Receiving an admission offer" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">05</span>
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Receive your offer</h3>
-                                <p class="fl__text">A clear cost breakdown and education loan guidance once your offer
-                                    arrives.</p>
+                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-id" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/Visa.svg" alt="Visa guidance" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">06</span>
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Visa guidance</h3>
-                                <p class="fl__text">Support with your visa steps, which your university usually
-                                    coordinates.</p>
+                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><svg aria-hidden="true">
-                                    <use href="#i-plane" />
-                                </svg></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/Plan.svg" alt="Planning a move to Dubai" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">07</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2428,8 +2295,7 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Why Learntech</span>
                     <h2 class="title">Why choose Learntech for study in Dubai</h2>
-                    <p class="lead">Straightforward guidance from counsellors who have supported families for decades,
-                        from your first question to your move.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <!-- ==========================================================
   1) CSS: paste at the end of your <style> block
@@ -2458,8 +2324,8 @@
                         gap: 14px;
                         padding: 22px 12px;
                         text-align: center;
-                        background: #f9f9f9;
-                        border: 1px solid var(--line);
+                        /* background: #ffffff;
+                        border: 1px solid var(--line); */
                         border-radius: var(--r);
                         transition: transform .5s var(--ease), box-shadow .5s var(--ease), background .3s
                     }
@@ -2467,42 +2333,26 @@
                     .lw__item:hover {
                         transform: translateY(-4px);
                         background: #fff;
-                        box-shadow: var(--shadow-up)
+                        box-shadow: 0px 10px 15px rgba(184, 207, 252, 0.701);
                     }
 
                     .lw__icon {
-                        display: grid;
-                        place-items: center;
-                        width: 60px;
-                        height: 60px;
-                        border-radius: 50%;
-                        background: #EAF0FD;
-                        color: var(--blue);
-                        transition: background .3s, color .3s
+                        display: block;
+                        width: 90px;
+                        height: 90px;
+                        overflow: hidden;
+                        flex: 0 0 90px
                     }
 
-                    .lw__icon svg {
-                        width: 26px;
-                        height: 26px
-                    }
-
-                    .lw__side--r .lw__icon {
-                        background: #FDECEE;
-                        color: var(--red)
-                    }
-
-                    .lw__item:hover .lw__icon {
-                        background: var(--blue);
-                        color: #fff
-                    }
-
-                    .lw__side--r .lw__item:hover .lw__icon {
-                        background: var(--red);
-                        color: #fff
+                    .lw__icon img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover
                     }
 
                     .lw__item span:last-child {
-                        font-size: .8rem;
+                        font-size: .9rem;
                         font-weight: 500;
                         line-height: 1.4;
                         color: var(--ink)
@@ -2519,14 +2369,12 @@
                         padding: clamp(28px, 3.5vw, 24px);
                         border-radius: var(--r-lg);
                         color: #fff;
-                        background:
-                            radial-gradient(360px 260px at 100% 0, rgba(233, 60, 71, .32), transparent 70%),
-                            linear-gradient(150deg, var(--blue), var(--navy));
+                        background: rgb(28, 90, 144);
                         box-shadow: var(--shadow-up)
                     }
 
                     .lw__center h3 {
-                        font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+                        font-size: clamp(1.4rem, 2.2vw, 1.75rem);
                         font-weight: 500;
                         letter-spacing: -.03em;
                         line-height: 1.2
@@ -2540,8 +2388,8 @@
 
                     .lw__center p {
                         font-size: .94rem;
-                        font-weight: 300;
-                        color: rgba(255, 255, 255, .84)
+                        font-weight: 400;
+                        color: rgba(255, 255, 255)
                     }
 
                     .lw__center .btn {
@@ -2583,27 +2431,19 @@
                     <!-- LEFT: 4 icons -->
                     <div class="lw__side">
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-users" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_01.webp" alt=""></span>
                             <span>1,00,000+ Students Guided</span>
                         </div>
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-calendar" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_02.webp" alt=""></span>
                             <span>Guiding Families Since 1994</span>
                         </div>
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-cap" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_03.webp" alt=""></span>
                             <span>2 Partner Campuses in Dubai</span>
                         </div>
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-globe" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_04.webp" alt=""></span>
                             <span>Counsellors in India and the UAE</span>
                         </div>
                     </div>
@@ -2623,27 +2463,19 @@
                     <!-- RIGHT: 4 icons -->
                     <div class="lw__side lw__side--r">
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-book" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_05.webp" alt=""></span>
                             <span>Course Shortlisting That Fits You</span>
                         </div>
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-fee" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_06.webp" alt=""></span>
                             <span>Clear Cost Breakdown</span>
                         </div>
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-doc" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_07.webp" alt=""></span>
                             <span>Education Loan Guidance</span>
                         </div>
                         <div class="lw__item reveal">
-                            <span class="lw__icon"><svg aria-hidden="true">
-                                    <use href="#i-id" />
-                                </svg></span>
+                            <span class="lw__icon"><img src="why-icons/Icon_08.webp" alt=""></span>
                             <span>Visa Guidance at Every Step</span>
                         </div>
                     </div>
@@ -2653,7 +2485,7 @@
         </section>
 
         <!-- ELIGIBILITY + DOCUMENTS + CHECKLIST -->
-        <section class="section section--soft" id="apply">
+        <section class="section" id="apply">
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Eligibility, documents and checklist</span>
@@ -2757,7 +2589,7 @@
 
         <!-- FAQ -->
         <section class="section section--soft" id="faq">
-            <div class="container">
+            <div class="container last-cta">
                 <div class="section__head reveal" style="text-align:center">
                     <span class="eyebrow">FAQs</span>
                     <h2 class="title">Frequently asked questions</h2>
@@ -2805,90 +2637,328 @@
             </div>
         </section>
 
-        <!-- CTA -->
-        <section class="section" id="enquire">
-            <div class="container">
-                <div class="cta reveal">
-                    <div class="cta__bg" aria-hidden="true"><img src="assets/dubai-skyline.jpg" alt="" loading="lazy"
-                            onerror="this.style.display='none'"></div>
-                    <div class="cta__inner">
-                        <h2 class="cta__title">Your next chapter <em>starts with a call.</em></h2>
-                        <p class="cta__text">Speak to a Learntech counsellor about colleges, courses and admissions, and
-                            know exactly what to do next.</p>
-                        <a class="btn btn--light" href="tel:+971504955123">Call a counsellor <svg width="16"
-                                height="16">
-                                <use href="#i-arrow" />
-                            </svg></a>
-                        <ul class="tags">
-                            <li><svg>
-                                    <use href="#i-cap" />
-                                </svg>Course shortlisting</li>
-                            <li><svg>
-                                    <use href="#i-send" />
-                                </svg>Admission support</li>
-                            <li><svg>
-                                    <use href="#i-fee" />
-                                </svg>Education loan guidance</li>
-                            <li><svg>
-                                    <use href="#i-id" />
-                                </svg>Visa guidance</li>
-                        </ul>
+     
+<style>
+   
+    #enquire {
+        /* room for the image to pop out above the card */
+        padding-top: clamp(150px, 15vw, 30px)
+    }
+
+    .cta2 {
+        --pop: 150px;
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 50%) minmax(0, 1fr);
+        align-items: center;
+        min-height: 400px;
+        padding: 56px clamp(28px, 5vw, 72px) 56px 0;
+        border-radius: var(--r-lg);
+        color: #fff;
+        background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 62%, #3a5db3 100%);
+        box-shadow: var(--shadow-up)
+    }
+
+    /* decorative layer, clipped to the card */
+    .cta2__bg {
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        overflow: hidden;
+        pointer-events: none
+    }
+
+    .cta2__bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(520px 340px at 100% 100%, rgba(233, 60, 71, .35), transparent 70%),
+            radial-gradient(rgba(255, 255, 255, .13) 1.2px, transparent 1.5px) 0 0 / 22px 22px;
+        -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 75%);
+        mask-image: linear-gradient(90deg, transparent 30%, #000 75%)
+    }
+
+    .cta2__bg svg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%
+    }
+
+    .cta2__bg path {
+        fill: none;
+        stroke: rgba(255, 255, 255, .28);
+        stroke-width: 1.5;
+        stroke-dasharray: 6 9;
+        vector-effect: non-scaling-stroke
+    }
+
+
+    @keyframes cta2-float {
+        50% {
+            transform: translateY(-10px) rotate(-12deg)
+        }
+    }
+
+    /* student image: bottom aligned, pops above the card */
+    .cta2__img {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 50%;
+        height: calc(100% + var(--pop));
+        display: flex;
+        align-items: flex-end;
+        z-index: 2;
+        pointer-events: none;
+        /* keep the bottom-left corner rounded like the card, let the top overflow */
+        clip-path: inset(-400px -400px 0 0 round 0 0 0 var(--r-lg))
+    }
+
+    .cta2__img img {
+        display: block;
+        height: 100%;
+        width: auto;
+        max-width: 100%;
+        object-fit: contain;
+        object-position: left bottom
+    }
+
+    .cta2__body {
+        grid-column: 2;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        max-width: 560px
+    }
+
+    .cta2__tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, .14);
+        border: 1px solid rgba(255, 255, 255, .24);
+        font-size: .78rem;
+        font-weight: 500
+    }
+
+    .cta2__tag svg {
+        width: 14px;
+        height: 14px
+    }
+
+    .cta2__title {
+        font-size: clamp(1.9rem, 3.6vw, 3rem);
+        font-weight: 500;
+        letter-spacing: -.035em;
+        line-height: 1.12
+    }
+
+    /* marker-style underline on the second line */
+    .cta2__title em {
+        font-style: normal;
+        font-weight: 600;
+        letter-spacing: 0.02;
+        color: #f4b0ac;
+    }
+
+    .cta2__text {
+        font-size: 1rem;
+        font-weight: 300;
+        color: rgba(255, 255, 255, .85);
+        max-width: 46ch
+    }
+
+    .cta2__actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+        margin-top: 6px
+    }
+
+    .cta2__btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        height: 54px;
+        padding: 0 28px;
+        border-radius: 99px;
+        background: #fff;
+        color: var(--blue-dark);
+        font-size: .92rem;
+        font-weight: 600;
+        transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .3s, color .3s
+    }
+
+    .cta2__btn svg {
+        width: 18px;
+        height: 18px
+    }
+
+    .cta2__btn:hover {
+        transform: translateY(-3px);
+        background: var(--red);
+        color: #fff;
+        box-shadow: 0 16px 30px -12px rgba(233, 60, 71, .7)
+    }
+
+    /* social bar */
+    .cta2__social {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, .12);
+        border: 1px solid rgba(255, 255, 255, .22);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px)
+    }
+
+    .cta2__social small {
+        padding: 0 10px 0 14px;
+        font-size: .74rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, .8)
+    }
+
+    .cta2__soc {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        color: #fff;
+        transition: background .3s, color .3s, transform .4s var(--ease)
+    }
+
+    .cta2__soc svg {
+        width: 19px;
+        height: 19px
+    }
+
+    .cta2__soc:hover {
+        background: #fff;
+        color: var(--blue);
+        transform: translateY(-3px)
+    }
+
+    /* tablet / mobile: image on top, centred */
+    @media(max-width:900px) {
+        #enquire {
+            padding-top: 150px
+        }
+
+        .cta2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 0;
+            padding: 0 24px 40px;
+            text-align: center
+        }
+
+        .cta2__img {
+            position: relative;
+            order: -1;
+            width: min(300px, 78%);
+            height: 330px;
+            margin-top: -120px;
+            clip-path: none;
+            justify-content: center;
+            -webkit-mask-image: linear-gradient(#000 78%, transparent);
+            mask-image: linear-gradient(#000 78%, transparent)
+        }
+
+        .cta2__img img {
+            object-position: center bottom
+        }
+
+        .cta2__body {
+            align-items: center;
+            margin-top: 4px
+        }
+
+        .cta2__actions {
+            justify-content: center;
+            flex-direction: column;
+            width: 100%
+        }
+
+        .cta2__btn {
+            width: 100%;
+            justify-content: center
+        }
+
+        .cta2__plane {
+            top: 8%;
+            right: 8%
+        }
+    }
+</style>
+
+<!-- ==========================================================
+  2) HTML: replace the whole <section class="section" id="enquire"> block.
+     - Set the image path to where you saved the student cut-out.
+     - Replace each social href="#" with Learntech's real profile URLs.
+=========================================================== -->
+<!-- CTA -->
+<section class="section" id="enquire">
+    <div class="container">
+        <div class="cta2 reveal">
+
+            <div class="cta2__bg" aria-hidden="true">
+                <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+                    <path d="M-20 350 C 300 430, 520 110, 860 210 S 1180 70, 1240 40" />
+                </svg>
+            </div>
+
+            <div class="cta2__img">
+                <img src="media/Banner_Dubai (1).webp" alt="Smiling student with a backpack and laptop" loading="lazy">
+            </div>
+
+            <div class="cta2__body">
+                <span class="cta2__tag"><svg aria-hidden="true"><use href="#i-pin" /></svg>Study in Dubai</span>
+                <h2 class="cta2__title">Your next chapter <br><em>starts with a call.</em></h2>
+                <p class="cta2__text">Speak to a Learntech counsellor about colleges, courses and admissions, and know exactly what to do next.</p>
+
+                <div class="cta2__actions">
+                    <a class="cta2__btn" href="tel:+971504955123">
+                        <svg aria-hidden="true"><use href="#i-phone" /></svg>Call a counsellor
+                    </a>
+
+                    <div class="cta2__social">
+                        <small>Follow us</small>
+                        <a class="cta2__soc" href="#" aria-label="Instagram" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" /></svg>
+                        </a>
+                        <a class="cta2__soc" href="#" aria-label="YouTube" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4" /><path d="M10 9l5 3-5 3z" fill="currentColor" /></svg>
+                        </a>
+                        <a class="cta2__soc" href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v7M11 17v-7M11 13a3 3 0 0 1 6 0v4" /><circle cx="7" cy="6.8" r=".8" fill="currentColor" /></svg>
+                        </a>
+                        <a class="cta2__soc" href="#" aria-label="Facebook" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h-2.5A3.5 3.5 0 0 0 9 7.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7.8c0-.5.4-.8.8-.8H15z" /></svg>
+                        </a>
+                        <a class="cta2__soc" href="#" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l12 16h-4L4 4zM4 20l6.5-7M20 4l-6.5 7" /></svg>
+                        </a>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__grid">
-                <div>
-                    <a class="brand" href="#top" aria-label="Learntech home"><svg>
-                            <use href="#i-logo" />
-                        </svg>Learntech</a>
-                    <p>Learntech helps students explore programmes and make informed academic and career decisions.</p>
-                </div>
-                <div>
-                    <h4>Partners</h4>
-                    <ul>
-                        <li><a href="#colleges">Symbiosis International University Dubai</a></li>
-                        <li><a href="#colleges">BITS Pilani Dubai</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Courses</h4>
-                    <ul>
-                        <li><a href="#courses">BBA (General Management)</a></li>
-                        <li><a href="#courses">BCA in AI and ML</a></li>
-                        <li><a href="#courses">B.Tech in Computer Engineering</a></li>
-                        <li><a href="#courses">BE in Engineering</a></li>
-                        <li><a href="#courses">MBA</a></li>
-                        <li><a href="#courses">ME in Software Systems</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Contact us</h4>
-                    <ul class="footer__contact">
-                        <li><svg>
-                                <use href="#i-mail" />
-                            </svg><a href="mailto:uae@learntechww.com">uae@learntechww.com</a></li>
-                        <li><svg>
-                                <use href="#i-phone" />
-                            </svg><span>+971 50 495 5123 · +971 50 243 6552</span></li>
-                        <li><svg>
-                                <use href="#i-phone" />
-                            </svg><a href="tel:+919606949066">+91 96069 49066</a></li>
-                        <li><svg>
-                                <use href="#i-phone" />
-                            </svg><span>1800 120 8696 (Toll Free)</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__bottom">© 2026 Learntech Edu Solutions Pvt. Ltd, Bengaluru. All Rights Reserved.
-                Information on this page is indicative; confirm details with the institution. We do not guarantee
-                admission or visas.</div>
         </div>
-    </footer>
+    </div>
+</section>
+    </main>
 
 
     <script>
