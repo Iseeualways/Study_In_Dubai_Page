@@ -30,7 +30,7 @@
             --font: 'Poppins', sans-serif;
             --ease: cubic-bezier(.22, 1, .36, 1);
             --gutter: clamp(20px, 6vw, 96px);
-            --space: clamp(64px, 8vw, 82px);
+            --space: clamp(64px, 8vw, 2px);
             --nav: 72px
         }
 
@@ -91,7 +91,8 @@
         }
 
         .section {
-            padding: var(--space) 0;
+            /* padding: var(--space) 0; */
+            padding: 70px 0px !important;
         }
 
         .section--soft {
@@ -1116,8 +1117,8 @@
         }
 
         .faq__item {
-            background: #fff;
-            border: 1px solid var(--line);
+            background: #f5f7ff;
+            border-bottom: 2px solid rgba(0, 50, 91, 0.497);
             border-radius: var(--r);
             transition: box-shadow .4s var(--ease)
         }
@@ -2588,7 +2589,7 @@
         </section>
 
         <!-- FAQ -->
-        <section class="section section--soft" id="faq">
+        <section class="section" id="faq">
             <div class="container last-cta">
                 <div class="section__head reveal" style="text-align:center">
                     <span class="eyebrow">FAQs</span>
