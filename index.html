@@ -26,7 +26,7 @@
             --r: 20px;
             --r-lg: 28px;
             --shadow: 0 1px 2px rgba(20, 32, 58, .04), 0 8px 24px -12px rgba(20, 32, 58, .12);
-            --shadow-up: 0 2px 4px rgba(20, 32, 58, .05), 0 20px 40px -20px rgba(20, 32, 58, .22);
+            --shadow-up: 0 2px 4px rgba(20, 32, 58, .05), 0 20px 40px -20px rgba(20, 32, 58, 0.145);
             --font: 'Poppins', sans-serif;
             --ease: cubic-bezier(.22, 1, .36, 1);
             --gutter: clamp(20px, 6vw, 96px);
@@ -91,21 +91,11 @@
         }
 
         .section {
-            /* padding: var(--space) 0; */
-            padding: 70px 0px !important;
+            padding: 50px 0px !important;
         }
 
         .section--soft {
-            /* background:
-        linear-gradient(
-            110deg,
-            rgba(76, 101, 163, 0.88) 0%,
-            rgba(132, 105, 157, 0.85) 50%,
-            rgba(220, 116, 139, 0.88) 100%
-        ),
-        url('images/your-background.jpg') center/cover no-repeat; */
-          
-            background: linear-gradient(180deg, white,#e9eefe);
+            background: linear-gradient(180deg, white, #e9eefe);
         }
 
         /* typography */
@@ -125,15 +115,12 @@
             font-weight: 500;
             letter-spacing: -.03em;
             line-height: 1.15;
-
         }
 
         .lead {
             font-size: 0.9rem;
             font-weight: 400;
             color: #464646;
-
-            /* max-width: 56ch; */
             margin-top: 14px
         }
 
@@ -279,7 +266,7 @@
             color: var(--blue)
         }
 
-        /* hero (background image) */
+        /* hero */
         .hero {
             position: relative;
             display: flex;
@@ -287,7 +274,7 @@
             min-height: 100vh;
             padding: calc(var(--nav) + clamp(32px, 5vw, 64px)) 0 clamp(40px, 5vw, 64px);
             color: var(--navy);
-            background: url("media/Dubai_Banner_03.jpg.jpeg") right center/cover no-repeat
+            background: url("media/hero-banner.jpeg") right center/cover no-repeat
         }
 
         .hero .container {
@@ -333,7 +320,7 @@
             gap: 12px
         }
 
-        /* feature cards (why dubai, careers, why learntech) */
+        /* feature cards */
         .grid {
             display: grid;
             gap: 20px
@@ -347,16 +334,17 @@
             display: flex;
             flex-direction: column;
             padding: 26px;
-            background: #f9f9f9;
-            border: 1px solid var(--line);
+            /* background: #f9f9f9;
+            border: 1px solid var(--line);*/
             border-radius: var(--r);
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-up);
+            border-bottom: 1px solid rgba(204, 204, 204, 0.475);
             transition: transform .5s var(--ease), box-shadow .5s var(--ease)
         }
 
         .feature:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-up)
+            box-shadow: var(--shadow-up);
         }
 
         .feature__icon {
@@ -365,27 +353,33 @@
             width: 46px;
             height: 46px;
             border-radius: 14px;
-            background: #FDECEE;
+            background: #ffffff;
             color: var(--red);
             margin-bottom: 18px
         }
 
         .feature__icon svg {
-            width: 22px;
-            height: 22px
+            width: 46px;
+            height: 46px
+        }
+
+        .feature__icon img {
+            object-fit: contain
         }
 
         .feature__title {
             font-size: 1.2rem;
-            font-weight: 600;
+            text-transform: capitalize;
+            color: rgb(98, 14, 14);
+            font-weight: 500;
             letter-spacing: -.015em;
             margin-bottom: 8px
         }
 
         .feature__text {
             font-size: .88rem;
-            font-weight: 300;
-            color: var(--ink-2)
+            font-weight: 400;
+            color: rgb(67, 67, 67);
         }
 
         .feature .k {
@@ -464,7 +458,7 @@
             color: #fff
         }
 
-        /* course carousel */
+        /* carousel track (shared by programmes + testimonials) */
         .track {
             display: flex;
             gap: 20px;
@@ -491,82 +485,6 @@
         .track a,
         .track img {
             -webkit-user-drag: none
-        }
-
-        .course {
-            flex: 0 0 clamp(280px, 31.5%, 390px);
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            padding: 28px;
-            background: #fff;
-            border: 2px solid #5276c9fe;
-            border-radius: var(--r);
-            box-shadow: 3px 3px rgb(212, 228, 254);
-            transition: transform .5s var(--ease), box-shadow .5s var(--ease)
-        }
-
-        .course:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-up);
-            border: 2px solid #203d83fe;
-        }
-
-        .badge {
-            align-self: flex-start;
-            font-size: .72rem;
-            font-weight: 500;
-            padding: 4px 12px;
-            border-radius: 99px;
-            background: #EAF0FD;
-            color: var(--blue)
-        }
-
-        .course[data-college=bits] .badge {
-            background: #FDECEE;
-            color: var(--red)
-        }
-
-        .course__title {
-            font-size: 1.25rem;
-            font-weight: 500;
-            letter-spacing: -.02em;
-            line-height: 1.3;
-            margin: 18px 0 4px
-        }
-
-        .course__degree {
-            font-size: .84rem;
-            font-weight: 300;
-            color: var(--ink-3)
-        }
-
-        .facts {
-            margin: 22px 0;
-            border-top: 1px solid var(--line)
-        }
-
-        .facts div {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--line);
-            font-size: .86rem
-        }
-
-        .facts dt {
-            font-weight: 300;
-            color: var(--ink-3)
-        }
-
-        .facts dd {
-            font-weight: 500;
-            text-align: right
-        }
-
-        .course .link {
-            margin-top: auto
         }
 
         .empty {
@@ -683,9 +601,35 @@
 
         .college__text {
             font-size: .95rem;
-            font-weight: 300;
+            font-weight: 400;
             color: var(--ink-2);
             margin-bottom: 22px
+        }
+
+        .facts {
+            margin: 22px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .facts div {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line);
+            font-size: .86rem
+        }
+
+        .facts dt {
+            font-weight: 400;
+            color: var(--ink-2)
+        }
+
+        .facts dd {
+            font-weight: 500;
+            font-size: 1rem;
+            color: #274896;
+            text-align: right
         }
 
         .college .facts {
@@ -743,95 +687,6 @@
             gap: 12px
         }
 
-        /* process */
-        .grid--steps {
-            grid-template-columns: repeat(5, minmax(0, 1fr))
-        }
-
-        .step {
-            padding: 24px;
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--r);
-            box-shadow: var(--shadow)
-        }
-
-        .step__num {
-            display: grid;
-            place-items: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: var(--blue);
-            color: #fff;
-            font-size: .82rem;
-            font-weight: 500;
-            margin-bottom: 18px
-        }
-
-        .step__title {
-            font-size: 1.02rem;
-            font-weight: 500;
-            line-height: 1.3;
-            margin-bottom: 8px
-        }
-
-        .step__text {
-            font-size: .84rem;
-            font-weight: 300;
-            color: var(--ink-2)
-        }
-
-        /* why learntech */
-        .lt {
-            display: grid;
-            grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-            gap: 24px
-        }
-
-        .lt__panel {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: clamp(28px, 4vw, 44px);
-            border-radius: var(--r-lg);
-            background: linear-gradient(150deg, var(--blue-dark), var(--blue));
-            color: #fff;
-            box-shadow: var(--shadow-up)
-        }
-
-        .lt__panel .eyebrow {
-            align-self: flex-start;
-            background: rgba(255, 255, 255, .14);
-            color: #fff;
-            margin-bottom: 0
-        }
-
-        .lt__panel .ln+.ln {
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, .18)
-        }
-
-        .lt__panel .ln b {
-            display: block;
-            font-size: 2rem;
-            font-weight: 500;
-            line-height: 1.15;
-            letter-spacing: -.02em
-        }
-
-        .lt__panel .ln span {
-            font-size: .84rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .78)
-        }
-
-        .lt__cards {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 16px
-        }
-
         /* eligibility + documents + checklist */
         .apply {
             display: grid;
@@ -880,15 +735,6 @@
             margin-bottom: 14px
         }
 
-        .sub {
-            font-size: .78rem;
-            font-weight: 500;
-            letter-spacing: .06em;
-            text-transform: uppercase;
-            color: var(--red);
-            margin-bottom: 14px
-        }
-
         .marks {
             display: grid;
             gap: 12px
@@ -907,10 +753,6 @@
         .marks__level {
             font-size: .78rem;
             font-weight: 600;
-            color: #fff
-        }
-
-        .marks__row--pg .marks__level {
             color: #fff
         }
 
@@ -972,140 +814,6 @@
 
         .docs--blue svg {
             color: var(--blue)
-        }
-
-        /* testimonials (dark section) */
-        .section--dark {
-            position: relative;
-            overflow: hidden;
-            color: #fff;
-            background: radial-gradient(700px 420px at 92% 0, rgba(233, 60, 71, .28), transparent 70%), radial-gradient(800px 520px at 0 100%, rgba(39, 72, 150, .6), transparent 70%), var(--navy)
-        }
-
-        .section--dark .eyebrow {
-            background: rgba(255, 255, 255, .12);
-            color: #fff
-        }
-
-        .section--dark .lead {
-            color: rgba(255, 255, 255, .75)
-        }
-
-        .stories {
-            display: grid;
-            grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr);
-            gap: clamp(28px, 5vw, 72px);
-            align-items: center
-        }
-
-        .stories__intro .arrs {
-            margin-top: 32px
-        }
-
-        .section--dark .arr {
-            background: transparent;
-            border-color: rgba(255, 255, 255, .35);
-            color: #fff
-        }
-
-        .section--dark .arr:hover {
-            background: #fff;
-            border-color: #fff;
-            color: var(--navy)
-        }
-
-        .stories .track {
-            min-width: 0
-        }
-
-        .tq {
-            position: relative;
-            flex: 0 0 clamp(280px, 70%, 420px);
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding: 32px;
-            background: rgba(255, 255, 255, .07);
-            border: 1px solid rgba(255, 255, 255, .16);
-            border-radius: var(--r-lg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            transition: transform .5s var(--ease), background .4s, border-color .4s
-        }
-
-        .tq:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, .11);
-            border-color: rgba(255, 255, 255, .3)
-        }
-
-        .tq__ico {
-            display: grid;
-            place-items: center;
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            background: var(--red);
-            color: #fff;
-            box-shadow: 0 10px 24px -8px rgba(233, 60, 71, .7)
-        }
-
-        .tq__ico svg {
-            width: 22px;
-            height: 22px
-        }
-
-        .tq blockquote {
-            font-size: 1.05rem;
-            font-weight: 300;
-            line-height: 1.75;
-            color: rgba(255, 255, 255, .92)
-        }
-
-        .tq__sample {
-            align-self: flex-start;
-            font-size: .68rem;
-            font-weight: 500;
-            padding: 3px 10px;
-            border-radius: 99px;
-            background: rgba(255, 200, 120, .16);
-            color: #ffd9a0;
-            border: 1px solid rgba(255, 200, 120, .4)
-        }
-
-        .who {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: auto;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, .16)
-        }
-
-        .av {
-            flex: none;
-            display: grid;
-            place-items: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 50%;
-            background: #fff;
-            color: var(--blue);
-            font-size: .8rem;
-            font-weight: 600
-        }
-
-        .who b {
-            display: block;
-            font-size: .94rem;
-            font-weight: 500
-        }
-
-        .who span.m {
-            font-size: .78rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .65)
         }
 
         /* faq */
@@ -1183,10 +891,388 @@
             transform: none
         }
 
+        /* ===== NEW: shared background for Programmes + Testimonials ===== */
+        .sec-navy {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            background: radial-gradient(640px 380px at 95% 0, rgba(233, 60, 71, .30), transparent 70%), radial-gradient(760px 480px at 0 100%, rgba(70, 110, 215, .45), transparent 70%), linear-gradient(160deg, #0C1836 0%, #14275a 55%, #1A3266 100%)
+        }
+
+        .sec-navy::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: radial-gradient(rgba(255, 255, 255, .07) 1.2px, transparent 1.5px) 0 0/26px 26px;
+            -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%);
+            mask-image: linear-gradient(180deg, #000, transparent 70%)
+        }
+
+        .sec-navy .container {
+            position: relative
+        }
+
+        .sec-navy .eyebrow {
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, .2)
+        }
+
+        .sec-navy .title {
+            color: #fff
+        }
+
+        .sec-navy .lead {
+            color: rgba(255, 255, 255, .78)
+        }
+
+        .sec-navy .pill {
+            background: rgba(255, 255, 255, .08);
+            border-color: rgba(255, 255, 255, .28);
+            color: #fff
+        }
+
+        .sec-navy .pill:hover {
+            background: rgba(255, 255, 255, .18);
+            border-color: #fff;
+            color: #fff
+        }
+
+        .sec-navy .pill[aria-pressed=true] {
+            background: #fff;
+            border-color: #fff;
+            color: var(--blue-dark);
+            font-weight: 500
+        }
+
+        .sec-navy .arr {
+            background: transparent;
+            border-color: rgba(255, 255, 255, .4);
+            color: #fff
+        }
+
+        .sec-navy .arr:hover {
+            background: #fff;
+            border-color: #fff;
+            color: var(--navy)
+        }
+
+        .sec-navy .cnt {
+            color: rgba(255, 255, 255, .8)
+        }
+
+        .sec-navy .track {
+            padding-top: 14px
+        }
+
+        .sec-navy .empty {
+            color: #fff;
+            border-color: rgba(255, 255, 255, .3)
+        }
+
+        /* ===== NEW: programme card ===== */
+        .pc {
+            --c1: #274896;
+            --c2: #1A3266;
+            --tint: #EAF0FD;
+            position: relative;
+            flex: 0 0 clamp(280px, 31.5%, 380px);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            padding: 28px 24px 24px;
+            background: linear-gradient(180deg, var(--tint) 0, #fff 150px);
+            color: var(--ink);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .55);
+            transition: transform .5s var(--ease), box-shadow .5s var(--ease)
+        }
+
+        .pc[data-college=bits] {
+            --c1: #E93C47;
+            --c2: #9b1f3b;
+            --tint: #FDECEE
+        }
+
+        .pc::after {
+            content: "";
+            position: absolute;
+            right: -50px;
+            top: -50px;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            background: var(--c1);
+            opacity: .08;
+            pointer-events: none
+        }
+
+        .pc:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 56px -22px rgba(0, 0, 0, .7)
+        }
+
+        .pc>* {
+            position: relative;
+            z-index: 1
+        }
+
+        .pc__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px
+        }
+
+        .pc__ico {
+            display: grid;
+            place-items: center;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--c2), var(--c1));
+            color: #fff;
+            box-shadow: 0 10px 20px -8px var(--c1)
+        }
+
+        .pc__ico svg {
+            width: 23px;
+            height: 23px
+        }
+
+        .pc__lv {
+            padding: 5px 14px;
+            border-radius: 99px;
+            background: #fff;
+            color: var(--c1);
+            font-size: .72rem;
+            font-weight: 500
+        }
+
+        .pc__title {
+            margin-top: 22px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: -.02em;
+            line-height: 1.3;
+            color: var(--ink)
+        }
+
+        .pc__degree {
+            margin-top: 4px;
+            font-size: .84rem;
+            font-weight: 400;
+            color: var(--ink-2)
+        }
+
+        .pc__facts {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+            margin: 24px 0 26px
+        }
+
+        .pc__fact {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: #f3f5fa
+        }
+
+        .pc__fact:last-child {
+            grid-column: 1 / -1
+        }
+
+        .pc__fact dt {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .7rem;
+            font-weight: 400;
+            color: var(--ink-2)
+        }
+
+        .pc__fact dt svg {
+            width: 13px;
+            height: 13px;
+            color: var(--c1)
+        }
+
+        .pc__fact dd {
+            font-size: .92rem;
+            font-weight: 600;
+            line-height: 1.3;
+            color: var(--c2)
+        }
+
+        .pc__cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            height: 50px;
+            margin-top: auto;
+            border-radius: 14px;
+            background: var(--c1);
+            color: #fff;
+            font-size: .92rem;
+            font-weight: 500;
+            transition: background .3s, gap .3s var(--ease)
+        }
+
+        .pc__cta svg {
+            width: 18px;
+            height: 18px
+        }
+
+        .pc__cta:hover {
+            gap: 16px;
+            background: var(--navy)
+        }
+
+        /* ===== NEW: testimonials (minimal) ===== */
+        .stories {
+            display: grid;
+            grid-template-columns: minmax(0, .8fr) minmax(0, 1.5fr);
+            gap: clamp(28px, 5vw, 72px);
+            align-items: center
+        }
+
+        .stories__intro .arrs {
+            margin-top: 32px
+        }
+
+        .tv-wrap {
+            min-width: 0
+        }
+
+        .tv {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
+            min-height: 280px;
+            transition: opacity .25s, transform .25s var(--ease)
+        }
+
+        .tv.out {
+            opacity: 0;
+            transform: translateY(10px)
+        }
+
+        .tv__mark {
+            width: 44px;
+            height: 44px;
+            color: rgba(255, 255, 255, .35)
+        }
+
+        .tv__mark svg {
+            width: 100%;
+            height: 100%;
+            stroke-width: 1.4
+        }
+
+        .tv blockquote {
+            max-width: 30em;
+            font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+            font-weight: 300;
+            line-height: 1.5;
+            letter-spacing: -.015em;
+            color: #fff
+        }
+
+        .tv__sample {
+            font-size: .74rem;
+            font-weight: 400;
+            color: #ffd9a0
+        }
+
+        .tv__who {
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .tv__av {
+            flex: none;
+            display: grid;
+            place-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: rgba(255, 255, 255, .16);
+            color: #fff;
+            font-size: .85rem;
+            font-weight: 500
+        }
+
+        .tv__av img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .tv__who b {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.3
+        }
+
+        .tv__who small {
+            display: block;
+            font-size: .82rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .tv__tabs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 36px
+        }
+
+        .tt {
+            width: 10px;
+            height: 10px;
+            padding: 0;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, .3);
+            transition: width .4s var(--ease), background .3s
+        }
+
+        .tt:hover {
+            background: rgba(255, 255, 255, .6)
+        }
+
+        .tt[aria-selected=true] {
+            width: 32px;
+            background: #fff
+        }
+
+        .ts-idx {
+            margin-top: 26px;
+            font-size: .84rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, .75)
+        }
+
+        .ts-idx b {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #fff;
+            letter-spacing: -.02em
+        }
+
         /* responsive */
         @media(max-width:1023px) {
 
-            .lt,
             .apply,
             .apply--check,
             .stories {
@@ -1197,16 +1283,8 @@
                 grid-template-columns: repeat(2, minmax(0, 1fr))
             }
 
-            .grid--steps {
-                grid-template-columns: repeat(2, minmax(0, 1fr))
-            }
-
-            .footer__grid {
-                grid-template-columns: 1fr 1fr
-            }
-
-            .course {
-                flex-basis: clamp(280px, 46%, 390px)
+            .pc {
+                flex-basis: clamp(280px, 46%, 380px)
             }
         }
 
@@ -1257,10 +1335,7 @@
             }
 
             .grid--4,
-            .grid--2,
-            .grid--steps,
-            .footer__grid,
-            .lt__cards {
+            .grid--2 {
                 grid-template-columns: 1fr
             }
 
@@ -1281,12 +1356,8 @@
                 width: 100%
             }
 
-            .course {
+            .pc {
                 flex-basis: 84%
-            }
-
-            .tq {
-                flex-basis: 86%
             }
 
             .mbar {
@@ -1307,6 +1378,10 @@
             body {
                 padding-bottom: 76px
             }
+
+            .hero {
+                background: none;
+            }
         }
 
         @media(prefers-reduced-motion:reduce) {
@@ -1321,51 +1396,6 @@
         }
 
         /* v3 additions */
-        .hero__stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px 14px;
-            margin-top: 44px
-        }
-
-        .hero__stats li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 18px 10px 10px;
-            border-radius: 99px;
-            background: rgba(255, 255, 255, .12);
-            border: 1px solid rgba(255, 255, 255, .22);
-            backdrop-filter: blur(8px)
-        }
-
-        .hero__stats span {
-            display: grid;
-            place-items: center;
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, .18)
-        }
-
-        .hero__stats svg {
-            width: 18px;
-            height: 18px
-        }
-
-        .hero__stats b {
-            display: block;
-            font-size: .95rem;
-            font-weight: 500;
-            line-height: 1.2
-        }
-
-        .hero__stats small {
-            font-size: .72rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, .78)
-        }
-
         .why {
             display: grid;
             grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
@@ -1412,45 +1442,31 @@
         }
 
         .grid--features {
-            grid-template-columns: repeat(2, minmax(0, 1fr))
+            grid-template-columns: 1fr;
+            grid-auto-rows: 1fr
         }
 
-        .course__top {
-            display: flex;
-            justify-content: space-between;
+        .grid--features .feature {
+            flex-direction: row;
             align-items: center;
-            gap: 12px
+            gap: 22px;
+            padding: 10px 16px
         }
 
-        .course__ico {
-            display: grid;
-            place-items: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            background: #EAF0FD;
-            color: var(--blue);
-            transition: background .3s, color .3s
+        .grid--features .feature__icon {
+            flex: none;
+            width: 56px;
+            height: 56px;
+            margin-bottom: 0
         }
 
-        .course[data-college=bits] .course__ico {
-            background: #FDECEE;
-            color: var(--red)
+        .grid--features .feature__icon svg {
+            width: 26px;
+            height: 26px
         }
 
-        .course__ico svg {
-            width: 22px;
-            height: 22px
-        }
-
-        .course:hover .course__ico {
-            background: var(--blue);
-            color: #fff
-        }
-
-        .course[data-college=bits]:hover .course__ico {
-            background: var(--red);
-            color: #fff
+        .grid--features .feature__title {
+            margin-bottom: 4px
         }
 
         .college__loc {
@@ -1464,51 +1480,6 @@
             height: 15px
         }
 
-        .step {
-            transition: transform .5s var(--ease), box-shadow .5s var(--ease)
-        }
-
-        .step:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-up)
-        }
-
-        .step__top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 18px
-        }
-
-        .step__icon {
-            display: grid;
-            place-items: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            background: #EAF0FD;
-            color: var(--blue)
-        }
-
-        .step__icon svg {
-            width: 22px;
-            height: 22px
-        }
-
-        .step__num {
-            width: auto;
-            height: auto;
-            margin: 0;
-            border-radius: 0;
-            background: none;
-            display: block;
-            line-height: 1;
-            font-size: 1.8rem;
-            font-weight: 500;
-            letter-spacing: -.03em;
-            color: #cfd6e6
-        }
-
         .panel__tag {
             display: inline-flex;
             align-items: center;
@@ -1518,31 +1489,6 @@
         .panel__tag svg {
             width: 14px;
             height: 14px
-        }
-
-        .tags li {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px
-        }
-
-        .tags svg {
-            width: 14px;
-            height: 14px
-        }
-
-        .footer__contact li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px
-        }
-
-        .footer__contact svg {
-            flex: none;
-            width: 16px;
-            height: 16px;
-            margin-top: 5px;
-            color: rgba(255, 255, 255, .8)
         }
 
         @media(max-width:1023px) {
@@ -1559,21 +1505,6 @@
             .grid--features {
                 grid-template-columns: 1fr
             }
-
-            .hero {
-                background: none;
-            }
-
-            .hero__stats li {
-                width: 100%
-            }
-        }
-
-        .course-bg {
-            background: linear-gradient(110deg,
-                    #354B83 0%,
-                    #66517F 50%,
-                    #B65370 100%);
         }
     </style>
 </head>
@@ -1642,18 +1573,10 @@
             <rect x="3" y="6" width="18" height="12" rx="2" />
             <circle cx="12" cy="12" r="2.5" />
         </symbol>
-        <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />
-        </symbol>
         <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" />
             <path d="M14 3v5h5M9 13h6M9 17h6" />
-        </symbol>
-        <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
         </symbol>
         <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round">
@@ -1674,24 +1597,19 @@
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 7 8M12 5c-1 4-4 7-8 8M14 20l4-9 4 9M15.5 17h5" />
         </symbol>
-        <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="8" r="3.5" />
-            <path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14.5a6.5 6.5 0 0 1 3.5 5.5" />
-        </symbol>
-        <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
-            stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="18" height="16" rx="2" />
-            <path d="M3 10h18M8 3v4M16 3v4" />
-        </symbol>
         <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" />
         </symbol>
-        <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+        <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <path d="M3 7l9 6 9-6" />
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 7v5l3 2" />
+        </symbol>
+        <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M8 12.5l3 3 5-6" />
         </symbol>
         <symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
             stroke-linecap="round" stroke-linejoin="round">
@@ -1736,23 +1654,6 @@
                             </svg></a>
                         <a class="btn btn--glass" href="#enquire">Talk to a counsellor</a>
                     </div>
-                    <!-- <ul class="hero__stats">
-                        <li><span><svg>
-                                    <use href="#i-users" />
-                                </svg></span>
-                            <div><b>1,00,000+</b><small>students guided</small></div>
-                        </li>
-                        <li><span><svg>
-                                    <use href="#i-calendar" />
-                                </svg></span>
-                            <div><b>Since 1994</b><small>guiding families</small></div>
-                        </li>
-                        <li><span><svg>
-                                    <use href="#i-cap" />
-                                </svg></span>
-                            <div><b>2</b><small>partner campuses in Dubai</small></div>
-                        </li>
-                    </ul> -->
                 </div>
             </div>
         </section>
@@ -1763,7 +1664,10 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Why Dubai</span>
                     <h2 class="title">Why study in Dubai?</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <div class="why">
                     <div class="why__img reveal"><img src="media/25852825 (2).webp" alt="Dubai skyline" loading="lazy"
@@ -1772,50 +1676,56 @@
                             </svg>Dubai, United Arab Emirates</span></div>
                     <div class="grid grid--features">
                         <article class="feature reveal">
-                            <div class="feature__icon"><svg>
-                                    <use href="#i-pin" />
-                                </svg></div>
-                            <h3 class="feature__title">Close to home</h3>
-                            <p class="feature__text">A short flight from major Indian cities, keeping family and
-                                familiar support within easy reach.</p>
+                            <div class="feature__icon"><img src="Why-choose-icons/close-aicon.gif" alt=""
+                                    aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
+                            <div>
+                                <h3 class="feature__title">Close to home</h3>
+                                <p class="feature__text">A short flight from major Indian cities, keeping family and
+                                    familiar support within easy reach.</p>
+                            </div>
                         </article>
                         <article class="feature reveal">
-                            <div class="feature__icon"><svg>
-                                    <use href="#i-globe" />
-                                </svg></div>
-                            <h3 class="feature__title">Global exposure</h3>
-                            <p class="feature__text">Study alongside students from diverse nationalities in one of the
-                                world’s leading international business hubs.</p>
+                            <div class="feature__icon"><img src="Why-choose-icons/Globe-aicon.gif" alt=""
+                                    aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
+                            <div>
+                                <h3 class="feature__title">Global exposure</h3>
+                                <p class="feature__text">Study alongside students from diverse nationalities in one of
+                                    the world’s leading international business hubs.</p>
+                            </div>
                         </article>
                         <article class="feature reveal">
-                            <div class="feature__icon"><svg>
-                                    <use href="#i-cap" />
-                                </svg></div>
-                            <h3 class="feature__title">Indian academic legacy</h3>
-                            <p class="feature__text">Explore Dubai campuses of established Indian institutions with
-                                familiar academic roots and an international outlook.</p>
+                            <div class="feature__icon"><img src="Why-choose-icons/academic-aicon.gif" alt=""
+                                    aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
+                            <div>
+                                <h3 class="feature__title">Indian academic legacy</h3>
+                                <p class="feature__text">Explore Dubai campuses of established Indian institutions with
+                                    familiar academic roots and an international outlook.</p>
+                            </div>
                         </article>
                         <article class="feature reveal">
-                            <div class="feature__icon"><svg>
-                                    <use href="#i-shield" />
-                                </svg></div>
-                            <h3 class="feature__title">Safe and student-friendly</h3>
-                            <p class="feature__text">Benefit from a strong Indian community, modern infrastructure, and
-                                services designed to support student life.</p>
+                            <div class="feature__icon"><img src="Why-choose-icons/safety-aicon.gif" alt=""
+                                    aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
+                            <div>
+                                <h3 class="feature__title">Safe and student-friendly</h3>
+                                <p class="feature__text">Benefit from a strong Indian community, modern infrastructure,
+                                    and services designed to support student life.</p>
+                            </div>
                         </article>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROGRAMMES -->
-        <section class="section section--soft course-bg" id="courses">
-
+        <!-- PROGRAMMES (redesigned) -->
+        <section class="section sec-navy" id="courses">
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Programmes</span>
-                    <h2 class="title" style="color: white;">Courses by college</h2>
-                    <p class="lead" style="color: white;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2 class="title">Courses by college</h2>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
 
                 <div class="filters reveal">
@@ -1846,14 +1756,16 @@
             </div>
         </section>
 
-
         <!-- PARTNERS -->
         <section class="section" id="colleges">
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Partner colleges</span>
                     <h2 class="title">Our partner colleges in Dubai</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <div class="grid grid--2">
                     <article class="college reveal" data-college="sym">
@@ -1914,7 +1826,10 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Career outlook</span>
                     <h2 class="title">Where these degrees lead</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
                 <div class="grid grid--4" id="careerGrid"></div>
             </div>
@@ -1926,13 +1841,7 @@
                 <div class="band__box reveal">
                     <style>
                         .band__box {
-                            background:
-                                linear-gradient(115deg,
-                                    rgb(38, 61, 112) 0%,
-                                    rgba(70, 85, 139, 0) 45%,
-                                    rgba(169, 79, 107, 0.513) 100%),
-                                url('media/24487.jpg') center / cover no-repeat;
-
+                            background: linear-gradient(115deg, rgb(38, 61, 112) 0%, rgba(70, 85, 139, 0) 45%, rgba(169, 79, 107, 0.513) 100%), url('media/24487.jpg') center / cover no-repeat;
                             border-radius: 24px;
                             overflow: hidden;
                             position: relative;
@@ -1944,19 +1853,12 @@
                             Symbiosis Dubai or BITS Pilani Dubai.</p>
                     </div>
                     <div class="band__cta">
-                        <!-- <a class="btn btn--light" href="#enquire">Talk to a counsellor <svg width="16" height="16">
-                                <use href="#i-arrow" />
-                            </svg></a> -->
                         <a class="btn btn--glass" href="tel:+919606949066">Call +91 96069 49066</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ==========================================================
-  1) CSS: paste at the end of your <style> block.
-     (Old .grid--steps / .step* rules are no longer used; delete if you like.)
-=========================================================== -->
         <style>
             /* ===== Process: zigzag timeline ===== */
             .fl {
@@ -1967,7 +1869,6 @@
                 gap: 32px
             }
 
-            /* mobile / tablet: vertical timeline */
             .fl::before {
                 content: "";
                 position: absolute;
@@ -2042,7 +1943,6 @@
                 object-fit: cover
             }
 
-            /* red arc (spins) */
             .fl__node::before {
                 content: "";
                 position: absolute;
@@ -2054,7 +1954,6 @@
                 animation: fl-spin 8s linear infinite
             }
 
-            /* dashed outer ring (counter spin) */
             .fl__node::after {
                 content: "";
                 position: absolute;
@@ -2098,7 +1997,6 @@
                 }
             }
 
-            /* desktop: horizontal zigzag */
             @media(min-width:1200px) {
                 .fl {
                     grid-template-columns: repeat(7, minmax(0, 1fr));
@@ -2148,7 +2046,6 @@
                     display: flex
                 }
 
-                /* dashed stem between node and spine */
                 .fl__node-cell::after {
                     content: "";
                     height: 20px;
@@ -2176,7 +2073,6 @@
                     font-size: .95rem
                 }
 
-                /* odd: text above, node below */
                 .fl__step:nth-child(odd) .fl__text-cell {
                     grid-row: 1;
                     padding-bottom: 22px
@@ -2187,7 +2083,6 @@
                     flex-direction: column-reverse
                 }
 
-                /* even: node above, text below */
                 .fl__step:nth-child(even) .fl__node-cell {
                     grid-row: 1;
                     flex-direction: column
@@ -2201,21 +2096,22 @@
             }
         </style>
 
-        <!-- ==========================================================
-  2) HTML: replace the whole "ADMISSION SUPPORT STEPS" <section>
-=========================================================== -->
         <!-- ADMISSION SUPPORT STEPS -->
         <section class="section section--soft" id="process">
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Admission support</span>
                     <h2 class="title">From course choice to confirmed offer</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
 
                 <ol class="fl">
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/counsellor.svg" alt="Counselling" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/counsellor.svg"
+                                    alt="Counselling" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">01</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2225,7 +2121,8 @@
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/course.svg" alt="Choosing a college and course" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/course.svg"
+                                    alt="Choosing a college and course" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">02</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2235,18 +2132,19 @@
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/documents.svg" alt="Preparing application documents" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/documents.svg"
+                                    alt="Preparing application documents" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">03</span>
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Prepare your documents</h3>
-                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
+                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/confidence.svg" alt="Submitting an application" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/confidence.svg"
+                                    alt="Submitting an application" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">04</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2256,7 +2154,8 @@
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/offer.svg" alt="Receiving an admission offer" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/offer.svg"
+                                    alt="Receiving an admission offer" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">05</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2266,7 +2165,8 @@
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/Visa.svg" alt="Visa guidance" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/Visa.svg"
+                                    alt="Visa guidance" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">06</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2276,7 +2176,8 @@
                         </div>
                     </li>
                     <li class="fl__step reveal">
-                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/Plan.svg" alt="Planning a move to Dubai" loading="lazy"></span></div>
+                        <div class="fl__node-cell"><span class="fl__node"><img src="Admission-cons/Plan.svg"
+                                    alt="Planning a move to Dubai" loading="lazy"></span></div>
                         <span class="fl__num" aria-hidden="true">07</span>
                         <div class="fl__text-cell">
                             <div>
@@ -2296,14 +2197,12 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Why Learntech</span>
                     <h2 class="title">Why choose Learntech for study in Dubai</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                 </div>
-                <!-- ==========================================================
-  1) CSS: paste at the end of your <style> block
-     (remove the earlier .bn / .ltx CSS if you added them)
-=========================================================== -->
                 <style>
-                    /* ===== Why Learntech: icons left + right, paragraph centre ===== */
                     .lw {
                         display: grid;
                         grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 1fr);
@@ -2325,8 +2224,6 @@
                         gap: 14px;
                         padding: 22px 12px;
                         text-align: center;
-                        /* background: #ffffff;
-                        border: 1px solid var(--line); */
                         border-radius: var(--r);
                         transition: transform .5s var(--ease), box-shadow .5s var(--ease), background .3s
                     }
@@ -2359,7 +2256,6 @@
                         color: var(--ink)
                     }
 
-                    /* centre paragraph panel */
                     .lw__center {
                         display: flex;
                         flex-direction: column;
@@ -2422,34 +2318,18 @@
                     }
                 </style>
 
-                <!-- ==========================================================
-  2) HTML: inside <section id="learntech">, REPLACE the whole
-     <div class="lt"> ... </div> block (or the .bn / .ltx block)
-     with this. Keep the section head above it.
-=========================================================== -->
                 <div class="lw">
-
-                    <!-- LEFT: 4 icons -->
                     <div class="lw__side">
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_01.webp" alt=""></span>
-                            <span>1,00,000+ Students Guided</span>
-                        </div>
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_02.webp" alt=""></span>
-                            <span>Guiding Families Since 1994</span>
-                        </div>
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_03.webp" alt=""></span>
-                            <span>2 Partner Campuses in Dubai</span>
-                        </div>
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_04.webp" alt=""></span>
-                            <span>Counsellors in India and the UAE</span>
-                        </div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_01.webp"
+                                    alt=""></span><span>1,00,000+ Students Guided</span></div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_02.webp"
+                                    alt=""></span><span>Guiding Families Since 1994</span></div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_03.webp"
+                                    alt=""></span><span>2 Partner Campuses in Dubai</span></div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_04.webp"
+                                    alt=""></span><span>Counsellors in India and the UAE</span></div>
                     </div>
 
-                    <!-- CENTRE: paragraph content -->
                     <div class="lw__center reveal">
                         <h3>Straight answers, <em>start to finish.</em></h3>
                         <p>Our counsellors have supported families since 1994. We start with your marks, interests and
@@ -2461,26 +2341,16 @@
                             </svg></a>
                     </div>
 
-                    <!-- RIGHT: 4 icons -->
                     <div class="lw__side lw__side--r">
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_05.webp" alt=""></span>
-                            <span>Course Shortlisting That Fits You</span>
-                        </div>
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_06.webp" alt=""></span>
-                            <span>Clear Cost Breakdown</span>
-                        </div>
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_07.webp" alt=""></span>
-                            <span>Education Loan Guidance</span>
-                        </div>
-                        <div class="lw__item reveal">
-                            <span class="lw__icon"><img src="why-icons/Icon_08.webp" alt=""></span>
-                            <span>Visa Guidance at Every Step</span>
-                        </div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_05.webp"
+                                    alt=""></span><span>Course Shortlisting That Fits You</span></div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_06.webp"
+                                    alt=""></span><span>Clear Cost Breakdown</span></div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_07.webp"
+                                    alt=""></span><span>Education Loan Guidance</span></div>
+                        <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_08.webp"
+                                    alt=""></span><span>Visa Guidance at Every Step</span></div>
                     </div>
-
                 </div>
             </div>
         </section>
@@ -2565,14 +2435,15 @@
             </div>
         </section>
 
-        <!-- TESTIMONIALS -->
-        <section class="section section--dark" id="stories">
+        <!-- TESTIMONIALS (redesigned) -->
+        <section class="section sec-navy" id="stories">
             <div class="container">
                 <div class="stories">
                     <div class="stories__intro reveal">
                         <span class="eyebrow">Testimonials</span>
                         <h2 class="title">Our students’ voices</h2>
-                        <p class="lead">Hear from students who studied in Dubai.</p>
+                        <p class="lead">Hear from students and parents who made the move to Dubai.</p>
+                        <p class="ts-idx" aria-hidden="true"><b id="tsNow">01</b> / <span id="tsAll">03</span></p>
                         <div class="arrs">
                             <button class="arr" id="sprev" aria-label="Previous testimonials"><svg>
                                     <use href="#i-back" />
@@ -2582,7 +2453,9 @@
                                 </svg></button>
                         </div>
                     </div>
-                    <div class="track" id="storyTrack" tabindex="0" role="region" aria-label="Student testimonials">
+                    <div class="tv-wrap">
+                        <article class="tv" id="tvStage" aria-live="polite"></article>
+                        <div class="tv__tabs" id="tvTabs" role="tablist" aria-label="Choose a testimonial"></div>
                     </div>
                 </div>
             </div>
@@ -2638,327 +2511,318 @@
             </div>
         </section>
 
-     
-<style>
-   
-    #enquire {
-        /* room for the image to pop out above the card */
-        padding-top: clamp(150px, 15vw, 30px)
-    }
+        <style>
+            #enquire {
+                padding-top: clamp(150px, 15vw, 30px)
+            }
 
-    .cta2 {
-        --pop: 150px;
-        position: relative;
-        display: grid;
-        grid-template-columns: minmax(0, 50%) minmax(0, 1fr);
-        align-items: center;
-        min-height: 400px;
-        padding: 56px clamp(28px, 5vw, 72px) 56px 0;
-        border-radius: var(--r-lg);
-        color: #fff;
-        background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 62%, #3a5db3 100%);
-        box-shadow: var(--shadow-up)
-    }
+            .cta2 {
+                --pop: 150px;
+                position: relative;
+                display: grid;
+                grid-template-columns: minmax(0, 50%) minmax(0, 1fr);
+                align-items: center;
+                min-height: 400px;
+                padding: 56px clamp(28px, 5vw, 72px) 56px 0;
+                border-radius: var(--r-lg);
+                color: #fff;
+                background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 62%, #3a5db3 100%);
+                box-shadow: var(--shadow-up)
+            }
 
-    /* decorative layer, clipped to the card */
-    .cta2__bg {
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        overflow: hidden;
-        pointer-events: none
-    }
+            .cta2__bg {
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                overflow: hidden;
+                pointer-events: none
+            }
 
-    .cta2__bg::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-            radial-gradient(520px 340px at 100% 100%, rgba(233, 60, 71, .35), transparent 70%),
-            radial-gradient(rgba(255, 255, 255, .13) 1.2px, transparent 1.5px) 0 0 / 22px 22px;
-        -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 75%);
-        mask-image: linear-gradient(90deg, transparent 30%, #000 75%)
-    }
+            .cta2__bg::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: radial-gradient(520px 340px at 100% 100%, rgba(233, 60, 71, .35), transparent 70%), radial-gradient(rgba(255, 255, 255, .13) 1.2px, transparent 1.5px) 0 0 / 22px 22px;
+                -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 75%);
+                mask-image: linear-gradient(90deg, transparent 30%, #000 75%)
+            }
 
-    .cta2__bg svg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%
-    }
+            .cta2__bg svg {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%
+            }
 
-    .cta2__bg path {
-        fill: none;
-        stroke: rgba(255, 255, 255, .28);
-        stroke-width: 1.5;
-        stroke-dasharray: 6 9;
-        vector-effect: non-scaling-stroke
-    }
+            .cta2__bg path {
+                fill: none;
+                stroke: rgba(255, 255, 255, .28);
+                stroke-width: 1.5;
+                stroke-dasharray: 6 9;
+                vector-effect: non-scaling-stroke
+            }
 
+            @keyframes cta2-float {
+                50% {
+                    transform: translateY(-10px) rotate(-12deg)
+                }
+            }
 
-    @keyframes cta2-float {
-        50% {
-            transform: translateY(-10px) rotate(-12deg)
-        }
-    }
+            .cta2__img {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 50%;
+                height: calc(100% + var(--pop));
+                display: flex;
+                align-items: flex-end;
+                z-index: 2;
+                pointer-events: none;
+                clip-path: inset(-400px -400px 0 0 round 0 0 0 var(--r-lg))
+            }
 
-    /* student image: bottom aligned, pops above the card */
-    .cta2__img {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 50%;
-        height: calc(100% + var(--pop));
-        display: flex;
-        align-items: flex-end;
-        z-index: 2;
-        pointer-events: none;
-        /* keep the bottom-left corner rounded like the card, let the top overflow */
-        clip-path: inset(-400px -400px 0 0 round 0 0 0 var(--r-lg))
-    }
+            .cta2__img img {
+                display: block;
+                height: 100%;
+                width: auto;
+                max-width: 100%;
+                object-fit: contain;
+                object-position: left bottom
+            }
 
-    .cta2__img img {
-        display: block;
-        height: 100%;
-        width: auto;
-        max-width: 100%;
-        object-fit: contain;
-        object-position: left bottom
-    }
+            .cta2__body {
+                grid-column: 2;
+                position: relative;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+                max-width: 560px
+            }
 
-    .cta2__body {
-        grid-column: 2;
-        position: relative;
-        z-index: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-        max-width: 560px
-    }
+            .cta2__tag {
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                padding: 6px 14px;
+                border-radius: 99px;
+                background: rgba(255, 255, 255, .14);
+                border: 1px solid rgba(255, 255, 255, .24);
+                font-size: .78rem;
+                font-weight: 500
+            }
 
-    .cta2__tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 14px;
-        border-radius: 99px;
-        background: rgba(255, 255, 255, .14);
-        border: 1px solid rgba(255, 255, 255, .24);
-        font-size: .78rem;
-        font-weight: 500
-    }
+            .cta2__tag svg {
+                width: 14px;
+                height: 14px
+            }
 
-    .cta2__tag svg {
-        width: 14px;
-        height: 14px
-    }
+            .cta2__title {
+                font-size: clamp(1.9rem, 3.6vw, 3rem);
+                font-weight: 500;
+                letter-spacing: -.035em;
+                line-height: 1.12
+            }
 
-    .cta2__title {
-        font-size: clamp(1.9rem, 3.6vw, 3rem);
-        font-weight: 500;
-        letter-spacing: -.035em;
-        line-height: 1.12
-    }
+            .cta2__title em {
+                font-style: normal;
+                font-weight: 600;
+                letter-spacing: 0.02;
+                color: #f4b0ac;
+            }
 
-    /* marker-style underline on the second line */
-    .cta2__title em {
-        font-style: normal;
-        font-weight: 600;
-        letter-spacing: 0.02;
-        color: #f4b0ac;
-    }
+            .cta2__text {
+                font-size: 1rem;
+                font-weight: 300;
+                color: rgba(255, 255, 255, .85);
+                max-width: 46ch
+            }
 
-    .cta2__text {
-        font-size: 1rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, .85);
-        max-width: 46ch
-    }
+            .cta2__actions {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 14px;
+                margin-top: 6px
+            }
 
-    .cta2__actions {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 14px;
-        margin-top: 6px
-    }
+            .cta2__btn {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                height: 54px;
+                padding: 0 28px;
+                border-radius: 99px;
+                background: #fff;
+                color: var(--blue-dark);
+                font-size: .92rem;
+                font-weight: 600;
+                transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .3s, color .3s
+            }
 
-    .cta2__btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        height: 54px;
-        padding: 0 28px;
-        border-radius: 99px;
-        background: #fff;
-        color: var(--blue-dark);
-        font-size: .92rem;
-        font-weight: 600;
-        transition: transform .4s var(--ease), box-shadow .4s var(--ease), background .3s, color .3s
-    }
+            .cta2__btn svg {
+                width: 18px;
+                height: 18px
+            }
 
-    .cta2__btn svg {
-        width: 18px;
-        height: 18px
-    }
+            .cta2__btn:hover {
+                transform: translateY(-3px);
+                background: var(--red);
+                color: #fff;
+                box-shadow: 0 16px 30px -12px rgba(233, 60, 71, .7)
+            }
 
-    .cta2__btn:hover {
-        transform: translateY(-3px);
-        background: var(--red);
-        color: #fff;
-        box-shadow: 0 16px 30px -12px rgba(233, 60, 71, .7)
-    }
+            .cta2__social {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 6px;
+                border-radius: 99px;
+                background: rgba(255, 255, 255, .12);
+                border: 1px solid rgba(255, 255, 255, .22);
+                backdrop-filter: blur(8px);
+                -webkit-backdrop-filter: blur(8px)
+            }
 
-    /* social bar */
-    .cta2__social {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 6px;
-        border-radius: 99px;
-        background: rgba(255, 255, 255, .12);
-        border: 1px solid rgba(255, 255, 255, .22);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px)
-    }
+            .cta2__social small {
+                padding: 0 10px 0 14px;
+                font-size: .74rem;
+                font-weight: 400;
+                color: rgba(255, 255, 255, .8)
+            }
 
-    .cta2__social small {
-        padding: 0 10px 0 14px;
-        font-size: .74rem;
-        font-weight: 400;
-        color: rgba(255, 255, 255, .8)
-    }
+            .cta2__soc {
+                display: grid;
+                place-items: center;
+                width: 42px;
+                height: 42px;
+                border-radius: 50%;
+                color: #fff;
+                transition: background .3s, color .3s, transform .4s var(--ease)
+            }
 
-    .cta2__soc {
-        display: grid;
-        place-items: center;
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        color: #fff;
-        transition: background .3s, color .3s, transform .4s var(--ease)
-    }
+            .cta2__soc svg {
+                width: 19px;
+                height: 19px
+            }
 
-    .cta2__soc svg {
-        width: 19px;
-        height: 19px
-    }
+            .cta2__soc:hover {
+                background: #fff;
+                color: var(--blue);
+                transform: translateY(-3px)
+            }
 
-    .cta2__soc:hover {
-        background: #fff;
-        color: var(--blue);
-        transform: translateY(-3px)
-    }
+            @media(max-width:900px) {
+                #enquire {
+                    padding-top: 150px
+                }
 
-    /* tablet / mobile: image on top, centred */
-    @media(max-width:900px) {
-        #enquire {
-            padding-top: 150px
-        }
+                .cta2 {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    min-height: 0;
+                    padding: 0 24px 40px;
+                    text-align: center
+                }
 
-        .cta2 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 0;
-            padding: 0 24px 40px;
-            text-align: center
-        }
+                .cta2__img {
+                    position: relative;
+                    order: -1;
+                    width: min(300px, 78%);
+                    height: 330px;
+                    margin-top: -120px;
+                    clip-path: none;
+                    justify-content: center;
+                    -webkit-mask-image: linear-gradient(#000 78%, transparent);
+                    mask-image: linear-gradient(#000 78%, transparent)
+                }
 
-        .cta2__img {
-            position: relative;
-            order: -1;
-            width: min(300px, 78%);
-            height: 330px;
-            margin-top: -120px;
-            clip-path: none;
-            justify-content: center;
-            -webkit-mask-image: linear-gradient(#000 78%, transparent);
-            mask-image: linear-gradient(#000 78%, transparent)
-        }
+                .cta2__img img {
+                    object-position: center bottom
+                }
 
-        .cta2__img img {
-            object-position: center bottom
-        }
+                .cta2__body {
+                    align-items: center;
+                    margin-top: 4px
+                }
 
-        .cta2__body {
-            align-items: center;
-            margin-top: 4px
-        }
+                .cta2__actions {
+                    justify-content: center;
+                    flex-direction: column;
+                    width: 100%
+                }
 
-        .cta2__actions {
-            justify-content: center;
-            flex-direction: column;
-            width: 100%
-        }
+                .cta2__btn {
+                    width: 100%;
+                    justify-content: center
+                }
+            }
+        </style>
 
-        .cta2__btn {
-            width: 100%;
-            justify-content: center
-        }
-
-        .cta2__plane {
-            top: 8%;
-            right: 8%
-        }
-    }
-</style>
-
-<!-- ==========================================================
-  2) HTML: replace the whole <section class="section" id="enquire"> block.
-     - Set the image path to where you saved the student cut-out.
-     - Replace each social href="#" with Learntech's real profile URLs.
-=========================================================== -->
-<!-- CTA -->
-<section class="section" id="enquire">
-    <div class="container">
-        <div class="cta2 reveal">
-
-            <div class="cta2__bg" aria-hidden="true">
-                <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
-                    <path d="M-20 350 C 300 430, 520 110, 860 210 S 1180 70, 1240 40" />
-                </svg>
-            </div>
-
-            <div class="cta2__img">
-                <img src="media/Banner_Dubai (1).webp" alt="Smiling student with a backpack and laptop" loading="lazy">
-            </div>
-
-            <div class="cta2__body">
-                <span class="cta2__tag"><svg aria-hidden="true"><use href="#i-pin" /></svg>Study in Dubai</span>
-                <h2 class="cta2__title">Your next chapter <br><em>starts with a call.</em></h2>
-                <p class="cta2__text">Speak to a Learntech counsellor about colleges, courses and admissions, and know exactly what to do next.</p>
-
-                <div class="cta2__actions">
-                    <a class="cta2__btn" href="tel:+971504955123">
-                        <svg aria-hidden="true"><use href="#i-phone" /></svg>Call a counsellor
-                    </a>
-
-                    <div class="cta2__social">
-                        <small>Follow us</small>
-                        <a class="cta2__soc" href="#" aria-label="Instagram" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" /></svg>
-                        </a>
-                        <a class="cta2__soc" href="#" aria-label="YouTube" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="4" /><path d="M10 9l5 3-5 3z" fill="currentColor" /></svg>
-                        </a>
-                        <a class="cta2__soc" href="#" aria-label="LinkedIn" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v7M11 17v-7M11 13a3 3 0 0 1 6 0v4" /><circle cx="7" cy="6.8" r=".8" fill="currentColor" /></svg>
-                        </a>
-                        <a class="cta2__soc" href="#" aria-label="Facebook" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h-2.5A3.5 3.5 0 0 0 9 7.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7.8c0-.5.4-.8.8-.8H15z" /></svg>
-                        </a>
-                        <a class="cta2__soc" href="#" aria-label="X (Twitter)" target="_blank" rel="noopener">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l12 16h-4L4 4zM4 20l6.5-7M20 4l-6.5 7" /></svg>
-                        </a>
+        <!-- CTA -->
+        <section class="section" id="enquire">
+            <div class="container">
+                <div class="cta2 reveal">
+                    <div class="cta2__bg" aria-hidden="true">
+                        <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+                            <path d="M-20 350 C 300 430, 520 110, 860 210 S 1180 70, 1240 40" />
+                        </svg>
+                    </div>
+                    <div class="cta2__img">
+                        <img src="media/Banner_Dubai (1).webp" alt="Smiling student with a backpack and laptop"
+                            loading="lazy">
+                    </div>
+                    <div class="cta2__body">
+                        <span class="cta2__tag"><svg aria-hidden="true">
+                                <use href="#i-pin" />
+                            </svg>Study in Dubai</span>
+                        <h2 class="cta2__title">Your next chapter <br><em>starts with a call.</em></h2>
+                        <p class="cta2__text">Speak to a Learntech counsellor about colleges, courses and admissions,
+                            and know exactly what to do next.</p>
+                        <div class="cta2__actions">
+                            <a class="cta2__btn" href="tel:+971504955123"><svg aria-hidden="true">
+                                    <use href="#i-phone" />
+                                </svg>Call a counsellor</a>
+                            <div class="cta2__social">
+                                <small>Follow us</small>
+                                <a class="cta2__soc" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                                        <circle cx="12" cy="12" r="4" />
+                                        <circle cx="17.5" cy="6.5" r=".8" fill="currentColor" />
+                                    </svg></a>
+                                <a class="cta2__soc" href="#" aria-label="YouTube" target="_blank" rel="noopener"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="5" width="20" height="14" rx="4" />
+                                        <path d="M10 9l5 3-5 3z" fill="currentColor" />
+                                    </svg></a>
+                                <a class="cta2__soc" href="#" aria-label="LinkedIn" target="_blank" rel="noopener"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M7 10v7M11 17v-7M11 13a3 3 0 0 1 6 0v4" />
+                                        <circle cx="7" cy="6.8" r=".8" fill="currentColor" />
+                                    </svg></a>
+                                <a class="cta2__soc" href="#" aria-label="Facebook" target="_blank" rel="noopener"><svg
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M15 4h-2.5A3.5 3.5 0 0 0 9 7.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7.8c0-.5.4-.8.8-.8H15z" />
+                                    </svg></a>
+                                <a class="cta2__soc" href="#" aria-label="X (Twitter)" target="_blank"
+                                    rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h4l12 16h-4L4 4zM4 20l6.5-7M20 4l-6.5 7" />
+                                    </svg></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-</section>
+        </section>
     </main>
 
 
@@ -2984,7 +2848,8 @@
             ['Science, arts and communication', 'book', 'Move into research support, media, communication and education related roles.', ['bsc', 'ba'], ['Research assistant', 'Content and media executive', 'Communications executive', 'Teaching assistant']]];
         const VISA_BEFORE = ['Unconditional offer letter from your university', 'Valid passport, with the validity period your university asks for', 'Recent passport-size photographs', 'Academic documents and English proficiency proof, if requested', 'Fee payment receipts and any deposit your university requires', 'Entry permit or visa approval, arranged through your university', 'Flight booking and a place to stay for your first weeks'];
         const VISA_AFTER = ['Medical fitness test at an approved centre', 'Emirates ID registration, including biometrics', 'Residence visa stamped in your passport', 'Health insurance, as required in your emirate', 'University registration and orientation', 'Copies of your passport, visa, Emirates ID and insurance papers'];
-        /* Replace the sample entries with genuine, permitted quotes (remove "sample:true" once replaced). */
+        /* Replace the sample entries with genuine, permitted quotes (remove "sample:true" once replaced).
+           Optional per entry: photo: 'media/student.webp' */
         const TESTIMONIALS = [
             { name: 'Student name', programme: 'BCA in AI and ML', college: 'Symbiosis Dubai', c: 'sym', sample: true, quote: 'Replace this with a genuine, permitted quote from a student who studied in Dubai, about the counselling, the course or life on campus.' },
             { name: 'Student name', programme: 'BE in Engineering', college: 'BITS Pilani Dubai', c: 'bits', sample: true, quote: 'Replace this with a genuine, permitted quote from a student who studied in Dubai, about the counselling, the course or life on campus.' },
@@ -3010,12 +2875,54 @@
             return () => { track.scrollLeft = 0; upd() };
         }
 
+        /* autoplay: pauses on hover, focus, touch, off-screen and hidden tab; off for reduced motion */
+        function autoplay(root, tick, ms, zones) {
+            if (matchMedia('(prefers-reduced-motion:reduce)').matches) return { restart() { } };
+            let t = null, hold = false, vis = false;
+            const stop = () => { clearInterval(t); t = null };
+            const start = () => { stop(); if (!hold && vis && !document.hidden) t = setInterval(tick, ms) };
+            const pause = () => { hold = true; stop() }, resume = () => { hold = false; start() };
+            (zones || [root]).forEach(z => {
+                z.addEventListener('mouseenter', pause); z.addEventListener('mouseleave', resume);
+                z.addEventListener('focusin', e => { if (e.target.matches(':focus-visible')) pause() }); z.addEventListener('focusout', resume);
+                z.addEventListener('touchstart', pause, { passive: true });
+                z.addEventListener('touchend', () => setTimeout(resume, 3000), { passive: true });
+            });
+            new IntersectionObserver(es => { vis = es[0].isIntersecting; start() }, { threshold: .15 }).observe(root);
+            document.addEventListener('visibilitychange', start);
+            return { restart: start };
+        }
+
         /* ===== PROGRAMMES ===== */
         (function () {
             const CICON = { bca: 'code', btech: 'code', 'bba-s': 'biz', bcom: 'fee', bsc: 'eng', ba: 'book', 'mba-s': 'biz', be: 'eng', 'bba-b': 'biz', me: 'code', 'mba-b': 'biz' };
             const track = $('#courseTrack'), count = $('#courseCount'), state = { college: 'all', level: 'all' };
             const reset = carousel(track, $('#prev'), $('#next'));
-            const card = c => `<article class="course" data-college="${c.c}" data-level="${c.lv}"><div class="course__top"><span class="course__ico">${ico(CICON[c.id] || 'cap')}</span><span class="badge">${c.lv === 'ug' ? 'Undergraduate' : 'Postgraduate'}</span></div><h3 class="course__title">${esc(c.name)}</h3><p class="course__degree">${esc(c.degree)}</p><dl class="facts"><div><dt>College</dt><dd>${esc(COLLEGES[c.c].short)}</dd></div><div><dt>Minimum marks</dt><dd>${c.min}</dd></div></dl><a class="link" href="#enquire">Enquire now <svg width="16" height="16"><use href="#i-arrow"/></svg></a></article>`;
+            const card = c => {
+                const facts = [
+                    ['clock', 'Duration', c.dur || '4 years'],
+                    ['fee', 'Tuition Fee', c.fee || 'AED 42,000/year'],
+                    ['ok', 'Eligibility', c.min ? 'Minimum ' + c.min + ' marks' : 'Minimum 50%']
+                ];
+
+                return `<article class="pc" data-college="${c.c}" data-level="${c.lv}">
+        <div class="pc__top">
+            <span class="pc__ico">${ico(CICON[c.id] || 'cap')}</span>
+            <span class="pc__lv">${c.lv === 'ug' ? 'Undergraduate' : 'Postgraduate'}</span>
+        </div>
+        <h3 class="pc__title">${esc(c.name)}</h3>
+        <p class="pc__degree">${esc(c.degree)}</p>
+        <dl class="pc__facts">
+            ${facts.map(([i, k, v]) => `
+                <div class="pc__fact">
+                    <dt>${ico(i)}${k}</dt>
+                    <dd>${esc(v)}</dd>
+                </div>
+            `).join('')}
+        </dl>
+        <a class="pc__cta" href="#enquire">Enquire now ${ico('arrow')}</a>
+    </article>`;
+            };
             function render() {
                 const list = COURSES.filter(c => (state.college === 'all' || c.c === state.college) && (state.level === 'all' || c.lv === state.level));
                 track.innerHTML = list.map(card).join('') || '<div class="empty">No courses match these filters. Try another college or level.</div>';
@@ -3029,6 +2936,12 @@
                 render();
             }));
             render();
+            autoplay($('#courses'), () => {
+                const mx = track.scrollWidth - track.clientWidth;
+                if (mx <= 2) return;
+                if (track.scrollLeft >= mx - 2) track.scrollTo({ left: 0, behavior: 'smooth' });
+                else $('#next').click();
+            }, 3500, [track, $('#courses .ctl')]);
         })();
 
         /* ===== CAREERS ===== */
@@ -3045,8 +2958,28 @@
 
         /* ===== TESTIMONIALS ===== */
         if (TESTIMONIALS.length) {
-            $('#storyTrack').innerHTML = TESTIMONIALS.map(t => `<figure class="tq"><span class="tq__ico">${ico('quote')}</span>${t.sample ? '<span class="tq__sample">Sample · replace with a real quote</span>' : ''}<blockquote>${esc(t.quote)}</blockquote><div class="who"><span class="av">${esc(t.name.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase())}</span><figcaption><b>${esc(t.name)}</b><span class="m">${esc(t.programme)} · ${esc(t.college)}</span></figcaption></div></figure>`).join('');
-            carousel($('#storyTrack'), $('#sprev'), $('#snext'))();
+            const stage = $('#tvStage'), tabs = $('#tvTabs'), pad = n => String(n).padStart(2, '0');
+            const ini = t => esc(t.name.split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase());
+            const av = t => t.photo ? `<img src="${esc(t.photo)}" alt="" loading="lazy">` : ini(t);
+            let cur = 0, ap = { restart() { } };
+            tabs.innerHTML = TESTIMONIALS.map((t, i) => `<button class="tt" role="tab" data-i="${i}" aria-label="Testimonial ${i + 1}: ${esc(t.name)}"></button>`).join('');
+            $('#tsAll').textContent = pad(TESTIMONIALS.length);
+            function fill() {
+                const t = TESTIMONIALS[cur];
+                stage.innerHTML = `<span class="tv__mark">${ico('quote')}</span><blockquote>${esc(t.quote)}</blockquote>${t.sample ? '<span class="tv__sample">Sample quote, replace with a real one</span>' : ''}<div class="tv__who"><span class="tv__av">${av(t)}</span><div><b>${esc(t.name)}</b><small>${esc(t.programme)}, ${esc(COLLEGES[t.c].short)}</small></div></div>`;
+                $$('.tt', tabs).forEach((b, i) => b.setAttribute('aria-selected', i === cur));
+                $('#tsNow').textContent = pad(cur + 1);
+                stage.classList.remove('out');
+            }
+            function go(i) {
+                cur = (i + TESTIMONIALS.length) % TESTIMONIALS.length;
+                stage.classList.add('out'); setTimeout(fill, 220); ap.restart();
+            }
+            $('#sprev').onclick = () => go(cur - 1);
+            $('#snext').onclick = () => go(cur + 1);
+            tabs.addEventListener('click', e => { const b = e.target.closest('.tt'); if (b) go(+b.dataset.i) });
+            fill();
+            ap = autoplay($('#stories'), () => go(cur + 1), 6000, [$('.tv-wrap'), $('#stories .arrs')]);
         } else { $('#stories').remove() }
 
         /* ===== SCROLL REVEAL ===== */
