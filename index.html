@@ -95,7 +95,7 @@
         }
 
         .section--soft {
-            background: linear-gradient(180deg, white, #e9eefe);
+            background: linear-gradient(180deg, white, #fee9e9);
         }
 
         /* typography */
@@ -293,7 +293,7 @@
         }
 
         .hero__title {
-            font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+            font-size: clamp(2.2rem, 4.4vw, 3.2rem);
             color: var(--blue-dark);
             font-weight: 500;
             letter-spacing: -.04em;
@@ -334,10 +334,11 @@
             display: flex;
             flex-direction: column;
             padding: 26px;
+            background: #f9faff;
             /* background: #f9f9f9;
             border: 1px solid var(--line);*/
-            border-radius: var(--r);
-            box-shadow: var(--shadow-up);
+            border-radius: 0 0 var(--r) var(--r);
+           
             border-bottom: 1px solid rgba(204, 204, 204, 0.475);
             transition: transform .5s var(--ease), box-shadow .5s var(--ease)
         }
@@ -439,10 +440,10 @@
 
         .pill {
             padding: 9px 18px;
-            border-radius: 99px;
+            border-radius: 15px;
             border: 1px solid var(--line);
             background: #fff;
-            font-size: .90rem;
+            font-size: 0.95rem;
             color: var(--ink-2);
             transition: all .3s var(--ease)
         }
@@ -540,106 +541,182 @@
             pointer-events: none
         }
 
-        /* colleges */
+
+        /* ===== COLLEGE SECTION ===== */
+
         .grid--2 {
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 24px
+            gap: 24px;
         }
 
         .college {
-            background: #fff;
-            border: 1px solid var(--line);
-            border-radius: var(--r-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
+            --college-accent: #274896;
+            position: relative;
             display: flex;
-            flex-direction: column
+            flex-direction: column;
+            overflow: hidden;
+            background: #f7f9fe;
+            border: 1px solid #eaf2ff;
+            border-radius: 20px;
+            box-shadow: 0 8px 8px rgba(4, 21, 52, 0.133);
+            transition: transform .4s var(--ease), box-shadow .4s var(--ease);
         }
 
+        .college[data-college=bits] {
+            --college-accent: #E93C47;
+            background: #fff8f8;
+            border-color: #f3e2e5;
+        }
+
+        .college:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 8px rgba(4, 21, 52, 0.297);
+
+        }
+
+        /* IMAGE */
+
         .college__img {
-            aspect-ratio: 22/8;
-            background: linear-gradient(150deg, #2b51ab, #0a1330);
-            overflow: hidden
+            position: relative;
+            aspect-ratio: 22 / 8;
+            overflow: hidden;
+            background: linear-gradient(135deg, #274896, #101e43);
         }
 
         .college[data-college=bits] .college__img {
-            background: linear-gradient(150deg, #d6404a, #1c2d5f)
+            background: linear-gradient(135deg, #e93c47, #45243e);
         }
 
         .college__img img {
+            display: block;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1s var(--ease)
+            transition: transform .8s var(--ease);
         }
 
         .college:hover .college__img img {
-            transform: scale(1.04)
+            transform: scale(1.05);
         }
+
+        .college__img::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    transparent 60%,
+                    rgba(15, 30, 65, .16));
+            pointer-events: none;
+        }
+
+        /* BODY */
 
         .college__body {
             display: flex;
             flex-direction: column;
             flex: 1;
-            padding: clamp(24px, 3vw, 36px)
+            padding: clamp(22px, 3vw, 32px);
         }
+
+        /* LOCATION */
 
         .college__loc {
-            font-size: .78rem;
-            font-weight: 500;
-            color: var(--red);
-            margin-bottom: 10px
+            width: fit-content;
+            margin: 0 0 13px;
+            padding: 6px 11px;
+            border-radius: 6px;
+            background: rgba(39, 72, 150, .08);
+            color: var(--college-accent);
+            font-size: .72rem;
+            font-weight: 600;
+            letter-spacing: .02em;
         }
+
+        .college[data-college=bits] .college__loc {
+            background: rgba(233, 60, 71, .08);
+        }
+
+        /* TITLE */
 
         .college__name {
-            font-size: clamp(1.4rem, 2.2vw, 1.8rem);
-            font-weight: 500;
-            letter-spacing: -.025em;
-            line-height: 1.2;
-            margin-bottom: 12px
+            margin: 0 0 12px;
+            color: #192d56;
+            font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+            font-weight: 600;
+            letter-spacing: -.035em;
+            line-height: 1.25;
         }
+
+        /* DESCRIPTION */
 
         .college__text {
-            font-size: .95rem;
-            font-weight: 400;
-            color: var(--ink-2);
-            margin-bottom: 22px
+            margin: 0 0 20px;
+            color: #65728b;
+            font-size: .92rem;
+            line-height: 1.75;
         }
 
+        /* FACTS PANEL */
+
         .facts {
-            margin: 22px 0;
-            border-top: 1px solid var(--line)
+            margin: 0 0 22px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, .8);
+            border: 1px solid rgba(39, 72, 150, .09);
+            border-radius: 13px;
         }
 
         .facts div {
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            gap: 14px;
             padding: 12px 0;
-            border-bottom: 1px solid var(--line);
-            font-size: .86rem
+            border-bottom: 1px solid #edf0f5;
+            font-size: .85rem;
+        }
+
+        .facts div:last-child {
+            border-bottom: 0;
         }
 
         .facts dt {
+            color: #2f3545;
             font-weight: 400;
-            color: var(--ink-2)
         }
 
         .facts dd {
-            font-weight: 500;
+            margin: 0;
+            color: var(--college-accent);
             font-size: 1rem;
-            color: #274896;
-            text-align: right
+            font-weight: 500;
+            text-align: right;
         }
 
-        .college .facts {
-            margin-top: 0
-        }
+        /* CTA */
 
         .college .btn {
             align-self: flex-start;
-            margin-top: auto
+            margin-top: auto;
         }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 640px) {
+            .grid--2 {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .college__img {
+                aspect-ratio: 16 / 7;
+            }
+
+            .college__body {
+                padding: 22px;
+            }
+        }
+
 
         /* small CTA band */
         .band {
@@ -986,7 +1063,7 @@
             color: var(--ink);
             border-radius: 22px;
             overflow: hidden;
-            box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .55);
+            /* box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .55); */
             transition: transform .5s var(--ease), box-shadow .5s var(--ease)
         }
 
@@ -1010,8 +1087,9 @@
         }
 
         .pc:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 32px 56px -22px rgba(0, 0, 0, .7)
+            transform: scale(0.98);
+
+            /* box-shadow: 0 32px 56px -22px rgba(0, 0, 0, .7) */
         }
 
         .pc>* {
@@ -1071,7 +1149,7 @@
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 10px;
-            margin: 24px 0 26px
+            margin: 0px 0 0px
         }
 
         .pc__fact {
@@ -1357,7 +1435,7 @@
             }
 
             .pc {
-                flex-basis: 84%
+                flex-basis: 100%
             }
 
             .mbar {
@@ -1644,15 +1722,14 @@
             <div class="container">
                 <div class="hero__content reveal">
                     <span class="eyebrow">Dubai admissions guidance</span>
-                    <h1 class="hero__title">Study in Dubai: your next chapter has an <em>address.</em></h1>
-                    <p class="hero__text">Explore UG and PG courses at Symbiosis Dubai and BITS Pilani Dubai, with
-                        clear, honest guidance from Learntech counsellors, from choosing a course to confirming your
-                        offer.</p>
+                    <h1 class="hero__title">Start with the Right Study<br> Abroad Consultants for<em> Dubai.</em></h1>
+                    <p class="hero__text">Explore opportunities to study in Dubai for Indian students with clear
+                        guidance on courses, applications and admissions.</p>
                     <div class="hero__cta">
-                        <a class="btn btn--light" href="#courses">Explore courses <svg width="16" height="16">
+                        <a class="btn btn--light" href="#courses"> Explore Programmes <svg width="16" height="16">
                                 <use href="#i-arrow" />
                             </svg></a>
-                        <a class="btn btn--glass" href="#enquire">Talk to a counsellor</a>
+
                     </div>
                 </div>
             </div>
@@ -1664,10 +1741,11 @@
                 <div class="section__head reveal">
                     <span class="eyebrow">Why Dubai</span>
                     <h2 class="title">Why study in Dubai?</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="lead">Choosing to study in Dubai is an important step towards your academic and
+                        professional goals. With access to globally recognised programmes, diverse learning environments
+                        and international career exposure, Dubai offers Indian students an opportunity to broaden their
+                        horizons and prepare for a competitive global workforce.
+                    </p>
                 </div>
                 <div class="why">
                     <div class="why__img reveal"><img src="media/25852825 (2).webp" alt="Dubai skyline" loading="lazy"
@@ -1679,9 +1757,9 @@
                             <div class="feature__icon"><img src="Why-choose-icons/close-aicon.gif" alt=""
                                     aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
                             <div>
-                                <h3 class="feature__title">Close to home</h3>
-                                <p class="feature__text">A short flight from major Indian cities, keeping family and
-                                    familiar support within easy reach.</p>
+                                <h3 class="feature__title">Easy Accessibility</h3>
+                                <p class="feature__text">Dubai is just a short flight from major Indian cities, making
+                                    travel home and family visits more convenient.</p>
                             </div>
                         </article>
                         <article class="feature reveal">
@@ -1689,26 +1767,26 @@
                                     aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
                             <div>
                                 <h3 class="feature__title">Global exposure</h3>
-                                <p class="feature__text">Study alongside students from diverse nationalities in one of
-                                    the world’s leading international business hubs.</p>
+                                <p class="feature__text">Interact with students from diverse backgrounds while studying
+                                    in one of the world's prominent business and trade centres.</p>
                             </div>
                         </article>
                         <article class="feature reveal">
                             <div class="feature__icon"><img src="Why-choose-icons/academic-aicon.gif" alt=""
                                     aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
                             <div>
-                                <h3 class="feature__title">Indian academic legacy</h3>
-                                <p class="feature__text">Explore Dubai campuses of established Indian institutions with
-                                    familiar academic roots and an international outlook.</p>
+                                <h3 class="feature__title">Familiar Academic Foundations</h3>
+                                <p class="feature__text">Explore programmes offered by established Indian institutions
+                                    in Dubai, combining familiar academic standards with an international outlook.</p>
                             </div>
                         </article>
                         <article class="feature reveal">
                             <div class="feature__icon"><img src="Why-choose-icons/safety-aicon.gif" alt=""
                                     aria-hidden="true" loading="lazy" onerror="this.style.display='none'"></div>
                             <div>
-                                <h3 class="feature__title">Safe and student-friendly</h3>
-                                <p class="feature__text">Benefit from a strong Indian community, modern infrastructure,
-                                    and services designed to support student life.</p>
+                                <h3 class="feature__title">Supportive Student Environment</h3>
+                                <p class="feature__text">Experience modern infrastructure, a strong Indian community and
+                                    student friendly facilities that make settling into Dubai easier.</p>
                             </div>
                         </article>
                     </div>
@@ -1721,11 +1799,10 @@
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Programmes</span>
-                    <h2 class="title">Courses by college</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2 class="title">Find Your Programme in Dubai</h2>
+                    <p class="lead">Explore undergraduate and postgraduate programmes offered by leading institutions in
+                        Dubai. Compare available courses across universities to find a programme that aligns with your
+                        academic interests and career goals.</p>
                 </div>
 
                 <div class="filters reveal">
@@ -1927,8 +2004,8 @@
                 position: relative;
                 display: grid;
                 place-items: center;
-                width: 88px;
-                height: 88px;
+                width: 80px;
+                height: 80px;
                 margin: 14px 0;
                 border-radius: 50%;
                 color: #fff;
@@ -1979,16 +2056,16 @@
 
             .fl__title {
                 font-size: 1.02rem;
-                font-weight: 500;
+                font-weight: 600;
                 line-height: 1.3;
                 letter-spacing: -.01em;
                 margin-bottom: 6px
             }
 
             .fl__text {
-                font-size: .84rem;
+                font-size: .86rem;
                 font-weight: 300;
-                color: var(--ink-2)
+                color: var(--ink)
             }
 
             @keyframes fl-spin {
@@ -2266,12 +2343,12 @@
                         padding: clamp(28px, 3.5vw, 24px);
                         border-radius: var(--r-lg);
                         color: #fff;
-                        background: rgb(28, 90, 144);
+                        background:linear-gradient(#345193,#10234e);
                         box-shadow: var(--shadow-up)
                     }
 
                     .lw__center h3 {
-                        font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+                        font-size: clamp(1.4rem, 2.2vw, 1.73rem);
                         font-weight: 500;
                         letter-spacing: -.03em;
                         line-height: 1.2
@@ -2279,12 +2356,12 @@
 
                     .lw__center h3 em {
                         font-style: normal;
-                        font-weight: 300;
+                        font-weight: 400;
                         color: #FF8A92
                     }
 
                     .lw__center p {
-                        font-size: .94rem;
+                        font-size: 0.96rem;
                         font-weight: 400;
                         color: rgba(255, 255, 255)
                     }
@@ -2830,17 +2907,41 @@
         /* ===== DATA ===== */
         const COLLEGES = { sym: { short: 'Symbiosis Dubai' }, bits: { short: 'BITS Pilani Dubai' } };
         const COURSES = [
-            { id: 'bca', c: 'sym', lv: 'ug', name: 'BCA in AI and ML', degree: 'Bachelor of Computer Applications', min: '55%+' },
-            { id: 'btech', c: 'sym', lv: 'ug', name: 'B.Tech in Computer Engineering', degree: 'Bachelor of Technology', min: '55%+' },
-            { id: 'bba-s', c: 'sym', lv: 'ug', name: 'BBA (General Management)', degree: 'Bachelor of Business Administration', min: '55%+' },
-            { id: 'bcom', c: 'sym', lv: 'ug', name: 'B.Com', degree: 'Bachelor of Commerce', min: '55%+' },
-            { id: 'bsc', c: 'sym', lv: 'ug', name: 'B.Sc', degree: 'Bachelor of Science', min: '55%+' },
-            { id: 'ba', c: 'sym', lv: 'ug', name: 'BA', degree: 'Bachelor of Arts', min: '55%+' },
-            { id: 'mba-s', c: 'sym', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', min: '50%+' },
-            { id: 'be', c: 'bits', lv: 'ug', name: 'BE in Engineering', degree: 'Bachelor of Engineering', min: '60%+' },
-            { id: 'bba-b', c: 'bits', lv: 'ug', name: 'BBA (Hons)', degree: 'Bachelor of Business Administration (Hons)', min: '60%+' },
-            { id: 'me', c: 'bits', lv: 'pg', name: 'ME in Software Systems', degree: 'Master of Engineering', min: '60%+' },
-            { id: 'mba-b', c: 'bits', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', min: '60%+' }];
+            { id: 'bba-s', c: 'sym', lv: 'ug', name: 'BBA (General Management)', degree: 'Bachelor of Business Administration', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bba-finance', c: 'sym', lv: 'ug', name: 'BBA (Honors) in Finance', degree: 'Bachelor of Business Administration (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bba-marketing', c: 'sym', lv: 'ug', name: 'BBA (Honors) in Marketing', degree: 'Bachelor of Business Administration (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bba-logistics', c: 'sym', lv: 'ug', name: 'BBA (Honors) in Logistics and Supply Chain Management', degree: 'Bachelor of Business Administration (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bba-hr', c: 'sym', lv: 'ug', name: 'BBA (Honors) in Human Resource Management', degree: 'Bachelor of Business Administration (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bba-ai', c: 'sym', lv: 'ug', name: 'BBA (Honors) in Artificial Intelligence and Business Analytics', degree: 'Bachelor of Business Administration (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bba-dual', c: 'sym', lv: 'ug', name: 'BBA Dual Degree with Aston University, UK', degree: 'BBA from Symbiosis, Dubai & B.Sc in Business and Management from Aston University, UK', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bca-ai', c: 'sym', lv: 'ug', name: 'BCA (Artificial Intelligence and Machine Learning)', degree: 'Bachelor of Computer Applications', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bca-data', c: 'sym', lv: 'ug', name: 'BCA (Data Science and Data Analytics)', degree: 'Bachelor of Computer Applications', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bca-cloud', c: 'sym', lv: 'ug', name: 'BCA (Cloud Computing)', degree: 'Bachelor of Computer Applications', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'ba-media', c: 'sym', lv: 'ug', name: 'BA in Media and Communication (Honors)', degree: 'Bachelor of Arts in Media and Communication (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bcom', c: 'sym', lv: 'ug', name: 'B.Com (Honors) with ACCA Preparation', degree: 'Bachelor of Commerce (Honors) with ACCA Preparation', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'bsc-psych', c: 'sym', lv: 'ug', name: 'B.Sc Psychology (Honors)', degree: 'Bachelor of Science in Psychology (Honors)', dur: '4 years', fee: 'AED 42,000/year', eligibility: 'Minimum 50%' },
+            { id: 'btech', c: 'sym', lv: 'ug', name: 'B.Tech (Computer Engineering)', degree: 'Bachelor of Technology in Computer Engineering', dur: '4 years', fee: 'AED 53,550/year', eligibility: 'Minimum 50% overall' },
+            { id: 'mba-s', c: 'sym', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', dur: '2 years', fee: 'AED 45,000/year', eligibility: "Bachelor's degree with minimum 50%" },
+            { id: 'bits-architectural', c: 'bits', lv: 'ug', name: 'B.E. Architectural and Urban Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-biotechnology', c: 'bits', lv: 'ug', name: 'B.E. Biotechnology', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-biotech-molecular', c: 'bits', lv: 'ug', name: 'B.E. Biotechnology (Applied Molecular Biology)', degree: 'Bachelor of Engineering with Specialization in Applied Molecular Biology', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-chemical', c: 'bits', lv: 'ug', name: 'B.E. Chemical Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-energy', c: 'bits', lv: 'ug', name: 'B.E. Chemical (Energy, Environment and Sustainability)', degree: 'Bachelor of Engineering with Specialization in Energy, Environment and Sustainability', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-civil', c: 'bits', lv: 'ug', name: 'B.E. Civil Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'be', c: 'bits', lv: 'ug', name: 'B.E. Computer Science', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-electronics-communication', c: 'bits', lv: 'ug', name: 'B.E. Electronics and Communication Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-electronics-computer', c: 'bits', lv: 'ug', name: 'B.E. Electronics and Computer Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-electrical', c: 'bits', lv: 'ug', name: 'B.E. Electrical and Electronics Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-mathematics', c: 'bits', lv: 'ug', name: 'B.E. Mathematics and Computing', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-mechanical', c: 'bits', lv: 'ug', name: 'B.E. Mechanical Engineering', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-aerospace', c: 'bits', lv: 'ug', name: 'B.E. Mechanical (Aerospace)', degree: 'Bachelor of Engineering with Specialization in Aerospace', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-robotics', c: 'bits', lv: 'ug', name: 'B.E. Robotics and Industrial Automation', degree: 'Bachelor of Engineering', dur: '4 years', fee: 'AED 55,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bba-b', c: 'bits', lv: 'ug', name: 'BBA (Honors)', degree: 'Bachelor of Business Administration (Honors)', dur: '4 years', fee: 'AED 37,500/year', eligibility: 'Minimum 60% in Grade 12' },
+            { id: 'bits-me-civil', c: 'bits', lv: 'pg', name: 'M.E. Civil (Infrastructure Engineering and Management)', degree: 'Master of Engineering with Specialization in Infrastructure Engineering and Management', dur: '2 years', fee: 'AED 33,600/year', eligibility: 'Minimum 60% in B.E./B.Tech in Civil Engineering or equivalent' },
+            { id: 'bits-me-electrical', c: 'bits', lv: 'pg', name: 'M.E. Electrical (Power Electronics and Drives)', degree: 'Master of Engineering with Specialization in Power Electronics and Drives', dur: '2 years', fee: 'AED 33,600/year', eligibility: 'Minimum 60% in B.E./B.Tech/M.Sc. or equivalent in a relevant discipline' },
+            { id: 'me', c: 'bits', lv: 'pg', name: 'M.E. Software Systems', degree: 'Master of Engineering', dur: '2 years', fee: 'AED 33,600/year', eligibility: 'Minimum 60% in B.E./B.Tech/M.Sc./MCA or equivalent' },
+            { id: 'mba-b', c: 'bits', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', dur: '2 years', fee: 'AED 33,600/year', eligibility: "Minimum 60% in a Bachelor's degree" },
+            { id: 'bits-mba-analytics', c: 'bits', lv: 'pg', name: 'MBA (Business Analytics)', degree: 'Master of Business Administration in Business Analytics', dur: '2 years', fee: 'AED 33,600/year', eligibility: "Minimum 60% in a Bachelor's degree" }];
         const CAREERS = [
             ['Technology and AI', 'code', 'Build software, analyse data and work with AI tools across Dubai’s growing technology sector.', ['bca', 'btech', 'me'], ['Software developer', 'Data analyst', 'AI and ML associate', 'Systems engineer']],
             ['Business and finance', 'biz', 'Support trade, banking, retail and corporate teams in one of the region’s major business hubs.', ['bba-s', 'bba-b', 'bcom', 'mba-s', 'mba-b'], ['Business analyst', 'Finance associate', 'Marketing executive', 'Operations coordinator']],
@@ -2902,7 +3003,7 @@
                 const facts = [
                     ['clock', 'Duration', c.dur || '4 years'],
                     ['fee', 'Tuition Fee', c.fee || 'AED 42,000/year'],
-                    ['ok', 'Eligibility', c.min ? 'Minimum ' + c.min + ' marks' : 'Minimum 50%']
+                    ['ok', 'Eligibility', c.eligibility || (c.min ? 'Minimum ' + c.min + ' marks' : 'Minimum 50%')]
                 ];
 
                 return `<article class="pc" data-college="${c.c}" data-level="${c.lv}">
