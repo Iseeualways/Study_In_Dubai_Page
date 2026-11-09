@@ -95,7 +95,8 @@
         }
 
         .section--soft {
-            background: linear-gradient(180deg, white, #f6eceb);
+            /* background: linear-gradient(180deg, white, #f6eceb); */
+            background: linear-gradient(180deg, #f6eceb, white);
         }
 
         /* typography */
@@ -615,7 +616,7 @@
             display: flex;
             flex-direction: column;
             flex: 1;
-            padding: clamp(22px, 3vw, 32px);
+            padding: clamp(12px, 3vw, 22px);
         }
 
         /* LOCATION */
@@ -651,46 +652,54 @@
 
         .college__text {
             margin: 0 0 20px;
-            color: #65728b;
-            font-size: .92rem;
+            color: #3d485a;
+            font-weight: 400;
+            font-size: .9rem;
             line-height: 1.75;
         }
 
         /* FACTS PANEL */
 
         .facts {
+            display: grid;
+            gap: 12px;
             margin: 0 0 22px;
-            padding: 8px 16px;
-            background: rgba(255, 255, 255, .8);
-            border: 1px solid rgba(39, 72, 150, .09);
-            border-radius: 13px;
+            padding: 0;
+            border: 0;
+            background: transparent;
         }
 
         .facts div {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 14px;
-            padding: 12px 0;
-            border-bottom: 1px solid #edf0f5;
-            font-size: .85rem;
+            position: relative;
+            padding: 12px 14px 12px 38px;
+            border: 1px solid rgba(39, 72, 150, .1);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, .8);
         }
 
-        .facts div:last-child {
-            border-bottom: 0;
+        .facts div::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 19px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--college-accent);
+            box-shadow: 0 0 0 4px color-mix(in srgb, var(--college-accent) 14%, transparent);
         }
 
         .facts dt {
-            color: #2f3545;
-            font-weight: 400;
+            color: #333641;
+            font-size: .86rem;
+            font-weight: 600;
         }
 
         .facts dd {
-            margin: 0;
+            margin: 3px 0 0;
             color: var(--college-accent);
             font-size: 1rem;
             font-weight: 500;
-            text-align: right;
         }
 
         /* CTA */
@@ -729,7 +738,7 @@
             align-items: center;
             gap: 28px;
             flex-wrap: wrap;
-            padding: clamp(28px, 4.5vw, 52px);
+            padding: clamp(22px, 4.5vw, 22px);
             border-radius: var(--r-lg);
             background: linear-gradient(150deg, var(--blue-dark), var(--blue));
             color: #fff;
@@ -754,8 +763,8 @@
         .band__box p {
             font-size: .92rem;
             font-weight: 300;
-            color: rgba(255, 255, 255, .82);
-            max-width: 56ch
+            color: rgba(255, 255, 255, 0.916);
+            max-width: 66ch
         }
 
         .band__cta {
@@ -764,134 +773,7 @@
             gap: 12px
         }
 
-        /* eligibility + documents + checklist */
-        .apply {
-            display: grid;
-            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-            gap: 24px;
-            align-items: start
-        }
 
-        .apply--check {
-            margin-top: 24px;
-            grid-template-columns: repeat(2, minmax(0, 1fr))
-        }
-
-        .panel {
-            background: #f2f2f2;
-            border: 2px solid var(--line);
-            border-radius: var(--r-lg);
-            padding: clamp(24px, 3vw, 36px);
-            box-shadow: var(--shadow)
-        }
-
-        .panel__title {
-            font-size: 1.3rem;
-            color: #1A3266;
-            font-weight: 500;
-            margin-bottom: 20px
-        }
-
-        .panel__tag {
-            display: inline-block;
-            font-size: .72rem;
-            font-weight: 500;
-            padding: 3px 12px;
-            border-radius: 99px;
-            background: #EAF0FD;
-            color: var(--blue);
-            margin-bottom: 12px
-        }
-
-        .panel__tag--red {
-            background: #FDECEE;
-            color: var(--red)
-        }
-
-        .panel .panel__tag+.panel__title {
-            margin-bottom: 14px
-        }
-
-        .marks {
-            display: grid;
-            gap: 12px
-        }
-
-        .marks__row {
-            display: grid;
-            grid-template-columns: 72px repeat(2, minmax(0, 1fr));
-            gap: 16px;
-            align-items: start;
-            padding: 18px;
-            background: rgb(140, 5, 5);
-            border-radius: var(--r-sm)
-        }
-
-        .marks__level {
-            font-size: .78rem;
-            font-weight: 600;
-            color: #fff
-        }
-
-        .marks__label {
-            display: block;
-            font-size: .84rem;
-            font-weight: 400;
-            color: #fff;
-            margin-bottom: 2px
-        }
-
-        .marks__value {
-            font-size: 2rem;
-            font-weight: 900;
-            letter-spacing: -.03em;
-            line-height: 1.2;
-            color: white;
-        }
-
-        .marks__row .marks__list {
-            color: #ffffff
-        }
-
-        .marks__list {
-            display: block;
-            margin-top: 6px;
-            font-size: .78rem;
-            font-weight: 400;
-            color: var(--ink-2)
-        }
-
-        .docs li {
-            display: flex;
-            gap: 12px;
-            align-items: flex-start;
-            padding: 14px 0;
-            border-top: 1px solid rgba(0, 0, 0, 0.201);
-            font-size: .92rem;
-            font-weight: 400;
-            color: var(--ink-1)
-        }
-
-        .docs li:first-child {
-            border-top: 0;
-            padding-top: 0
-        }
-
-        .docs svg {
-            flex: none;
-            width: 20px;
-            height: 20px;
-            margin-top: 3px;
-            color: var(--red)
-        }
-
-        .panel .docs li {
-            font-size: .9rem
-        }
-
-        .docs--blue svg {
-            color: var(--blue)
-        }
 
         /* faq */
         .faq {
@@ -1584,6 +1466,164 @@
                 grid-template-columns: 1fr
             }
         }
+
+
+        /* logo */
+        .brand img {
+            height: 35px;
+            width: auto;
+            display: block
+        }
+
+        /* mobile menu toggle */
+        .nav-toggle {
+            display: none
+        }
+
+        @media (max-width: 767px) {
+            html {
+                scroll-padding-top: 80px
+            }
+
+            .header__inner {
+                flex-wrap: nowrap;
+                height: var(--nav);
+                padding-top: 0;
+                padding-bottom: 0;
+                gap: 10px
+            }
+
+            .brand img {
+                height: 34px
+            }
+
+            .header__inner>.btn {
+                display: none;
+                margin-left: auto;
+                height: 38px;
+                padding: 0 14px;
+                font-size: .78rem
+            }
+
+            .nav-toggle {
+                display: block;
+                position: relative;
+                flex: none;
+                width: 44px;
+                height: 44px;
+                border-radius: 50%;
+                border: 1px solid var(--line);
+                background: #fff
+            }
+
+            .nav-toggle span {
+                position: absolute;
+                left: 12px;
+                right: 12px;
+                height: 2px;
+                border-radius: 2px;
+                background: var(--ink);
+                transition: transform .4s var(--ease), top .4s var(--ease), opacity .25s
+            }
+
+            .nav-toggle span:nth-child(1) {
+                top: 14px
+            }
+
+            .nav-toggle span:nth-child(2) {
+                top: 21px
+            }
+
+            .nav-toggle span:nth-child(3) {
+                top: 28px
+            }
+
+            .nav-toggle[aria-expanded=true] span:nth-child(1) {
+                top: 21px;
+                transform: rotate(45deg)
+            }
+
+            .nav-toggle[aria-expanded=true] span:nth-child(2) {
+                opacity: 0
+            }
+
+            .nav-toggle[aria-expanded=true] span:nth-child(3) {
+                top: 21px;
+                transform: rotate(-45deg)
+            }
+
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                order: 0;
+                width: auto;
+                background: rgba(255, 255, 255, .98);
+                border-bottom: 1px solid var(--line);
+                box-shadow: 0 20px 30px -20px rgba(20, 32, 58, .25);
+                max-height: 0;
+                overflow: hidden;
+                visibility: hidden;
+                transition: max-height .5s var(--ease), visibility 0s .5s
+            }
+
+            .nav.open {
+                max-height: calc(100vh - var(--nav));
+                overflow-y: auto;
+                visibility: visible;
+                transition: max-height .5s var(--ease)
+            }
+
+            .nav__links {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                overflow: visible;
+                padding: 6px var(--gutter) 16px
+            }
+
+            .nav__links a:not(.btn) {
+                display: block;
+                padding: 14px 0;
+                border-bottom: 1px solid var(--line);
+                font-size: 1rem
+            }
+        }
+
+        /* testimonial white card */
+        .tv {
+            background: #fff;
+            color: var(--ink);
+            padding: clamp(24px, 4vw, 44px);
+            gap: 24px;
+            border-radius: var(--r-lg);
+            box-shadow: 0 24px 48px -24px rgba(0, 0, 0, .5)
+        }
+
+        .tv__mark {
+            color: var(--red)
+        }
+
+        .tv blockquote {
+            color: var(--ink);
+            font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+            font-weight: 400
+        }
+
+        .tv__who {
+            padding-top: 20px;
+            border-top: 1px solid var(--line)
+        }
+
+        .tv__av {
+            background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+            color: #fff
+        }
+
+        .tv__who small {
+            color: var(--ink-2)
+        }
     </style>
 </head>
 
@@ -1697,10 +1737,8 @@
 
     <header class="header">
         <div class="container header__inner">
-            <a class="brand" href="#top" aria-label="Learntech home"><svg>
-                    <use href="#i-logo" />
-                </svg>Learntech</a>
-            <nav class="nav" aria-label="Main">
+            <a class="brand" href="#top" aria-label="Learntech home"><img src="media/LT.svg" alt="Learntech"></a>
+            <nav class="nav" id="mainNav" aria-label="Main">
                 <ul class="nav__links">
                     <li><a href="#why">Why Dubai</a></li>
                     <li><a href="#courses">Programmes</a></li>
@@ -1712,6 +1750,10 @@
                 </ul>
             </nav>
             <a class="btn btn--sm" href="#enquire">Talk to an expert</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
+                aria-controls="mainNav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -1858,7 +1900,7 @@
                                 across business, computing, commerce, media and other disciplines. Its international
                                 approach to education brings together students from diverse cultural backgrounds
                                 especially with the establishment of its Dubai campus in 2024.</p>
-                            <dl class="facts">
+                            <dl class="facts facts--points">
                                 <div>
                                     <dt>UAE accreditation</dt>
                                     <dd>Licensed by MOHESR and accredited by CAA</dd>
@@ -1887,7 +1929,7 @@
                                 programmes in engineering, technology and management. Established in 2000, the campus
                                 combines academic learning with practical industry exposure through its distinctive
                                 Practice School programme.</p>
-                            <dl class="facts">
+                            <dl class="facts facts--points">
                                 <div>
                                     <dt>Industry exposure</dt>
                                     <dd>7.5 months of structured training</dd>
@@ -1928,11 +1970,32 @@
             <div class="container">
                 <div class="band__box reveal">
                     <style>
+                        #careers .grid .feature {
+                            border: 1px solid rgba(255, 0, 0, 0.486);
+                            border-radius: 20px;
+                        }
+
+                        #careers .grid .feature .feature__title {
+                            font-size: 25px;
+                            font-weight: 600;
+                            line-height: 2rem;
+                        }
+
                         .band__box {
                             background: linear-gradient(115deg, rgb(38, 61, 112) 0%, rgba(70, 85, 139, 0) 45%, rgba(169, 79, 107, 0.513) 100%), url('media/24487.jpg') center / cover no-repeat;
                             border-radius: 24px;
                             overflow: hidden;
                             position: relative;
+                        }
+
+                        @media (max-width: 768px) {
+                            .band__box {
+                                background: linear-gradient(115deg, rgba(15, 24, 45, 0.88) 0%, rgba(24, 31, 57, 0.459) 55%, rgba(62, 33, 54, 0.78) 100%), url('media/24487.jpg') center / cover no-repeat;
+                            }
+
+                            .band__box p {
+                                color: white;
+                            }
                         }
                     </style>
                     <div>
@@ -2186,15 +2249,15 @@
         </style>
 
         <!-- ADMISSION SUPPORT STEPS -->
-        <section class="section section--soft" id="process">
+        <section class="section " id="process">
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Admission support</span>
-                    <h2 class="title">From course choice to confirmed offer</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2 class="title">From Course Selection to Your Confirmed Offer</h2>
+                    <p class="lead">Planning to study in Dubai? We guide you through every stage of the admission
+                        process, from choosing the right university and programme to completing applications, securing
+                        your offer and preparing for your move.
+                    </p>
                 </div>
 
                 <ol class="fl">
@@ -2205,7 +2268,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Talk to a counsellor</h3>
-                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p class="fl__text">Discuss your academic background, interests and future goals with
+                                    our admission counsellors.</p>
                             </div>
                         </div>
                     </li>
@@ -2216,7 +2280,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Choose your college and course</h3>
-                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p class="fl__text">Compare universities and programmes to find the right fit for your
+                                    aspirations.</p>
                             </div>
                         </div>
                     </li>
@@ -2227,7 +2292,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Prepare your documents</h3>
-                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p class="fl__text">Get guidance on academic records, identification documents and other
+                                    admission requirements.</p>
                             </div>
                         </div>
                     </li>
@@ -2238,7 +2304,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Apply with confidence</h3>
-                                <p class="fl__text">We help you with forms and submissions so nothing is missed.</p>
+                                <p class="fl__text">We assist with application forms, document submissions and
+                                    university requirements.</p>
                             </div>
                         </div>
                     </li>
@@ -2249,7 +2316,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Receive your offer</h3>
-                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p class="fl__text">Track your application and understand the next steps after receiving
+                                    your offer letter.</p>
                             </div>
                         </div>
                     </li>
@@ -2260,7 +2328,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Visa guidance</h3>
-                                <p class="fl__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p class="fl__text">Get assistance with student visa documentation and the application
+                                    process.</p>
                             </div>
                         </div>
                     </li>
@@ -2271,7 +2340,8 @@
                         <div class="fl__text-cell">
                             <div>
                                 <h3 class="fl__title">Plan your move</h3>
-                                <p class="fl__text">Pre-departure checklist, travel and stay planning before you fly.
+                                <p class="fl__text">Prepare for accommodation, travel arrangements and your transition
+                                    to student life in Dubai.
                                 </p>
                             </div>
                         </div>
@@ -2285,11 +2355,11 @@
             <div class="container">
                 <div class="section__head reveal">
                     <span class="eyebrow">Why Learntech</span>
-                    <h2 class="title">Why choose Learntech for study in Dubai</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <h2 class="title">Why Choose Learntech for Study in Dubai</h2>
+                    <p class="lead">Choosing the right university is an important decision. Learntech helps students
+                        explore suitable programmes, compare university options and understand the costs and admission
+                        requirements before taking the next step.
+                    </p>
                 </div>
                 <style>
                     .lw {
@@ -2404,6 +2474,10 @@
                         .lw__center .btn {
                             width: 100%
                         }
+
+                        .lw__center {
+                            padding: 15px;
+                        }
                     }
                 </style>
 
@@ -2416,15 +2490,18 @@
                         <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_03.webp"
                                     alt=""></span><span>2 Partner Campuses in Dubai</span></div>
                         <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_04.webp"
-                                    alt=""></span><span>Counsellors in India and the UAE</span></div>
+                                    alt=""></span><span>Counsellors Across India and the UAE</span></div>
                     </div>
 
                     <div class="lw__center reveal">
-                        <h3>Straight answers, <em>start to finish.</em></h3>
-                        <p>Our counsellors have supported families since 1994. We start with your marks, interests and
-                            budget, then match you to a programme at Symbiosis Dubai or BITS Pilani Dubai.</p>
-                        <p>You get a clear cost breakdown and education loan guidance. Admission and visas rest with the
-                            university and the authorities, so we guide every step and never promise either.</p>
+                        <h3>Clear <em>Guidance</em>, from Start to Finish</h3>
+                        <p>Our counsellors have been guiding students and families since 1994. We consider your academic
+                            background, interests and budget to help you shortlist suitable programmes at the leading
+                            universities in Dubai or.
+                        </p>
+                        <p>We help you navigate each stage with clarity be it comparing courses and understanding fee
+                            structures or exploring education loan options and visa requirements.
+                        </p>
                         <a class="btn btn--red" href="#enquire">Talk to a counsellor <svg width="16" height="16">
                                 <use href="#i-arrow" />
                             </svg></a>
@@ -2432,11 +2509,11 @@
 
                     <div class="lw__side lw__side--r">
                         <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_05.webp"
-                                    alt=""></span><span>Course Shortlisting That Fits You</span></div>
+                                    alt=""></span><span>Course Shortlisting That Fits Your Goals</span></div>
                         <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_06.webp"
-                                    alt=""></span><span>Clear Cost Breakdown</span></div>
+                                    alt=""></span><span>Transparent Cost Breakdown</span></div>
                         <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_07.webp"
-                                    alt=""></span><span>Education Loan Guidance</span></div>
+                                    alt=""></span><span>Education Loan Assistance</span></div>
                         <div class="lw__item reveal"><span class="lw__icon"><img src="why-icons/Icon_08.webp"
                                     alt=""></span><span>Visa Guidance at Every Step</span></div>
                     </div>
@@ -2444,83 +2521,196 @@
             </div>
         </section>
 
-        <!-- ELIGIBILITY + DOCUMENTS + CHECKLIST -->
+        <!-- =====================================================================
+  STEP 1: Replace the whole <section ... id="apply"> ... </section> block
+          with everything between the START / END markers below.
+  STEP 2: In your <script>, replace the VISA_BEFORE and VISA_AFTER
+          constants with the two arrays at the bottom of this file.
+          (The existing CHECKLIST render lines stay as they are.)
+====================================================================== -->
+
+        <!-- START: DOCUMENTS AND CHECKLISTS -->
         <section class="section" id="apply">
+            <style>
+                #apply .dc-sub {
+                    margin: 0 0 20px
+                }
+
+                #apply .dc-sub--c {
+                    text-align: center
+                }
+
+                #apply .dc-sub--2 {
+                    margin-top: clamp(40px, 5vw, 64px)
+                }
+
+                #apply .dc-sub h3 {
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                    letter-spacing: -.025em;
+                    line-height: 1.2;
+                    color: var(--blue-dark);
+                    text-align: left
+                }
+
+                #apply .dc-sub p {
+                    font-size: 1rem;
+                    font-weight: 500;
+                    color: var(--blue-dark)
+                }
+
+                #apply .dc-wide,
+                #apply .dc-block {
+                    padding: clamp(20px, 2.6vw, 32px);
+                    border-radius: var(--r);
+                    background: #f1f4fb
+                }
+
+                #apply .dc-wide {
+                    display: block
+                }
+
+                #apply .dc-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, minmax(0, 1fr));
+                    gap: 20px
+                }
+
+                #apply .dc-block__title {
+                    margin-bottom: 20px;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    letter-spacing: -.02em;
+                    line-height: 1.3;
+                    color: var(--navy)
+                }
+
+                #apply .dc-block__title span {
+                    color: var(--blue)
+                }
+
+                #apply .dc-block--red .dc-block__title span {
+                    color: var(--red)
+                }
+
+                #apply .dc-rows {
+                    --acc: #8fb0ff;
+                    display: grid;
+                    gap: 8px
+                }
+
+                #apply .dc-rows--red {
+                    --acc: #FF8A92
+                }
+
+                #apply .dc-rows--2 {
+                    grid-template-columns: repeat(2, minmax(0, 1fr))
+                }
+
+                #apply .dc-rows--2 li:last-child:nth-child(odd) {
+                    grid-column: 1 / -1;
+                    justify-self: center;
+                    width: calc(50% - 4px)
+                }
+
+                #apply .dc-rows li {
+                    display: flex;
+                    align-items: flex-start;
+                    gap: 14px;
+                    padding: 14px 18px;
+                    border-radius: 10px;
+                    background: var(--blue-dark);
+                    box-shadow: inset 3px 0 0 var(--acc);
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    line-height: 1.5;
+                    color: #fff
+                }
+
+                #apply .dc-rows svg {
+                    flex: none;
+                    width: 16px;
+                    height: 16px;
+                    margin-top: 4px;
+                    color: var(--acc)
+                }
+
+                @media(max-width:767px) {
+
+                    #apply .dc-grid,
+                    #apply .dc-rows--2 {
+                        grid-template-columns: 1fr
+                    }
+
+                    #apply .dc-rows--2 li:last-child:nth-child(odd) {
+                        width: auto
+                    }
+
+                    #apply .dc-rows li {
+                        padding: 13px 14px
+                    }
+                }
+            </style>
+
             <div class="container">
                 <div class="section__head reveal">
-                    <span class="eyebrow">Eligibility, documents and checklist</span>
-                    <h2 class="title">What you need to apply and arrive</h2>
-                    <p class="lead">Minimum marks at each college, the documents to keep ready, and the visa and arrival
-                        steps before and after you fly.</p>
+                    <span class="eyebrow">Documents and Checklists</span>
+                    <h2 class="title">Everything You Need, From Application to Arrival</h2>
+                    <p class="lead">From your application to your first week in the UAE, here’s everything to keep ready
+                        when
+                        you study in Dubai.</p>
                 </div>
 
-                <div class="apply">
-                    <div class="panel reveal">
-                        <h3 class="panel__title">Eligibility: marks and programmes by level</h3>
-                        <div class="marks">
-                            <div class="marks__row">
-                                <span class="marks__level">UG</span>
-                                <div><span class="marks__label">Symbiosis Dubai</span><span
-                                        class="marks__value">55%+</span><span class="marks__list">BCA, B.Tech, BBA,
-                                        B.Com, B.Sc, BA</span></div>
-                                <div><span class="marks__label">BITS Pilani Dubai</span><span
-                                        class="marks__value">60%+</span><span class="marks__list">BE, BBA (Hons)</span>
-                                </div>
-                            </div>
-                            <div class="marks__row marks__row--pg">
-                                <span class="marks__level">PG</span>
-                                <div><span class="marks__label">Symbiosis Dubai</span><span
-                                        class="marks__value">50%+</span><span class="marks__list">MBA</span></div>
-                                <div><span class="marks__label">BITS Pilani Dubai</span><span
-                                        class="marks__value">60%+</span><span class="marks__list">ME in Software
-                                        Systems, MBA</span></div>
-                            </div>
-                        </div>
-                        <p class="note">Marks are indicative. A counsellor confirms whether you qualify and shares fees
-                            for your shortlisted course.</p>
+                <div class="dc-sub dc-sub--c reveal">
+                    <h3>Application Documents -</h3>
+                </div>
+                <div class="dc-wide reveal">
+                    <ul class="dc-rows dc-rows--2">
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Valid passport</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Class 10 and Class 12 marksheets</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Recent passport-size photographs</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>English proficiency test score or waiver, if required</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Bachelor’s degree semester-wise marksheets</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Statement of Purpose (SOP), if required</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Two Letters of Recommendation (LORs), if required</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Updated resume</span></li>
+                        <li><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Experience or offer letter, if working</span></li>
+                    </ul>
+                </div>
+
+                <div class="dc-sub dc-sub--2 reveal">
+                    <p>Use this checklist to stay organised at every stage.</p>
+                </div>
+                <div class="dc-grid">
+                    <div class="dc-block reveal">
+                        <h4 class="dc-block__title"><span>Checklist ·</span> Before You Fly</h4>
+                        <ul class="dc-rows" id="visaBefore"></ul>
                     </div>
-                    <div class="panel reveal">
-                        <h3 class="panel__title">Documents to keep ready</h3>
-                        <ul class="docs">
-                            <li><svg>
-                                    <use href="#i-doc" />
-                                </svg>Previous marksheets or transcripts</li>
-                            <li><svg>
-                                    <use href="#i-id" />
-                                </svg>Valid passport</li>
-                            <li><svg>
-                                    <use href="#i-camera" />
-                                </svg>Recent passport-size photographs</li>
-                            <li><svg>
-                                    <use href="#i-lang" />
-                                </svg>English proficiency proof or waiver, where the university allows</li>
-                        </ul>
-                        <p class="note">Your counsellor shares the exact checklist for your course.</p>
+                    <div class="dc-block dc-block--red reveal">
+                        <h4 class="dc-block__title"><span>Checklist ·</span> After You Land</h4>
+                        <ul class="dc-rows dc-rows--red" id="visaAfter"></ul>
                     </div>
                 </div>
 
-                <div class="apply apply--check">
-                    <div class="panel reveal">
-                        <span class="panel__tag"><svg>
-                                <use href="#i-plane" />
-                            </svg>Checklist · Before you fly</span>
-                        <h3 class="panel__title">Get these ready</h3>
-                        <ul class="docs docs--blue" id="visaBefore"></ul>
-                    </div>
-                    <div class="panel reveal">
-                        <span class="panel__tag panel__tag--red"><svg>
-                                <use href="#i-pin" />
-                            </svg>Checklist · After you land</span>
-                        <h3 class="panel__title">Complete these in the UAE</h3>
-                        <ul class="docs" id="visaAfter"></ul>
-                    </div>
-                </div>
-                <p class="note">Your university usually coordinates the visa process. Requirements are set by UAE
-                    authorities and your university and can change. Confirm the current checklist with your counsellor
-                    and the university, and see the <a
-                        href="https://u.ae/en/information-and-services/visa-and-emirates-id/emirates-id" target="_blank"
-                        rel="noopener">UAE Government Portal</a> for official information. We do not guarantee visa
-                    approval.</p>
+
             </div>
         </section>
 
@@ -2530,9 +2720,10 @@
                 <div class="stories">
                     <div class="stories__intro reveal">
                         <span class="eyebrow">Testimonials</span>
-                        <h2 class="title">Our students’ voices</h2>
-                        <p class="lead">Hear from students and parents who made the move to Dubai.</p>
-                        <p class="ts-idx" aria-hidden="true"><b id="tsNow">01</b> / <span id="tsAll">03</span></p>
+                        <h2 class="title">Real Stories. Real Experiences.</h2>
+                        <p class="lead">Hear from students who chose Dubai for their higher education and discover what
+                            their university experience has been like.</p>
+                        <p class="ts-idx" aria-hidden="true"><b id="tsNow">01</b> / <span id="tsAll">05</span></p>
                         <div class="arrs">
                             <button class="arr" id="sprev" aria-label="Previous testimonials"><svg>
                                     <use href="#i-back" />
@@ -2555,46 +2746,43 @@
             <div class="container last-cta">
                 <div class="section__head reveal" style="text-align:center">
                     <span class="eyebrow">FAQs</span>
-                    <h2 class="title">Frequently asked questions</h2>
+                    <h2 class="title">Everything You Need to Know About Studying in Dubai</h2>
                     <p class="lead" style="margin-inline:auto">Quick answers for students and parents.</p>
                 </div>
                 <div class="faq reveal">
                     <details class="faq__item">
-                        <summary class="faq__q">Which colleges can I apply to through Learntech?</summary>
-                        <p class="faq__a">Symbiosis International University Dubai and BITS Pilani Dubai, both Dubai
-                            campuses of established Indian institutions.</p>
+                        <summary class="faq__q">How can I apply to universities in Dubai for UG and PG programmes?
+                        </summary>
+                        <p class="faq__a">Shortlist your programme, check the eligibility requirements and start your
+                            application. UG applicants need Class 10 and 12 marksheets; PG applicants need degree
+                            marksheets and certificates. Both need a valid passport and photographs.</p>
                     </details>
                     <details class="faq__item">
-                        <summary class="faq__q">Who can apply?</summary>
-                        <p class="faq__a">Students who meet each university’s minimum marks. Symbiosis Dubai asks for
-                            55% for Bachelor’s and 50% for Master’s. BITS Pilani Dubai asks for 60% for both. A
-                            counsellor confirms whether you qualify.</p>
+                        <summary class="faq__q">What are the top business management courses in Dubai for Indian
+                            students?</summary>
+                        <p class="faq__a">Popular options include BBA, BBA (Hons), B.Com and MBA programmes, offering
+                            exposure to one of the region’s leading business hubs.</p>
                     </details>
                     <details class="faq__item">
-                        <summary class="faq__q">Can I apply for a Master’s programme?</summary>
-                        <p class="faq__a">Yes. Symbiosis Dubai offers an MBA, and BITS Pilani Dubai offers an ME in
-                            Software Systems and an MBA.</p>
+                        <summary class="faq__q">What is the scope after a Master’s degree in Dubai for Indian students?
+                        </summary>
+                        <p class="faq__a">A Master’s degree in Dubai can open career opportunities in business and
+                            finance, technology, consulting and management. Indian students gain global exposure, access
+                            to multinational employers and networking opportunities. Graduates can work in the UAE,
+                            return to India or pursue roles worldwide.</p>
                     </details>
                     <details class="faq__item">
-                        <summary class="faq__q">What are the fees?</summary>
-                        <p class="faq__a">Fees vary by college, course and level. A counsellor shares the current fee
-                            structure and a clear cost breakdown for your shortlisted course.</p>
+                        <summary class="faq__q">Which are the best universities in Dubai for an MBA?</summary>
+                        <p class="faq__a">Symbiosis International University Dubai and BITS Pilani Dubai are options for
+                            MBA study, with strong academics and industry exposure. Both universities offer
+                            undergraduate and postgraduate courses across business, computing, commerce, media and other
+                            disciplines.</p>
                     </details>
                     <details class="faq__item">
-                        <summary class="faq__q">What documents do I need?</summary>
-                        <p class="faq__a">Usually your previous marksheets or transcripts, a valid passport, photographs
-                            and English proficiency proof or a waiver where the university allows it. A counsellor
-                            shares the exact checklist.</p>
-                    </details>
-                    <details class="faq__item">
-                        <summary class="faq__q">Can I get an education loan?</summary>
-                        <p class="faq__a">We guide you on education loan options and share a clear cost breakdown.
-                            Approval depends on the lender.</p>
-                    </details>
-                    <details class="faq__item">
-                        <summary class="faq__q">Does Learntech guarantee admission or a visa?</summary>
-                        <p class="faq__a">No. Admission and visas depend on the university and the relevant authorities.
-                            We guide you through each step but cannot guarantee either.</p>
+                        <summary class="faq__q">Who are the best study in Dubai consultants in India?</summary>
+                        <p class="faq__a">When choosing a study in Dubai consultant in India, look for course matching,
+                            application support and visa guidance under one roof. Learntech Edu Solutions Pvt Ltd helps
+                            students shortlist a university and supports them from application to arrival.</p>
                     </details>
                 </div>
             </div>
@@ -2867,13 +3055,13 @@
                         <span class="cta2__tag"><svg aria-hidden="true">
                                 <use href="#i-pin" />
                             </svg>Study in Dubai</span>
-                        <h2 class="cta2__title">Your next chapter <br><em>starts with a call.</em></h2>
-                        <p class="cta2__text">Speak to a Learntech counsellor about colleges, courses and admissions,
-                            and know exactly what to do next.</p>
+                        <h2 class="cta2__title">Your Dubai journey <br><em>starts with a call.</em></h2>
+                        <p class="cta2__text">Speak to a Learntech counsellor for expert guidance on universities,
+                            courses and admissions, and take the first step towards studying in Dubai.</p>
                         <div class="cta2__actions">
                             <a class="cta2__btn" href="tel:+971504955123"><svg aria-hidden="true">
                                     <use href="#i-phone" />
-                                </svg>Call a counsellor</a>
+                                </svg>Call a Counsellor</a>
                             <div class="cta2__social">
                                 <small>Follow us</small>
                                 <a class="cta2__soc" href="#" aria-label="Instagram" target="_blank" rel="noopener"><svg
@@ -2955,23 +3143,33 @@
             { id: 'mba-b', c: 'bits', lv: 'pg', name: 'MBA', degree: 'Master of Business Administration', dur: '2 years', fee: 'AED 33,600/year', eligibility: "Minimum 60% in a Bachelor's degree" },
             { id: 'bits-mba-analytics', c: 'bits', lv: 'pg', name: 'MBA (Business Analytics)', degree: 'Master of Business Administration in Business Analytics', dur: '2 years', fee: 'AED 33,600/year', eligibility: "Minimum 60% in a Bachelor's degree" }];
         const CAREERS = [
-            ['Technology and AI', 'code', 'Build software, analyse data, and work with AI tools in Dubai’s booming tech sector.', ['bca', 'btech', 'me'], ['Machine Learning (ML) Engineer', 'AI Developer / AI Engineer', 'Data Scientist', 'Data Analyst', 'AI / Business Intelligence (BI) Consultant', 'Software Developer with AI Integration'], 'Top Job Roles'],
+            ['Technology and AI', 'code', 'Build software, analyse data, and work with AI tools in Dubai’s booming tech sector.', ['bca-ai', 'btech', 'be', 'me'], ['Machine Learning (ML) Engineer', 'AI Developer / AI Engineer', 'Data Scientist', 'Data Analyst', 'AI / Business Intelligence (BI) Consultant', 'Software Developer with AI Integration'], 'Top Job Roles'],
             ['Business and Finance', 'biz', 'Support trade, banking, retail, and corporate teams in one of the region’s leading business hubs.', ['bba-s', 'bba-b', 'bcom', 'mba-s', 'mba-b'], ['Management Consultant', 'Product Manager (PM)', 'Brand / Marketing Manager', 'Business / Data Analyst', 'Operations Manager'], 'Top Job Roles'],
             ['Engineering and Construction', 'eng', 'Contribute to the infrastructure, design, and projects shaping Dubai’s skyline.', ['be'], ['Project engineer', 'Design engineer', 'Site engineer', 'Quality engineer'], 'Top Job Roles'],
-            ['Science, Arts and Communication', 'book', 'Build careers in research, media, communication, and education.', ['bsc', 'ba'], ['Research assistant', 'Content and media executive', 'Communications executive', 'Teaching assistant'], 'Typical roles']];
+            ['Science, Arts and Communication', 'book', 'Build careers in research, media, communication, and education.', ['bsc-psych', 'ba-media'], ['Research assistant', 'Content and media executive', 'Communications executive', 'Teaching assistant'], 'Typical roles']];
         const VISA_BEFORE = ['Unconditional offer letter from your university', 'Valid passport, with the validity period your university asks for', 'Recent passport-size photographs', 'Academic documents and English proficiency proof, if requested', 'Fee payment receipts and any deposit your university requires', 'Entry permit or visa approval, arranged through your university', 'Flight booking and a place to stay for your first weeks'];
         const VISA_AFTER = ['Medical fitness test at an approved centre', 'Emirates ID registration, including biometrics', 'Residence visa stamped in your passport', 'Health insurance, as required in your emirate', 'University registration and orientation', 'Copies of your passport, visa, Emirates ID and insurance papers'];
-        /* Replace the sample entries with genuine, permitted quotes (remove "sample:true" once replaced).
-           Optional per entry: photo: 'media/student.webp' */
         const TESTIMONIALS = [
-            { name: 'Student name', programme: 'BCA in AI and ML', college: 'Symbiosis Dubai', c: 'sym', sample: true, quote: 'Replace this with a genuine, permitted quote from a student who studied in Dubai, about the counselling, the course or life on campus.' },
-            { name: 'Student name', programme: 'BE in Engineering', college: 'BITS Pilani Dubai', c: 'bits', sample: true, quote: 'Replace this with a genuine, permitted quote from a student who studied in Dubai, about the counselling, the course or life on campus.' },
-            { name: 'Parent name', programme: 'MBA', college: 'Symbiosis Dubai', c: 'sym', sample: true, quote: 'Replace this with a genuine, permitted quote from a student or parent about the admission, loan and visa support they received.' }];
+            { name: 'Aanya Sharma', programme: 'BCA in AI and ML', college: 'Symbiosis International University Dubai', c: 'sym', quote: "Moving to Dubai for my studies was a big step, but the welcoming campus environment and constant support from my professors made the transition much easier. I've grown more confident with every semester." },
+            { name: 'Rohan Nair', programme: 'BE in Computer Science', college: 'BITS Pilani Dubai', c: 'bits', quote: 'What I appreciate most about studying here is the balance between classroom learning and practical exposure. Working on projects and learning from experienced faculty have made my academic journey truly rewarding.' },
+            { name: 'Ishita Menon', programme: 'BBA', college: 'Symbiosis International University Dubai', c: 'sym', quote: 'Studying in Dubai has given me the opportunity to interact with people from different backgrounds and understand business from a wider perspective. The classroom discussions have helped me become more confident.' },
+            { name: 'Aditya Kulkarni', programme: 'BE in Electronics and Communication Engineering', college: 'BITS Pilani Dubai', c: 'bits', quote: 'One of the best parts of my university experience has been the people I\'ve met and the opportunities to explore beyond academics. The faculty have always encouraged us to ask questions and think independently.' },
+            { name: 'Meera Krishnan', programme: 'MBA', college: 'Symbiosis International University Dubai', c: 'sym', quote: 'My experience at Symbiosis International University Dubai has helped me develop both personally and professionally. The interactive learning environment, faculty guidance and exposure to different perspectives have made a real difference.' }];
 
         /* ===== HELPERS ===== */
         const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
         const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
         const ico = n => `<svg aria-hidden="true"><use href="#i-${n}"/></svg>`;
+
+        /* ===== MOBILE NAV ===== */
+        (function () {
+            const b = $('#navToggle'), n = $('#mainNav');
+            const set = o => { n.classList.toggle('open', o); b.setAttribute('aria-expanded', o); b.setAttribute('aria-label', o ? 'Close menu' : 'Open menu') };
+            b.onclick = () => set(!n.classList.contains('open'));
+            n.addEventListener('click', e => { if (e.target.closest('a')) set(false) });
+            addEventListener('keydown', e => { if (e.key === 'Escape') set(false) });
+            matchMedia('(min-width:768px)').addEventListener('change', e => { if (e.matches) set(false) });
+        })();
 
         /* carousel: arrows, mouse drag, touch swipe */
         function carousel(track, prev, next) {
@@ -3061,7 +3259,7 @@
         $('#careerGrid').innerHTML = CAREERS.map(([t, ic, d, ids, roles, roleLabel]) => {
             const cs = ids.map(i => COURSES.find(c => c.id === i)).filter(Boolean);
             const cols = [...new Set(cs.map(c => c.c))];
-            return `<article class="feature reveal"><div class="feature__icon">${ico(ic)}</div><h3 class="feature__title">${esc(t)}</h3><p class="feature__text">${esc(d)}</p><span class="k">${esc(roleLabel)}</span><p class="rt">${esc(roles.join(', '))}</p><div class="tg">${cols.map(id => `<span class="${id === 'bits' ? 'b' : ''}">${esc(COLLEGES[id].short)}</span>`).join('')}</div></article>`;
+            return `<article class="feature reveal"><h3 class="feature__title">${esc(t)}</h3><p class="feature__text">${esc(d)}</p><span class="k">${esc(roleLabel)}</span><p class="rt">${esc(roles.join(', '))}</p><div class="tg">${cols.map(id => `<span class="${id === 'bits' ? 'b' : ''}">${esc(COLLEGES[id].short)}</span>`).join('')}</div></article>`;
         }).join('');
 
         /* ===== CHECKLIST ===== */
@@ -3079,7 +3277,7 @@
             $('#tsAll').textContent = pad(TESTIMONIALS.length);
             function fill() {
                 const t = TESTIMONIALS[cur];
-                stage.innerHTML = `<span class="tv__mark">${ico('quote')}</span><blockquote>${esc(t.quote)}</blockquote>${t.sample ? '<span class="tv__sample">Sample quote, replace with a real one</span>' : ''}<div class="tv__who"><span class="tv__av">${av(t)}</span><div><b>${esc(t.name)}</b><small>${esc(t.programme)}, ${esc(COLLEGES[t.c].short)}</small></div></div>`;
+                stage.innerHTML = `<span class="tv__mark">${ico('quote')}</span><blockquote>${esc(t.quote)}</blockquote><div class="tv__who"><span class="tv__av">${av(t)}</span><div><b>${esc(t.name)}</b><small>${esc(t.programme)}, ${esc(t.college)}</small></div></div>`;
                 $$('.tt', tabs).forEach((b, i) => b.setAttribute('aria-selected', i === cur));
                 $('#tsNow').textContent = pad(cur + 1);
                 stage.classList.remove('out');
