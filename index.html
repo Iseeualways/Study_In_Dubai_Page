@@ -1640,12 +1640,19 @@
         }
     </style>
     <style>
-        /* ===== Mobile hero background ===== */
+        
         @media (max-width:767px) {
             .hero {
+                min-height: 100vh;
+                /* fallback */
+                min-height: 100svh;
+                /* correct on mobile browsers with a collapsing URL bar */
+                padding: calc(var(--nav) + 24px) 0 40px;
+                display: flex;
+                align-items: center;
                 background:
                     linear-gradient(180deg, rgba(255, 255, 255, .94) 0%, rgba(255, 255, 255, .78) 45%, rgba(223, 232, 255, 0) 100%),
-                    url("media/7485968596.webp") center / cover no-repeat;
+                    url("media/7485968596.webp") center bottom / cover no-repeat;
             }
         }
 
@@ -3633,112 +3640,112 @@
         </div>
     </div>
 
-  <script>
-(function () {
-    const FORM_ENDPOINT = ''; // TODO: set your form/CRM endpoint (POST, JSON). Empty = success shown without sending.
-    const $ = id => document.getElementById(id);
-    const m = $('lm'), f = $('lmForm');
-    if (!m || !f) { console.error('[popup] #lm / #lmForm not found. Paste the popup HTML right after </main>.'); return; }
-    const btn = $('lmSubmit'), fail = $('lmFail');
-    const sel = f.elements.course, st = f.elements.state;
-    const E = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    const STATES = ['Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Outside India'];
-    let last = null, built = false;
+    <script>
+        (function () {
+            const FORM_ENDPOINT = ''; // TODO: set your form/CRM endpoint (POST, JSON). Empty = success shown without sending.
+            const $ = id => document.getElementById(id);
+            const m = $('lm'), f = $('lmForm');
+            if (!m || !f) { console.error('[popup] #lm / #lmForm not found. Paste the popup HTML right after </main>.'); return; }
+            const btn = $('lmSubmit'), fail = $('lmFail');
+            const sel = f.elements.course, st = f.elements.state;
+            const E = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+            const STATES = ['Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal', 'Outside India'];
+            let last = null, built = false;
 
-    const cval = (k, n) => { let s = k; try { s = COLLEGES[k].short; } catch (e) { } return s + ' – ' + n; };
+            const cval = (k, n) => { let s = k; try { s = COLLEGES[k].short; } catch (e) { } return s + ' – ' + n; };
 
-    // Fill the dropdowns once, on first open (so script order doesn't matter)
-    function build() {
-        if (built) return; built = true;
-        let html = '<option value="">Select a course</option>';
-        try {
-            const grp = {};
-            COURSES.forEach(c => (grp[c.c] = grp[c.c] || []).push(c));
-            html += Object.keys(grp).map(k =>
-                '<optgroup label="' + E(COLLEGES[k].short) + '">' +
-                grp[k].map(c => '<option value="' + E(cval(k, c.name)) + '">' + E(c.name) + '</option>').join('') +
-                '</optgroup>').join('');
-        } catch (err) {
-            console.warn('[popup] COURSES not found, using fallback list.', err);
-            html += '<option>Symbiosis International University Dubai</option><option>BITS Pilani Dubai</option>';
-        }
-        sel.innerHTML = html;
-        st.innerHTML = '<option value="">Select your state</option>' + STATES.map(s => '<option>' + E(s) + '</option>').join('');
-    }
-
-    const focusables = () => [...m.querySelectorAll('button,input,select,a[href]')].filter(el => !el.disabled && el.offsetParent !== null);
-    const setErr = (k, msg) => {
-        const s = f.querySelector('[data-err="' + k + '"]'); if (s) s.textContent = msg || '';
-        const i = f.elements[k]; if (i) i.setAttribute('aria-invalid', !!msg);
-    };
-
-    function open(course) {
-        build();
-        last = document.activeElement;
-        m.classList.remove('done'); fail.hidden = true;
-        ['name', 'phone', 'email', 'course', 'state'].forEach(k => setErr(k, ''));
-        sel.value = course || '';
-        m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => f.elements.name.focus({ preventScroll: true }), 120);
-    }
-    function close() {
-        m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        if (last && last.focus) last.focus();
-    }
-
-    // Capture phase: runs before any other click handler on the page
-    document.addEventListener('click', e => {
-        const a = e.target.closest && e.target.closest('a[href="#enquire"], .band__cta a, .cta2__btn');
-        if (!a) return;
-        e.preventDefault();
-        const pc = a.closest('.pc');
-        open(pc ? cval(pc.dataset.college, pc.querySelector('.pc__title').textContent.trim()) : '');
-    }, true);
-
-    m.addEventListener('click', e => { if (e.target === m || e.target.closest('[data-close]')) close(); });
-    document.addEventListener('keydown', e => {
-        if (!m.classList.contains('open')) return;
-        if (e.key === 'Escape') return close();
-        if (e.key === 'Tab') {
-            const els = focusables(); if (!els.length) return;
-            const first = els[0], lastEl = els[els.length - 1];
-            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
-            else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
-        }
-    });
-
-    f.elements.phone.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10); });
-
-    f.addEventListener('submit', async e => {
-        e.preventDefault(); fail.hidden = true;
-        const d = Object.fromEntries(new FormData(f));
-        let bad = false;
-        const chk = (k, ok, msg) => { setErr(k, ok ? '' : msg); if (!ok) bad = true; };
-        chk('name', (d.name || '').trim().length >= 2, 'Please enter your full name.');
-        chk('phone', /^[6-9]\d{9}$/.test(d.phone || ''), 'Enter a valid 10-digit mobile number.');
-        chk('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email || ''), 'Enter a valid email address.');
-        chk('course', !!d.course, 'Please select a course.');
-        chk('state', !!d.state, 'Please select your state.');
-        if (bad) { const x = f.querySelector('[aria-invalid="true"]'); if (x) x.focus(); return; }
-
-        btn.disabled = true;
-        try {
-            if (FORM_ENDPOINT) {
-                const r = await fetch(FORM_ENDPOINT, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ ...d, page: location.href })
-                });
-                if (!r.ok) throw new Error('bad response');
+            // Fill the dropdowns once, on first open (so script order doesn't matter)
+            function build() {
+                if (built) return; built = true;
+                let html = '<option value="">Select a course</option>';
+                try {
+                    const grp = {};
+                    COURSES.forEach(c => (grp[c.c] = grp[c.c] || []).push(c));
+                    html += Object.keys(grp).map(k =>
+                        '<optgroup label="' + E(COLLEGES[k].short) + '">' +
+                        grp[k].map(c => '<option value="' + E(cval(k, c.name)) + '">' + E(c.name) + '</option>').join('') +
+                        '</optgroup>').join('');
+                } catch (err) {
+                    console.warn('[popup] COURSES not found, using fallback list.', err);
+                    html += '<option>Symbiosis International University Dubai</option><option>BITS Pilani Dubai</option>';
+                }
+                sel.innerHTML = html;
+                st.innerHTML = '<option value="">Select your state</option>' + STATES.map(s => '<option>' + E(s) + '</option>').join('');
             }
-            m.classList.add('done'); f.reset();
-        } catch (err) { fail.hidden = false; }
-        btn.disabled = false;
-    });
-})();
-</script>
+
+            const focusables = () => [...m.querySelectorAll('button,input,select,a[href]')].filter(el => !el.disabled && el.offsetParent !== null);
+            const setErr = (k, msg) => {
+                const s = f.querySelector('[data-err="' + k + '"]'); if (s) s.textContent = msg || '';
+                const i = f.elements[k]; if (i) i.setAttribute('aria-invalid', !!msg);
+            };
+
+            function open(course) {
+                build();
+                last = document.activeElement;
+                m.classList.remove('done'); fail.hidden = true;
+                ['name', 'phone', 'email', 'course', 'state'].forEach(k => setErr(k, ''));
+                sel.value = course || '';
+                m.classList.add('open'); m.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                setTimeout(() => f.elements.name.focus({ preventScroll: true }), 120);
+            }
+            function close() {
+                m.classList.remove('open'); m.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (last && last.focus) last.focus();
+            }
+
+            // Capture phase: runs before any other click handler on the page
+            document.addEventListener('click', e => {
+                const a = e.target.closest && e.target.closest('a[href="#enquire"], .band__cta a, .cta2__btn');
+                if (!a) return;
+                e.preventDefault();
+                const pc = a.closest('.pc');
+                open(pc ? cval(pc.dataset.college, pc.querySelector('.pc__title').textContent.trim()) : '');
+            }, true);
+
+            m.addEventListener('click', e => { if (e.target === m || e.target.closest('[data-close]')) close(); });
+            document.addEventListener('keydown', e => {
+                if (!m.classList.contains('open')) return;
+                if (e.key === 'Escape') return close();
+                if (e.key === 'Tab') {
+                    const els = focusables(); if (!els.length) return;
+                    const first = els[0], lastEl = els[els.length - 1];
+                    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); lastEl.focus(); }
+                    else if (!e.shiftKey && document.activeElement === lastEl) { e.preventDefault(); first.focus(); }
+                }
+            });
+
+            f.elements.phone.addEventListener('input', e => { e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10); });
+
+            f.addEventListener('submit', async e => {
+                e.preventDefault(); fail.hidden = true;
+                const d = Object.fromEntries(new FormData(f));
+                let bad = false;
+                const chk = (k, ok, msg) => { setErr(k, ok ? '' : msg); if (!ok) bad = true; };
+                chk('name', (d.name || '').trim().length >= 2, 'Please enter your full name.');
+                chk('phone', /^[6-9]\d{9}$/.test(d.phone || ''), 'Enter a valid 10-digit mobile number.');
+                chk('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email || ''), 'Enter a valid email address.');
+                chk('course', !!d.course, 'Please select a course.');
+                chk('state', !!d.state, 'Please select your state.');
+                if (bad) { const x = f.querySelector('[aria-invalid="true"]'); if (x) x.focus(); return; }
+
+                btn.disabled = true;
+                try {
+                    if (FORM_ENDPOINT) {
+                        const r = await fetch(FORM_ENDPOINT, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ ...d, page: location.href })
+                        });
+                        if (!r.ok) throw new Error('bad response');
+                    }
+                    m.classList.add('done'); f.reset();
+                } catch (err) { fail.hidden = false; }
+                btn.disabled = false;
+            });
+        })();
+    </script>
     <script>
         /* ===== DATA ===== */
         const COLLEGES = { sym: { short: 'Symbiosis Dubai' }, bits: { short: 'BITS Pilani Dubai' } };
