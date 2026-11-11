@@ -1641,18 +1641,26 @@
     </style>
     <style>
         
-        @media (max-width:767px) {
-            .hero {
-                margin-top:30px;
-                /* correct on mobile browsers with a collapsing URL bar */
-                padding: calc(var(--nav) + 1px) 0 55px;
-                display: flex;
-                align-items: center;
-                background:
-                    linear-gradient(180deg, rgba(255, 255, 255, .94) 0%, rgba(255, 255, 255, .78) 45%, rgba(223, 232, 255, 0) 100%),
-                    url("media/7485968596.webp") center bottom / cover no-repeat;
-            }
-        }
+       @media (max-width: 767px) {
+    .hero {
+        min-height: 100vh;
+        min-height: 100svh;
+        margin-top: 0;
+        padding: calc(var(--nav) + 1px) 0 55px;
+
+        display: flex;
+        align-items: center;
+
+        background:
+            linear-gradient(
+                180deg,
+                rgba(255, 255, 255, .94) 0%,
+                rgba(255, 255, 255, .78) 45%,
+                rgba(223, 232, 255, 0) 100%
+            ),
+            url("media/7485968596.webp") center bottom / cover no-repeat;
+    }
+}
 
         /* ===== Enquiry popup ===== */
         .lm {
