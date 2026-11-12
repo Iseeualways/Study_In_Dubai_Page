@@ -281,8 +281,7 @@
         }
 
         .hero .container {
-            width: 100%;
-            margin-bottom: 50px;
+            width: 100%
         }
 
         .hero__content {
@@ -1641,27 +1640,20 @@
         }
     </style>
     <style>
-        
-       @media (max-width: 767px) {
-    .hero {
-        min-height: 100vh;
-        min-height: 100svh;
-        margin-top: 0;
-        padding: calc(var(--nav) + 1px) 0 55px;
-
-        display: flex;
-        align-items: center;
-
-        background:
-            linear-gradient(
-                180deg,
-                rgba(255, 255, 255, .94) 0%,
-                rgba(255, 255, 255, .78) 45%,
-                rgba(223, 232, 255, 0) 100%
-            ),
-            url("media/7485968596.webp") center bottom / cover no-repeat;
-    }
-}
+        @media (max-width:767px) {
+            .hero {
+                min-height: 100vh;
+                /* fallback */
+                min-height: 100svh;
+                /* correct on mobile browsers with a collapsing URL bar */
+                padding: calc(var(--nav) + 1px) 0 55px;
+                display: flex;
+                align-items: center;
+                background:
+                    linear-gradient(180deg, rgba(255, 255, 255, .94) 0%, rgba(255, 255, 255, .78) 45%, rgba(223, 232, 255, 0) 100%),
+                    url("media/7485968596.webp") center bottom / cover no-repeat;
+            }
+        }
 
         /* ===== Enquiry popup ===== */
         .lm {
@@ -1740,7 +1732,9 @@
             min-height: 560px;
             padding: clamp(22px, 3vw, 30px);
             overflow: hidden;
+            margin: 10px;
             color: #fff;
+            border-radius: 16px;
             background: linear-gradient(160deg, #0C1836 0%, #14275a 55%, #1A3266 100%)
         }
 
@@ -1749,7 +1743,8 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover
+            object-fit: cover;
+            
         }
 
         .lm__side::after {
@@ -1767,14 +1762,15 @@
             z-index: 1;
             padding: 8px 16px;
             border-radius: 99px;
-            background: rgba(255, 255, 255, .14);
-            border: 1px solid rgba(255, 255, 255, .32);
+            background: rgba(255, 255, 255, 0.129);
+            border: 1px solid rgba(253, 254, 255, 0.627);
+            color: rgb(250, 250, 250);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
             font-size: .68rem;
-            font-weight: 500;
+            font-weight: 900;
             letter-spacing: .08em;
-            text-transform: uppercase
+            text-transform: uppercase;
         }
 
         .lm__c {
@@ -1834,7 +1830,7 @@
         }
 
         .lm__head h3 {
-            font-size: clamp(1.4rem, 2.4vw, 1.65rem);
+            font-size: clamp(1.4rem, 2.4vw, 1.45rem);
             font-weight: 500;
             letter-spacing: -.025em;
             line-height: 1.25;
@@ -2067,6 +2063,90 @@
             .lm,
             .lm__box {
                 transition: none !important
+            }
+        }
+
+        /* ===== Popup: single column, compact, no visible scrollbar ===== */
+        @media (min-width: 768px) {
+            .lm__main {
+                padding: 22px 30px 18px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .lm__main::-webkit-scrollbar {
+                display: none;
+            }
+
+            .lm__head {
+                margin: 0 40px 12px 0;
+            }
+
+            .lm__head h3 {
+                font-size: 1.3rem;
+            }
+
+            .lm__head p {
+                font-size: .78rem;
+                line-height: 1.45;
+                margin-top: 4px;
+            }
+
+            /* one field below the other */
+            .lm__form {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .lm__f {
+                gap: 4px;
+            }
+
+            .lm__f label {
+                font-size: .74rem;
+            }
+
+            /* undo the earlier two-column ordering */
+            .lm__f,
+            .lm__f:nth-child(4),
+            .lm__f:nth-child(5),
+            .lm__go,
+            .lm__fail,
+            .lm__fine {
+                grid-column: auto;
+                order: 0;
+            }
+
+            .lm__f input,
+            .lm__f select {
+                height: 40px;
+                font-size: .86rem;
+            }
+
+            .lm__go {
+                height: 44px;
+                margin-top: 2px;
+            }
+
+            .lm__fine {
+                font-size: .66rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Short laptop screens: drop the subtitle so everything still fits */
+        @media (min-width: 768px) and (max-height: 720px) {
+            .lm__head p {
+                display: none;
+            }
+
+            .lm__f input,
+            .lm__f select {
+                height: 38px;
+            }
+
+            .lm__form {
+                gap: 8px;
             }
         }
     </style>
@@ -2364,7 +2444,7 @@
                         </div>
                     </article>
                     <article class="college reveal" data-college="bits">
-                        <div class="college__img"><img src="media/BITS Pilani dubai_BITS Pilani dubai.webp"
+                        <div class="college__img"><img src="media/Dubai-bits.webp"
                                 alt="BITS Pilani Dubai campus" loading="lazy" onerror="this.style.display='none'"></div>
                         <div class="college__body">
                             <span class="college__loc"><svg>
@@ -3580,13 +3660,12 @@
             </button>
 
             <aside class="lm__side">
-                <img class="lm__img" src="media/popup-side.webp" alt="" loading="lazy"
-                    onerror="this.style.display='none'">
+                <img class="lm__img" src="media/young-female-student-front-laptop-library.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
                 <span class="lm__tag">Study in Dubai</span>
                 <div class="lm__c">
                     <h2>Choose the right course in Dubai.</h2>
                     <p class="lm__sub">Start your next chapter.</p>
-                    <p class="lm__txt">Compare UG and PG programmes at Symbiosis Dubai and BITS Pilani Dubai and get
+                    <p class="lm__txt">Compare UG and PG programmes at Symbiosis International University Dubai and BITS Pilani Dubai and get
                         clear, honest guidance from our counsellors before you apply.</p>
                     <div class="lm__chips"><span>Course Guidance</span><span>Expert Support</span></div>
                 </div>
@@ -3619,7 +3698,7 @@
                         <span class="lm__err" data-err="email"></span>
                     </div>
                     <div class="lm__f">
-                        <label for="lmCourse">Interested Courses <i>*</i></label>
+                        <label for="lmCourse">Course<i>*</i></label>
                         <select id="lmCourse" name="course" required></select>
                         <span class="lm__err" data-err="course"></span>
                     </div>
